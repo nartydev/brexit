@@ -27,7 +27,8 @@ gulp.task('js', function() {
 
 // Watch Sass & Serve
 gulp.task('watch', function() {
-  gulp.watch('assets/sass/*.scss', gulp.series('sass', 'js'));
+  gulp.watch('assets/sass/style.scss', gulp.series('sass'));
+  gulp.watch('assets/js/*.js', gulp.series('js'));
 });
 
 // Default Task
