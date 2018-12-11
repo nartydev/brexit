@@ -1,0 +1,24 @@
+{
+  "name": "brexit",
+  "version": "1.0.0",
+  "description": "A immersive website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nartydev/brexit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nartydev/brexit/issues"
+  },
+  "homepage": "https://github.com/nartydev/brexit#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-sass": "^4.0.2"
+  }
+}
