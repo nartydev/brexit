@@ -1,5 +1,6 @@
 $bg-color : black;
 $menu-burger-color : white;
+$menu-burger-bg-color : #ffcc00;
 body {
   margin: 0 auto;
   width: 100%;
@@ -11,9 +12,9 @@ body {
 
 .menu-burger {
   position: fixed;
-  z-index: 12;
-  top: 50px;
-  right: 50px;
+  z-index: 2;
+  top: 30px;
+  right: 30px;
   width: 40px;
   height: 24px;
   display: flex;
@@ -121,4 +122,28 @@ body {
   100% {
     transform: rotate(-45deg) translate(0, -15px);
   }
+}
+
+.side-menu-container {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100vh;
+  background: $menu-burger-bg-color;
+  transition-timing-function: ease-in;
+  transition-duration: 0.6s;
+  transition-property: transform;
+  transform: translateX(-100%);
+  will-change: transform;
+  overflow: hidden;
+}
+
+.menu-container-open{
+  transform: translateX(0);
+}
+
+.menu-container-close {
+  transform: translateX(100%);
 }
