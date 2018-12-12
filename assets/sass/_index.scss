@@ -1,12 +1,124 @@
-$bg-color : white;
-$color : black;
-
-
-body{
+$bg-color : black;
+$menu-burger-color : white;
+body {
+  margin: 0 auto;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  user-select: none;
   background: $bg-color;
-  color: $bg-color;
 }
 
-p{
-  color: #FF0000;
+.menu-burger {
+  position: fixed;
+  z-index: 12;
+  top: 50px;
+  right: 50px;
+  width: 40px;
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: nowrap column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.menu-burger-bar {
+  width: 32px;
+  height: 2px;
+  background-color: $menu-burger-color;
+  border-radius: 3px;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  transform-origin: center;
+}
+
+.menu-burger-open-animation .menu-burger-bar-1 {
+  animation-name: cross-animation-top;
+}
+
+.menu-burger-open-animation .menu-burger-bar-2 {
+  animation-name: cross-animation-middle;
+}
+
+.menu-burger-open-animation .menu-burger-bar-3 {
+  animation-name: cross-animation-bottom;
+}
+
+.menu-burger-close-animation .menu-burger-bar-1 {
+  animation-name: cross-animation-top-close;
+}
+
+.menu-burger-close-animation .menu-burger-bar-2 {
+  animation-name: cross-animation-middle-close;
+}
+
+.menu-burger-close-animation .menu-burger-bar-3 {
+  animation-name: cross-animation-bottom-close;
+}
+
+@keyframes cross-animation-top-close {
+  0% {
+    transform: rotate(45deg) translate(0px, 15px);
+  }
+
+  100% {
+    transform: rotate(0deg) translate(0px, 0px);
+  }
+}
+
+@keyframes cross-animation-middle-close {
+  0% {
+    transform: translate(-40px, 0px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+}
+
+@keyframes cross-animation-bottom-close {
+  0% {
+    transform: rotate(-45deg) translate(0, -15px);
+  }
+
+  100% {
+    transform: rotate(0deg) translate(0, 0px);
+  }
+}
+
+@keyframes cross-animation-top {
+  0% {
+    transform: rotate(0deg) translate(0px, 0px);
+  }
+
+  100% {
+    transform: rotate(45deg) translate(0px, 15px);
+  }
+}
+
+@keyframes cross-animation-middle {
+  0% {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-40px, 0px);
+    opacity: 0;
+  }
+}
+
+@keyframes cross-animation-bottom {
+  0% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+
+  100% {
+    transform: rotate(-45deg) translate(0, -15px);
+  }
 }
