@@ -1,7 +1,15 @@
-import {Button } from './Button.js'
+import Button from './Button.js'
+
 
 const menuBurger = document.querySelector('.menu-burger')
 const menuContainer = document.querySelector('.side-menu-container')
+const $buttons = document.querySelectorAll('.main-btn')
+
+for(const $button of $buttons)
+{
+    const button = new Button($button)
+}
+
 
 menuBurger.addEventListener('click', () => {
   menuBurger.classList.toggle('menu-burger-open-animation')

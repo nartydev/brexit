@@ -1,9 +1,8 @@
 import { Country } from './Country.js'
-import { Country } from './Country.js'
 
 const get = (param) => {
 	var vars = {};
-	window.location.href.replace( location.hash, '' ).replace( 
+	window.location.href.replace( location.hash, '' ).replace(
 		/[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
 		function( m, key, value ) { // callback
 			vars[key] = value !== undefined ? value : '';
@@ -11,7 +10,7 @@ const get = (param) => {
 	);
 
 	if ( param ) {
-		return vars[param] ? vars[param] : null;	
+		return vars[param] ? vars[param] : null;
 	}
 	return vars;
 }
