@@ -18,9 +18,13 @@ class Button {
     }
 
     // Create DOM
+    this.arrow.$arrowContainerAnimation = document.createElement('div')
+    this.arrow.$arrowContainerAnimation.classList.add('arrow-container-all')
+    this.$container.appendChild(this.arrow.$arrowContainerAnimation)
+
     this.arrow.$arrowContainer = document.createElement('div')
     this.arrow.$arrowContainer.classList.add('arrow-container')
-    this.$container.appendChild(this.arrow.$arrowContainer)
+    this.arrow.$arrowContainerAnimation.appendChild(this.arrow.$arrowContainer)
 
     this.arrow.$smallBar = document.createElement('div')
     this.arrow.$smallBar.classList.add('sml-bar-arrow')
@@ -47,19 +51,19 @@ class Button {
 
     if (this.$container.classList.contains('arrow-left')) {
       this.arrow.active = true
-      this.$arrowContainer.style.transform = 'rotate(180deg)'
+      this.$container.style.transform = 'rotate(180deg)'
     }
     if (this.$container.classList.contains('arrow-top')) {
       this.arrow.active = true
-      this.$arrowContainer.style.transform = 'rotate(-90deg)'
+      this.$container.style.transform = 'rotate(-90deg)'
     }
     if (this.$container.classList.contains('arrow-right')) {
       this.arrow.active = true
-      this.$arrowContainer.style.transform = 'rotate(0deg)'
+      this.$container.style.transform = 'rotate(0deg)'
     }
     if (this.$container.classList.contains('arrow-bottom')) {
       this.arrow.active = true
-      this.$arrowContainer.style.transform = 'rotate(90deg)'
+      this.$container.style.transform = 'rotate(90deg)'
     }
     if (!this.orientation.active) {
       return

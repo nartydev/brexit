@@ -7,10 +7,10 @@ $btn-color : white;
   align-items: center;
   width: 60px;
   height: 60px;
-  transition: 0.3s ease-in all;
+  cursor: pointer;
 }
-.main-btn:hover .circle-btn{
-  border-color: #000000;
+.circle-btn-css:hover{
+  border-color: #888888;
 }
 .circle-btn-css{
   position: absolute;
@@ -20,13 +20,93 @@ $btn-color : white;
   border-width: 1px;
   border-radius: 100%;
   border-color: $btn-color;
+  box-shadow: 0px 0px 6px $btn-color;
+  overflow: hidden;
+  transition: 0.3s ease-in all;
+}
+.main-btn:hover  .arrow-container-all{
+  animation-name: arrow-btn-animation;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-direction: forwards;
+}
+.main-btn:hover  .sml-bar-arrow{
+  transform: translate(-320%,-50%);
+}
+@keyframes arrow-btn-animation {
+  0% {
+    transform: translate(0%);
+    opacity: 1;
+  }
+  25%{
+    opacity: 1
+  }
+  50% {
+    transform: translate(30%);
+    opacity: 0;
+  }
+  51% {
+    transform: translate(-30%);
+    opacity: 0;
+  }
+  75%{
+    opacity: 1
+  }
+  100% {
+    transform: translate(0%);
+    opacity: 1;
+  }
+}
+
+.arrow-container-all{
+  position: absolute;
+  width: 100%;
+  height: 20%;
+  left:0;
+  transform: translate(0%);
+  transition: 0.3s ease-in all;
 }
 .arrow-container{
   position: absolute;
   width: 100%;
   height: 20%;
+  top: 45%;
 }
 .main-bar-arrow{
-  width: 40px;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-30%,-50%);
+  width: 22px;
   height: 1px;
+  background: $btn-color;
+}
+.sml-bar-arrow{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-300%,-50%);
+  width: 5px;
+  height: 1px;
+  background: $btn-color;
+  transition: 0.3s ease-in all;
+}
+.top-bar-arrow{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(130%,-200%) rotate(45deg);
+  width: 8px;
+  height: 1px;
+  background: $btn-color;
+}
+.bottom-bar-arrow{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(130%,200%) rotate(-45deg);
+  width: 8px;
+  height: 1px;
+  background: $btn-color;
 }
