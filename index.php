@@ -25,8 +25,15 @@
   </div>
   <div class="side-menu-container menu-container-close">
   </div>
-  <?php include("button.php"); ?>
-  <?php include("timeline.php"); ?>
+  <!-- Map -->
+  <div class="container-map">
+    <div class="overflow">
+      <h1 class="title-main">The Brexit</h1>
+    </div>
+      <?php require('map.php'); ?>
+  </div>
+  <?php require("button.php"); ?>
+  <?php require("timeline.php"); ?>
   <script type="module" src="assets/js/main.js"></script>
   <script type="module" src="assets/js/app.js"></script>
 </body>

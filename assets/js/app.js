@@ -1,8 +1,5 @@
 import { Country } from './Country.js'
-<<<<<<< HEAD
 import { Timeline } from './Timeline.js'
-=======
->>>>>>> 4a5421811d9056aeffa9c81a07b45753b69a7676
 
 const get = (param) => {
 	var vars = {};

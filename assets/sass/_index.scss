@@ -148,3 +148,28 @@ body {
 .menu-container-close {
   transform: translateX(100%);
 }
+
+/* MAP */
+
+.container-map {
+  height: 100%;
+  width: 90%;
+  margin: 10% auto;
+}
+
+.title-main {
+  font-family: "Noe Display Black";
+  text-align: center;
+  font-size: 5em;
+  color: #FFF;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -193px;
+  margin-top: -20px;
+}
+
+.content-map {
+  margin-top: -300px;
+  width: 100%;
+}

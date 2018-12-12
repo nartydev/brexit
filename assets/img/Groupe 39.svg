@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.759 8.041">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #4664a2;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #00050f;
+        stroke-width: 0.25px;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="Groupe_39" data-name="Groupe 39" transform="translate(0.285 0.125)">
+    <path id="Tracé_77" data-name="Tracé 77" class="cls-1" d="M217.267,254.916v-2.567H214.7l2.567-2.781V247H214.7l5.349,2.567v2.781h-2.781Z" transform="translate(-214.7 -247)"/>
+    <path id="Tracé_78" data-name="Tracé 78" class="cls-2" d="M217.267,254.916v-2.567H214.7l2.567-2.781V247H214.7l5.349,2.567v2.781h-2.781Z" transform="translate(-214.7 -247)"/>
+  </g>
+</svg>
