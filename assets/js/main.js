@@ -1,4 +1,4 @@
-import Button from './Button.js'
+import { Button } from './Button.js'
 
 
 const menuBurger = document.querySelector('.menu-burger')

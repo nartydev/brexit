@@ -19,8 +19,12 @@ class Button {
 
     // Create DOM
     this.arrow.$arrowContainer = document.createElement('div')
-    this.arrow.$arrowContainer.classList.add('main-bar-arrow')
+    this.arrow.$arrowContainer.classList.add('arrow-container')
     this.$container.appendChild(this.arrow.$arrowContainer)
+
+    this.arrow.$smallBar = document.createElement('div')
+    this.arrow.$smallBar.classList.add('sml-bar-arrow')
+    this.arrow.$arrowContainer.appendChild(this.arrow.$smallBar)
 
     this.arrow.$mainBar = document.createElement('div')
     this.arrow.$mainBar.classList.add('main-bar-arrow')
@@ -73,7 +77,7 @@ class Button {
     }
     // Create DOM
     this.arrow.$circleBtn = document.createElement('div')
-    this.arrow.$circleBtn.classList.add('circle-btn')
+    this.arrow.$circleBtn.classList.add('circle-btn-css')
     this.$container.appendChild(this.arrow.$circleBtn)
   }
 }
