@@ -1,0 +1,28 @@
+@font-face {
+  font-family: "Noe Display Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Noe Display Regular"),
+    url("../fonts/NoeDisplay-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Noe Display Medium";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Noe Display Medium"), url("../fonts/NoeDisplay-Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Noe Display Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Noe Display Bold"), url("../fonts/NoeDisplay-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Noe Display Black";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Noe Display Black"), url("../fonts/NoeDisplay-Black.woff") format("woff");
+}

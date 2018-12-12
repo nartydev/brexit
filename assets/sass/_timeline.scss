@@ -5,11 +5,21 @@
     right:0;
     padding:20px;
     display:flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .content-step {
+    opacity:.5;
+    transition:.4s ease-in-out;
+}
 
+.content-round-step {
+    display:flex;
+    align-items: center;
+}
+
+.content-step:hover{
+    opacity:1;
 }
 
 .round-step {
@@ -19,7 +29,20 @@
     border-radius: 50%;
 }
 
+.little-round-step {
+    height: 15px;
+    width: 15px;
+    margin-left:10px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+}
+
 .title-step {
+    font-family: "Montserrat";
+    font-weight: 500;
     color: #fff;
+    margin-top: 15px;
+    font-size: 1em;
     text-transform: uppercase;
+    letter-spacing: -.5px;
 }

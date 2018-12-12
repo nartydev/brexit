@@ -14,7 +14,7 @@
   <link rel="shortcut icon" href="#">
   <link rel="stylesheet" type="text/css" href="assets/css/main.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css?family=EB+Garamond:400,500,600,700,800|IBM+Plex+Sans:200,300,400,500,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:200,300,400,500,600,700|Montserrat:200,300,400,500,600,700|Noto+Serif+SC" rel="stylesheet">
 </head>
 
 <body>
@@ -27,7 +27,6 @@
   </div>
   <?php include("button.php"); ?>
   <?php include("timeline.php"); ?>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
   <script type="module" src="assets/js/main.js"></script>
   <script type="module" src="assets/js/app.js"></script>
 </body>
