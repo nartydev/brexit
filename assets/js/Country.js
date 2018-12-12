@@ -1,6 +1,8 @@
 export default class Country {
-    constructor() {
+    
+    constructor(country) {
         this.data = {} 
+        this.countrySelect = country
 
         getData()
     }
