@@ -23,6 +23,8 @@
 }
 
 .round-step {
+    animation:showRound .4s .2s ease-in-out forwards;
+    transform: scale(0);
     height: 30px;
     width: 30px;
     border: 1px solid #fff;
@@ -34,6 +36,8 @@
 }
 
 .little-round-step {
+    animation:showRound .4s .4s ease-in-out forwards;
+    transform: scale(0);
     height: 18px;
     width: 18px;
     margin-left:10px;
@@ -45,6 +49,11 @@
     cursor:pointer;
 }
 
+.overflow {
+    overflow:hidden;
+    position:relative;
+}
+
 .title-step {
     font-family: "Josefin Sans";
     font-weight: 500;
@@ -53,6 +62,26 @@
     font-size: 1em;
     text-transform: uppercase;
     letter-spacing: -.5px;
+    transform: translateY(110%);
+    animation: showTitle .4s .4s ease-in-out forwards;
+}
+
+@keyframes showTitle {
+    0% {
+        transform: translateY(110%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes showRound {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .inter-round {
