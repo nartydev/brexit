@@ -24,6 +24,7 @@
   </div>
   <div class="side-menu-container menu-container-close">
   </div>
+  <?php include("button.php"); ?>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
   <script src="assets/js/main.js"></script>
   <script type="module" src="assets/js/app.js"></script>
