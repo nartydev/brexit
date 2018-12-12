@@ -16,6 +16,12 @@ class Country {
             this.data = _data
         })
     }
+
+    putDataInHTML() {
+        // Select property 
+        // Insert in 
+    }
+
 }
 
 export { Country }
