@@ -22,7 +22,9 @@
     <div class="menu-burger-bar-2 menu-burger-bar"></div>
     <div class="menu-burger-bar-3 menu-burger-bar"></div>
   </div>
-  <script src="global.min.js"></script>
+  <div class="side-menu-container">
+  </div>
+  <script src="assets/js/app.js"></script>
 </body>
 
 </html>
