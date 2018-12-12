@@ -2,13 +2,13 @@
     <div class="content-step">
         <div class="content-round-step">
             <div class="round-step">
-
+                <div class="inter-round"></div>
             </div>
             <div class="little-round-step">
-    
+                <div class="inter-little-round"></div>
             </div>
             <div class="little-round-step">
-    
+                <div class="inter-little-round"></div>
             </div>
         </div>
         
