@@ -12,12 +12,17 @@
   <meta property="og:site_name" content="Brexit">
   <meta property="og:locale" content="fr_FR">
   <link rel="shortcut icon" href="#">
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/main.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-
+  <div class="menu-burger menu-burger-close-animation">
+    <div class="menu-burger-bar-1 menu-burger-bar"></div>
+    <div class="menu-burger-bar-2 menu-burger-bar"></div>
+    <div class="menu-burger-bar-3 menu-burger-bar"></div>
+  </div>
+  <script src="global.min.js"></script>
 </body>
 
 </html>
