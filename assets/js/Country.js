@@ -1,22 +1,21 @@
-export default class Country {
+class Country {
     
     constructor(country) {
         this.data = {} 
         this.countrySelect = country
 
-        getData()
+        this.getData()
     }
 
     getData() {
         window
-        .fetch('../data/data-country.json')
+        .fetch('assets/data/data-country.json')
         .then(_response => _response.json())
         .then(_data =>
         {
             this.data = _data
         })
     }
-
-
 }
 
+export { Country }

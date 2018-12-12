@@ -1,4 +1,4 @@
-import Country from './Country'
+import { Country } from './Country.js'
 
 const get = (param) => {
 	var vars = {};

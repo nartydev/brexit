@@ -24,6 +24,7 @@
   </div>
   <div class="side-menu-container">
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/app.js"></script>
 </body>
