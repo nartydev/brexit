@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const minify = require('gulp-minify-css');
-const uglify = require('gulp-uglify');
+const uglify = require('gulp-uglify-es').default;
 const concat = require('gulp-concat');
 
 // Compile Sass & add prefixer, minify css
@@ -19,7 +19,7 @@ gulp.task('sass', function() {
 
 // Minify JS
 gulp.task('js', function() {
-    return gulp.src('/assets/js/*.js')
+    return gulp.src('assets/js/*.js')
         .pipe(uglify())
         .pipe(concat('global.min.js'))
         .pipe(gulp.dest('assets/js'));
