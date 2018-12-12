@@ -154,7 +154,17 @@ body {
 .container-map {
   height: 100%;
   width: 90%;
-  margin: 10% auto;
+  margin: -10% auto;
+}
+
+.center-title-main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 90px;
+  margin-left: -200px;
+  margin-top: -45px;
 }
 
 .title-main {
@@ -162,14 +172,10 @@ body {
   text-align: center;
   font-size: 5em;
   color: #FFF;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -193px;
-  margin-top: -20px;
+  animation:showTitle .4s .4s ease-in-out forwards;
+  transform: translateX(-110%);
 }
 
 .content-map {
-  margin-top: -300px;
   width: 100%;
 }

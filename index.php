@@ -27,10 +27,10 @@
   </div>
   <!-- Map -->
   <div class="container-map">
-    <div class="overflow">
-      <h1 class="title-main">The Brexit</h1>
-    </div>
       <?php require('map.php'); ?>
+  </div>
+  <div class="overflow center-title-main">
+    <h1 class="title-main">The Brexit</h1>
   </div>
   <?php require("button.php"); ?>
   <?php require("timeline.php"); ?>
