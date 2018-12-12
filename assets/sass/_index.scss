@@ -133,7 +133,7 @@ body {
   height: 100vh;
   background: $menu-burger-bg-color;
   transition-timing-function: ease-in;
-  transition-duration: 0.6s;
+  transition-duration: 0.4s;
   transition-property: transform;
   transform: translateX(-100%);
   will-change: transform;
