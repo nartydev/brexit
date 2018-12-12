@@ -1,3 +1,5 @@
+import {Button } from './Button.js'
+
 const menuBurger = document.querySelector('.menu-burger')
 const menuContainer = document.querySelector('.side-menu-container')
 
