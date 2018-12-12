@@ -1,5 +1,5 @@
 import { Country } from './Country.js'
-import { Country } from './Country.js'
+import { Timeline } from './Timeline.js'
 
 const get = (param) => {
 	var vars = {};
