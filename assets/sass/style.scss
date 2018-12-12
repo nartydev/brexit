@@ -1,14 +1,2 @@
-$bg-color : white;
-$color : black;
 
-
-body{
-  background: $bg-color;
-  color: $color;
-}
-
-p{
-  color: $color;
-}
-
-@import 'index'
+@import 'index';
