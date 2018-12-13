@@ -19,6 +19,8 @@
 </head>
 
 <body>
+  <!-- Landing -->
+  <?php require('landing.php'); ?>
   <!-- Map -->
   <div class="container-map">
       <?php require('map.php'); ?>
