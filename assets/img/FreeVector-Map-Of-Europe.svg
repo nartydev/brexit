@@ -1,6 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1411.212 1080.41">
   <defs>
     <style>
+      #FreeVector-Map-Of-Europe{
+      filter: blur(20px);
+      }
       .cls-1, .cls-2 {
         fill: none;
       }

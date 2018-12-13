@@ -10,3 +10,8 @@
 </div>
 <div class="side-menu-container menu-container-close">
 </div>
+<div class="fade-menu-container fade-menu-container-close">
+  <div class="fade-menu-container-middle"></div>
+  <div class="fade-menu-container-over"></div>
+  <div class="fade-menu-container-under"></div>
+</div>

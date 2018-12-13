@@ -13,7 +13,7 @@ body {
 
 .menu-burger {
   position: fixed;
-  z-index: 2;
+  z-index: 9;
   top: 30px;
   right: 30px;
   width: 40px;
@@ -28,7 +28,7 @@ body {
 .menu-burger-bar {
   width: 32px;
   height: 2px;
-  background-color: $menu-burger-color;
+  background-color: $menu-burger-bg-color;
   border-radius: 3px;
   animation-duration: 0.3s;
   animation-timing-function: ease-in;
@@ -127,18 +127,19 @@ body {
 
 .side-menu-container {
   position: fixed;
-  z-index: 1;
+  z-index: 8;
   top: 0;
   right: 0;
   width: 20%;
   height: 100vh;
-  background: $menu-burger-bg-color;
+  background: $blue-color;
   transition-timing-function: ease-in;
   transition-duration: 0.4s;
   transition-property: transform;
-  transform: translateX(-100%);
+  transform: translateX(0%);
   will-change: transform;
   overflow: hidden;
+  box-shadow: -3px 0px 16px #1f1f1f;
 }
 
 .menu-container-open{
@@ -146,7 +147,32 @@ body {
 }
 
 .menu-container-close {
-  transform: translateX(100%);
+  transform: translateX(110%);
+}
+.fade-menu-container{
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100vh;
+  opacity: 0;
+  background: $light-blue-color;
+  transition-timing-function: ease-in;
+  transition-duration: 0.4s;
+  transition-property: opacity;
+  will-change: opacity;
+  overflow: hidden;
+  z-index: -2;
+}
+
+.fade-menu-container-open{
+  z-index: 2;
+  opacity: 0.9;
+}
+
+.fade-menu-container-close {
+  z-index: -2;
+  opacity: 0;
 }
 
 /* MAP */
