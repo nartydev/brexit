@@ -18,8 +18,6 @@
 </head>
 
 <body>
-  <!-- Menu -->
-  <?php require('menu.php');?>
   <!-- Map -->
   <div class="container-map">
       <?php require('map.php'); ?>
