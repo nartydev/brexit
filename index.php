@@ -13,6 +13,7 @@
   <meta property="og:locale" content="fr_FR">
   <link rel="shortcut icon" href="assets/img/favico-2.png">
   <link rel="stylesheet" type="text/css" href="assets/css/main.min.css?d=<?php echo rand(0,10000000000000000) ?>">
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:200,300,400,500,600,700|Montserrat:200,300,400,500,600,700|Noto+Serif+SC|Josefin+Sans:300,400,600,700" rel="stylesheet">
 </head>

@@ -6,7 +6,7 @@
     padding: 20px;
     display: flex;
     justify-content: space-around;
-    width: 68%;
+    width: 80%;
     margin: auto;
     opacity:.5;
     transition:.4s ease-in-out;
@@ -26,9 +26,12 @@
 .fill{
     flex: 1;
     background: #ffffff;
-    height: 6px;
-    margin: 12px -1px;
-    text-align:center;
+    height: 4px;
+    margin: 13px -1px;
+}
+
+.end-icon {
+    color: $yellow-color;
 }
 
 .round-step {
@@ -108,15 +111,6 @@
     background:#fff;
 }
 
-.inter-little-round {
-    height: 6px;
-    width: 6px;
-    border-radius:50%;
-    border:3px solid #fff;    
-    transition:.2s ease-in-out;    
-    transform-origin:center;
-    transform: scale(0);    
-}
 
 .round-step:hover .inter-round {
     transform: scale(1);
@@ -124,32 +118,4 @@
 
 .little-round-step:hover .inter-little-round{
     transform: scale(1);
-}
-
-.title-fill {
-    color:#fff;
-    margin-top:-10px;
-    transform:translateY(-100%);
-    transition:.4s ease-in-out;        
-}
-
-.interval {
-    color:$yellow-color;
-    margin-top: 22px;
-    transform:translateY(100%);
-    transition:.4s ease-in-out;        
-}
-
-.fill:hover .interval {
-    transform:translateY(0%);
-}
-
-.fill:hover .title-fill {
-    transform:translateY(65%);
-}
-
-.overflow-title-fill {
-    width: 100%;
-    height: 20px;
-    margin-top: -23px;
 }
