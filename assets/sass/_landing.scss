@@ -1,0 +1,116 @@
+.landing-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  filter: blur(20px);
+  filter: contrast(110%);
+  transform: translate(0%);
+  .landing-bg-overlay{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(rgba(0, 26, 77, 0.2), rgba(0, 5, 15, 0.8));
+    z-index: 11;
+  }
+  .landing-content{
+    z-index: 12;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: column nowrap;
+    height: 120px;
+  }
+  .landing-begin-button{
+    color: white;
+    border: solid 1px white;
+    padding: 15px;
+    width: auto;
+    height: auto;
+    font-size: 3em;
+    border-radius: 2px;
+    font-family: "Josefin Sans";
+    cursor: pointer;
+  }
+  .know-more-container{
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: column nowrap;
+    cursor: pointer;
+  }
+  .know-more-container:hover .know-more-bar{
+    width: 90%;
+  }
+  .know-more-bar{
+    height: 1px;
+    width: 0;
+    background: white;
+    transition: ease-in 0.3s width;
+  }
+  span{
+    color: white;
+    font-family: "Josefin Sans";
+    font-size: 1em;
+  }
+  video {
+    height: 100%;
+    transform: scale(1.9);
+  }
+}
+.landing-transition-show{
+  display: flex;
+  z-index: 20;
+}
+.landing-transition{
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100vh;
+  .landing-transition-bar{
+    width: 0;
+    margin-left: 0;
+    height: 100vh;
+    background: $blue-color;
+    will-change: auto;
+  }
+  .landing-transition-bar-animation{
+    animation-name: landing-transition-animation;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-direction: forwards;
+  }
+}
+@keyframes landing-transition-animation {
+  0% {
+    display: flex;
+    width: 0;
+    margin-left: 0%;
+  }
+  50% {
+    width: 100%;
+    margin-left: 0%;
+  }
+  100% {
+    display: none;
+    width: 0;
+    margin-left: 100%;
+    z-index: -2;
+  }
+}

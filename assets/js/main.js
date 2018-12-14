@@ -4,12 +4,28 @@ import { Button } from './Button.js'
 const menuBurger = document.querySelector('.menu-burger')
 const menuContainer = document.querySelector('.side-menu-container')
 const menuContainerBG = document.querySelector('.fade-menu-container')
+const landingContainer = document.querySelector('.landing-container')
+const beginButton = document.querySelector('.landing-begin-button')
+const landingTransitionContainer = document.querySelector('.landing-transition')
+const landingTranstionBars = document.querySelector('.landing-transition-bar')
 const $buttons = document.querySelectorAll('.main-btn')
 
 for(const $button of $buttons)
 {
     const button = new Button($button)
 }
+
+beginButton.addEventListener('click', () => {
+  landingTransitionContainer.classList.toggle('landing-transition-show')
+  landingTranstionBars.classList.toggle('landing-transition-bar-animation')
+  setTimeout(function(){
+    landingContainer.style.display = "none"
+  }, 500);
+  setTimeout(function(){
+    landingTransitionContainer.style.display = "none"
+    landingTransitionContainer.classList.toggle('landing-transition-show')
+  }, 1000);
+})
 
 
 menuBurger.addEventListener('click', () => {
