@@ -33,7 +33,7 @@ for (var i = 0; i < allCountries.length; i++) {
     console.log('hello')
   })
 }
-
+/* Menu burger interaction
 menuBurger.addEventListener('click', () => {
   menuBurger.classList.toggle('menu-burger-open-animation')
   menuBurger.classList.toggle('menu-burger-close-animation')
@@ -42,3 +42,4 @@ menuBurger.addEventListener('click', () => {
   menuContainerBG.classList.toggle('fade-menu-container-open')
   menuContainerBG.classList.toggle('fade-menu-container-close')
 })
+*/
