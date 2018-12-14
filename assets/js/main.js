@@ -8,6 +8,7 @@ const landingContainer = document.querySelector('.landing-container')
 const beginButton = document.querySelector('.landing-begin-button')
 const landingTransitionContainer = document.querySelector('.landing-transition')
 const landingTranstionBars = document.querySelector('.landing-transition-bar')
+const allCountries = document.querySelectorAll('.countries-svg')
 const $buttons = document.querySelectorAll('.main-btn')
 
 for(const $button of $buttons)
@@ -27,6 +28,11 @@ beginButton.addEventListener('click', () => {
   }, 1000);
 })
 
+for (var i = 0; i < allCountries.length; i++) {
+  allCountries[i].addEventListener('click', () => {
+    console.log('hello')
+  })
+}
 
 menuBurger.addEventListener('click', () => {
   menuBurger.classList.toggle('menu-burger-open-animation')
