@@ -1,5 +1,5 @@
 .timeline {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
@@ -10,7 +10,7 @@
     margin: auto;
     opacity:.5;
     transition:.4s ease-in-out;
-    font-family: "Josefin Sans";    
+    font-family: "Josefin Sans";
 }
 
 

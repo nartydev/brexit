@@ -12,6 +12,7 @@
   filter: blur(20px);
   filter: contrast(110%);
   transform: translate(0%);
+  overflow: hidden;
   .landing-bg-overlay{
     position: absolute;
     top:0;
