@@ -230,16 +230,25 @@ body {
   display: none;
   z-index: 2;
 }
-
+.countries-svg-selected{
+  stroke-width: 3px;
+  fill: #84a0da !important;
+  stroke : none;
+}
+.country-name-display{
+  position: fixed;
+  z-index: 200;
+  bottom: 5%;
+  left: 10%;
+  font-family: "Josefin Sans";
+  color: white;
+  font-size: 2em;
+}
 @media (max-width:800px) {
   .responsive-container-map{
     display: block;
   }
-  .countries-svg-selected{
-    stroke-width: 3px;
-    fill: #84a0da !important;
-    stroke : none;
-  }
+
   .content-map {
     transform: translate(82%,-28%) scale(3)
   }

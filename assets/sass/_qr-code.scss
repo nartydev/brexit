@@ -1,0 +1,64 @@
+.qr-transition-show{
+  display: block !important;
+  z-index: 2000;
+}
+.qr-transition{
+  display: none;
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100vh;
+  .qr-transition-bar{
+    width: 0;
+    margin-left: 0;
+    height: 100vh;
+    background: $blue-color;
+    will-change: auto;
+  }
+  .qr-transition-bar-animation{
+    animation-name: qr-transition-animation;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-direction: forwards;
+  }
+}
+@keyframes qr-transition-animation {
+  0% {
+    display: flex;
+    width: 0;
+    margin-left: 0%;
+  }
+  50% {
+    width: 100%;
+    margin-left: 0%;
+  }
+  100% {
+    display: none;
+    width: 0;
+    margin-left: 100%;
+    z-index: -2;
+  }
+}
+.inner-qr-code-container{
+  display: none ;
+  position: fixed;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: column nowrap;
+  height: 60%;
+  span{
+    font-family: "Josefin Sans";
+    color: white;
+    font-size: 2em;
+  }
+  .qr-code-img{
+    width: 300px;
+    height: 300px;
+    background: black;
+  }
+}

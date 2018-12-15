@@ -127,6 +127,21 @@ $btn-color : #afafaf;
 .responsive-btn-right{
   right: 0%;
 }
+.continue-btn{
+  position: fixed;
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  bottom: 5%;
+  right: 10%;
+  font-family: "Josefin Sans";
+  color: white;
+  font-size: 2em;
+  z-index: 200;
+  span{
+    margin-right: 13px;
+  }
+}
 @media (max-width:800px) {
   .responsive-btn{
     display: block;
