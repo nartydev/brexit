@@ -50,6 +50,7 @@ const buttonCountriesRight = document.querySelector('.responsive-btn-right')
 const confirmCountryBtn = document.querySelector('.confirm-country')
 const countryDisplay = document.querySelector('.country-name-display')
 const qrCode = document.querySelector('.inner-qr-code-container')
+const qrCodeBackBtn = document.querySelector('.back-qr-code-btn')
 let countryNum = 0;
 for(const $button of $buttons)
 {
@@ -112,6 +113,21 @@ confirmCountryBtn.addEventListener('click', () => {
   setTimeout(function(){
     //qrTransitionContainer.style.display = "none"
     qrTransitionContainer.classList.toggle('qr-transition-show')
+    qrTranstionBars.classList.toggle('qr-transition-bar-animation')
+  }, 1000);
+})
+
+qrCodeBackBtn.addEventListener('click', () => {
+  qrTransitionContainer.classList.toggle('qr-transition-show')
+  qrTranstionBars.classList.toggle('qr-transition-bar-animation-back')
+  setTimeout(function(){
+    containerMap.style.display = "flex"
+    qrCode.style.display = "none"
+  }, 500);
+  setTimeout(function(){
+    //qrTransitionContainer.style.display = "none"
+    qrTransitionContainer.classList.toggle('qr-transition-show')
+    qrTranstionBars.classList.toggle('qr-transition-bar-animation-back')
   }, 1000);
 })
 
