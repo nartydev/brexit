@@ -13,6 +13,11 @@ app.get('/', function(req, res){
     res.render('quiz-phone')
 });
 
+app.get('/country/:country', function(req, res){
+    const countryName = req.params.countryName
+    res.render('quiz', {countryName})
+});
+
 app.get('/country', function(req, res){
     res.render('index')
 });
@@ -20,8 +25,8 @@ app.get('/country', function(req, res){
 io.on('connection', function(socket){
     console.log('a user connected')
     socket.on('answerQuestion', function(data) {
-        console.log(data)
-        io.sockets.emit('questionValue')
+        data.idSocket = socket.id
+        io.sockets.emit('questionValue', data)
     })
     socket.on('disconnect', function(){
         console.log('user disconnected')

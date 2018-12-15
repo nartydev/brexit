@@ -23,6 +23,7 @@
             </button>
         </form>
     </div>
+    <div class="number-question"></div>
     <button type="button" class="main-btn arrow-btn arrow-right circle-btn"></button>
     <SCRIPT type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></SCRIPT>
     <script type="module" src="../assets/js/phone.js"></script>
@@ -31,7 +32,8 @@
     const socket = io.connect();
     const form = document.querySelector('.quizPhone')
     let idQuestion = 1
-    
+    let idSocket
+
     form.addEventListener('submit', _event => {
         _event.preventDefault()
         value = document.querySelector('input[type="radio"]:checked').value
@@ -43,9 +45,15 @@
         console.log(data)
     })
 
-    socket.on('questionValue', () => {
-        idQuestion++
-        // Set new view with animation 
+    socket.on('questionValue', _data => {
+        if(idQuestion == 1) {
+            idSocket = _data.idSocket;
+        } 
+        if(idQuestion != 10 && idSocket == _data.idSocket) {
+            idQuestion++
+            document.querySelector('.number-question').innerHTML = _data.id
+            console.log('bon')
+        }
     })
     </script>
 </body>
