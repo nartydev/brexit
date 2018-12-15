@@ -25,5 +25,10 @@
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.1",
     "gulp-uglify-es": "^1.0.4"
+  },
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0"
   }
 }

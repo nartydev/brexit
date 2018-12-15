@@ -1,0 +1,38 @@
+<?php
+if(!isset($_GET['country'])) {
+    header('Location: index.php');
+} else {
+    $country = $_GET['country'];
+}
+require('inc/head.php')
+?>
+<body>
+
+    <?php
+    if(isset($_POST['id']) && isset($_POST['value'])) {
+        echo $_POST['id']. "<br> Value:" .$_POST['value'];
+    } 
+
+    $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+    
+    if ($contentType === "application/json") {
+      //Receive the RAW post data.
+      $content = trim(file_get_contents("php://input"));
+    
+      $decoded = json_decode($content, true);
+    
+      //If json_decode failed, the JSON is invalid.
+      if(! is_array($decoded)) {
+        var_dump($decoded);
+      } else {
+        echo "error";
+      }
+    }
+
+    ?>
+    <?php require("timeline.php"); ?>
+    <script type="module" src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>
+  
