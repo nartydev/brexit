@@ -10,12 +10,18 @@
 
     socket.on('questionValue', _data => {
         console.log(_data)
+        // define id
         if(_data.id == 1) {
             idSocket = _data.idSocket;
         } 
-        if(_data.id != 10 && idSocket == _data.idSocket) {
+        // question next
+        if(idSocket == _data.idSocket && _data.id < 11) {
             document.querySelector('.number-question').innerHTML = _data.id
             console.log('bon')
+        }
+        // success
+        if(_data.success) {
+            console.log('ok finish')
         }
     })
     </script>

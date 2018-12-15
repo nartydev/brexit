@@ -42,18 +42,23 @@
             "value": value
         }
         socket.emit('answerQuestion', data)
-        console.log(data)
+        document.querySelector('input[type="radio"]:checked').checked = false
     })
 
     socket.on('questionValue', _data => {
         if(idQuestion == 1) {
             idSocket = _data.idSocket;
         } 
-        if(idQuestion != 10 && idSocket == _data.idSocket) {
+        if(idQuestion != 11 && idSocket == _data.idSocket) {
             idQuestion++
             document.querySelector('.number-question').innerHTML = _data.id
             console.log('bon')
         }
+        // success
+        if(_data.success) {
+            console.log('ok finish')
+        }
+        console.log(_data)
     })
     </script>
 </body>
