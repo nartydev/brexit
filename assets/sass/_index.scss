@@ -184,6 +184,7 @@ body {
   display: flex;
   justify-content: center;
   transform: translateY(0%) scale(1);
+  overflow: hidden;
 }
 
 .center-title-main {
@@ -207,7 +208,8 @@ body {
 
 .content-map {
   height: 100%;
-  transform: translate(0%,0%) scale(1)
+  transform: translate(0%,0%) scale(1);
+  transition: ease-in-out 0.5s transform;
 }
 
 .countries-svg{
@@ -218,4 +220,13 @@ body {
   stroke-width: 3px;
   fill: #84a0da;
   stroke : none;
+}
+
+@media (max-width:800px) {
+  .content-map {
+    transform: translate(82%,-28%) scale(3)
+  }
+  .center-title-main{
+    top:10%;
+  }
 }

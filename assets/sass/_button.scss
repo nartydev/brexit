@@ -113,3 +113,21 @@ $btn-color : #afafaf;
     opacity: 1;
   }
 }
+
+.responsive-btn{
+  display: none;
+  position: fixed;
+  top:50%;
+  transform: translate(-50%,0%);
+}
+.responsive-btn-left{
+  left: 7%;
+}
+.responsive-btn-right{
+  right: 0%;
+}
+@media (max-width:800px) {
+  .responsive-btn{
+    display: block;
+  }
+}
