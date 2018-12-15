@@ -118,6 +118,7 @@ $btn-color : #afafaf;
   display: none;
   position: fixed;
   top:50%;
+  z-index: 3;
   transform: translate(-50%,0%);
 }
 .responsive-btn-left{
