@@ -52,7 +52,9 @@ for(const $button of $buttons)
 
 const resize = () => {
   contentMap.removeAttribute("style")
-
+  clearClass()
+  countryNum = 0;
+  allCountries[data.countries[countryNum].svg_id].classList.add('countries-svg-selected')
 }
 // listen to resize
 window.addEventListener('resize', resize)
@@ -106,7 +108,7 @@ function clearClass(){
 function goToCountry(tposx, tposy, dscale){
   contentMap.style.transform = `translate(${tposx},${tposy}) scale(3)`
 }
-/* Menu burger interaction
+/* Menu burger interaction*/
 menuBurger.addEventListener('click', () => {
   menuBurger.classList.toggle('menu-burger-open-animation')
   menuBurger.classList.toggle('menu-burger-close-animation')
@@ -115,4 +117,3 @@ menuBurger.addEventListener('click', () => {
   menuContainerBG.classList.toggle('fade-menu-container-open')
   menuContainerBG.classList.toggle('fade-menu-container-close')
 })
-*/

@@ -1,5 +1,7 @@
 <%- include('partiels/head'); %>
 <body>
+  <!-- Menu burger -->
+  <%- include('menu'); %>
   <!-- Landing -->
   <%- include('landing'); %>
   <!-- Map -->
@@ -10,8 +12,10 @@
     <h1 class="title-main">The Brexit</h1>
   </div>
   <%- include('button'); %>
+  <div class="qr-code-container">
+    <%- include('qr-code'); %>  
+  </div>
   <script type="module" src="assets/js/main.js"></script>
   <script type="module" src="assets/js/app.js"></script>
 </body>
-
 </html>
