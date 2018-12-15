@@ -20,6 +20,7 @@ app.get('/country', function(req, res){
 io.on('connection', function(socket){
     console.log('a user connected')
     socket.on('answerQuestion', function(data) {
+        console.log(data)
         io.sockets.emit('questionValue')
     })
     socket.on('disconnect', function(){

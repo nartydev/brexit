@@ -39,6 +39,8 @@
 .quizPhone .box-quiz {
     flex:1;
     position:relative;
+    height: 100vh;
+    z-index: 1;
 }
 
 input[type="radio"] {
@@ -52,9 +54,7 @@ input[type="radio"] + label {
 input[type="radio"] + label span {
     display:inline-block;
     width: 100%;
-    height: 100vh;
-    height:100vh;
-    margin:-1px 4px 0 0;
+    height:105vh;
     vertical-align:middle;
     cursor:pointer;
 }
@@ -70,12 +70,13 @@ input[type="radio"] + label .yes-button {
 .bg-check-yes {
     position:absolute;
     width:100%;
-    height:100%;
+    height:100vh;
     top:0;
     transform-origin: bottom;
     transform: scaleY(0);
     transition: 0.4s ease-in-out;
     background: #2f4c84;
+    z-index: 1;
 }
 
 .yes:checked + label .bg-check-yes{
@@ -85,12 +86,13 @@ input[type="radio"] + label .yes-button {
 .bg-check-no {
     position:absolute;
     width:100%;
-    height:100%;
+    height:100vh;
     top:0;
     transform-origin: bottom;
     transform: scaleY(0);
     transition: 0.4s ease-in-out;
     background: #ffbf00;
+    z-index: 1;
 }
 
 .no:checked + label .bg-check-no{
@@ -109,6 +111,7 @@ button.button-submit {
     color: #fff;
     transform: translate(-50%,-50%);
     line-height: 1px;
+    z-index: 999;
 }
 
 .button-submit .text-submit {

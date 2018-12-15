@@ -3,7 +3,7 @@
     <div class="container-phone">
         <form class="quizPhone">
             <div class="box-quiz">
-                <input type="radio" id="no" class="yellow-bg no" name="radio" />
+                <input type="radio" id="no" value="1" class="yellow-bg no" name="radio" />
                 <label for="no" class="title-phone ">
                     <span class="no-button"></span>
                     <div class="word-quiz">Non</div>
@@ -11,7 +11,7 @@
                 </label>
             </div>
             <div class="box-quiz">
-                <input type="radio" id="yes" class="blue-bg yes" name="radio" />
+                <input type="radio" id="yes" value="2" class="blue-bg yes" name="radio" />
                 <label for="yes" class="title-phone">
                     <span class="yes-button"></span>
                     <div class="word-quiz">Oui</div>
@@ -28,7 +28,25 @@
     <script type="module" src="../assets/js/phone.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
     <script>
-    var socket = io();
+    const socket = io.connect();
+    const form = document.querySelector('.quizPhone')
+    let idQuestion = 1
+    
+    form.addEventListener('submit', _event => {
+        _event.preventDefault()
+        value = document.querySelector('input[type="radio"]:checked').value
+        data = {
+            "id": idQuestion,
+            "value": value
+        }
+        socket.emit('answerQuestion', data)
+        console.log(data)
+    })
+
+    socket.on('questionValue', () => {
+        idQuestion++
+        // Set new view with animation 
+    })
     </script>
 </body>
   
