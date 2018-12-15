@@ -1,16 +1,27 @@
 <%- include('head'); %>
 <body>
     <div class="container-phone">
-        <div class="yellow-bg no">
-            <div class="title-phone ">
-                Non
+        <form class="quizPhone">
+            <div class="box-quiz">
+                <input type="radio" id="no" class="yellow-bg no" name="radio" />
+                <label for="no" class="title-phone ">
+                    <span class="no-button"></span>
+                    <div class="word-quiz">Non</div>
+                    <div class="bg-check-no"></div>
+                </label>
             </div>
-        </div>
-        <div class="blue-bg yes">
-            <div class="title-phone">
-                Oui
+            <div class="box-quiz">
+                <input type="radio" id="yes" class="blue-bg yes" name="radio" />
+                <label for="yes" class="title-phone">
+                    <span class="yes-button"></span>
+                    <div class="word-quiz">Oui</div>
+                    <div class="bg-check-yes"></div>
+                </label>
             </div>
-        </div>
+            <button type="submit" class="button-submit">
+                <span class="text-submit">Valider mon choix</span>
+            </button>
+        </form>
     </div>
     <button type="button" class="main-btn arrow-btn arrow-right circle-btn"></button>
     <SCRIPT type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></SCRIPT>

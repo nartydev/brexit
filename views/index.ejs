@@ -1,15 +1,15 @@
-<?php require('inc/head.php') ?>
+<%- include('head'); %>
 <body>
   <!-- Landing -->
-  <?php require('landing.php'); ?>
+  <%- include('landing'); %>
   <!-- Map -->
   <div class="container-map">
-      <?php require('map.php'); ?>
+    <%- include('map'); %>
   </div>
   <div class="overflow center-title-main">
     <h1 class="title-main">The Brexit</h1>
   </div>
-  <?php require("button.php"); ?>
+  <%- include('button'); %>
   <script type="module" src="assets/js/main.js"></script>
   <script type="module" src="assets/js/app.js"></script>
 </body>
