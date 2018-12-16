@@ -92,6 +92,10 @@ app.set('view engine', 'ejs')
 
 // Set route
 app.get('/', function(req, res){
+    res.render('index')
+});
+
+app.get('/quiz-phone', function(req, res){
     res.render('quiz-phone')
 });
 
@@ -100,9 +104,6 @@ app.get('/country/:country', function(req, res){
     res.render('quiz', {countryName: countryName, datas: questions})
 });
 
-app.get('/country', function(req, res){
-    res.render('index')
-});
 
 
 
