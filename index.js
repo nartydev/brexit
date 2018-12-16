@@ -17,34 +17,52 @@ db.once('open', () => {
 
 const questions = {
     0: {
-        question: 'Êtes-vous prêt à déménager dans un autre pays d’Europe pour garder votre emploi ?'
+        question: 'Êtes-vous prêt à déménager dans un autre pays d’Europe pour garder votre emploi ?',
+        help: 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.'
     },
     1: {
-        question: 'Préférez-vous aider à financer la construction d’une école dans votre quartier qu’apporter de l’aide à l’Espagne en crise ?'
+        question: 'Préférez-vous aider à financer la construction d’une école dans votre quartier qu’apporter de l’aide à l’Espagne en crise ?',
+        help: 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.'
+
     },
     2: {
-        question: 'Voudriez-vous payer plus cher vos vacances en France ou en Espagne ?'
+        question: 'Voudriez-vous payer plus cher vos vacances en France ou en Espagne ?',
+        help: 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.'
     },
     3: {
-        question: 'Souhaitez-vous voir moins d’immigrés dans votre pays ?'
+        question: 'Souhaitez-vous voir moins d’immigrés dans votre pays ?',
+        help: 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.'
+
     },
     4: {
-        question: 'VRCDXS'
+        question: 'VRCDXS',
+        help: 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.'
+
     },
     5: {
-        question: 'BlaVFCDSXWblab'
+        question: 'BlaVFCDSXWblab',
+        help: 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.'
+
     },
     6: {
-        question: 'BlVRFCDSXQWablab'
+        question: 'BlVRFCDSXQWablab',
+        help: 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.'
+
     },
     7: {
-        question: 'BlVRFfcdsxCDSXQWablab'
+        question: 'BlVRFfcdsxCDSXQWablab',
+        help: 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.'
+
     },
     8: {
-        question: 'BlVRvfcdxsFCDSXQWablab'
+        question: 'BlVRvfcdxsFCDSXQWablab',
+        help: 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.'
+
     },
     9: {
-        question: 'BlVRFCvfcdsxwDSXQWablab'
+        question: 'BlVRFCvfcdsxwDSXQWablab',
+        help: 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.'
+
     },
 }
 
@@ -79,7 +97,6 @@ app.get('/', function(req, res){
 
 app.get('/country/:country', function(req, res){
     const countryName = req.params.country
-    console.log(questions)
     res.render('quiz', {countryName: countryName, datas: questions})
 });
 
@@ -90,14 +107,14 @@ app.get('/country', function(req, res){
 
 
 // Listen connect
-io.on('connection', function(socket){
+io.on('connection', socket => {
     
     console.log('a user connected')
-    socket.on('answerQuestion', function(data) {
+    socket.on('answerQuestion', data => {
         data.idSocket = socket.id
         if(allAnswer.length != 10) {
             allAnswer = [...allAnswer, data.value]
-        } else {
+        } else if(allAnswer.length == 10) {
             data.success = true
             const finalAnswer = new Answer({ idSocket: data.idSocket, 
                 question_1: allAnswer[0],
@@ -115,14 +132,17 @@ io.on('connection', function(socket){
                 if(err) {
                     console.log(err)
                 } else {
-                    console.log(answerSave)
+                    console.log('success save')
                 }
             })
         }
         io.sockets.emit('questionValue', data)
-        console.log(allAnswer)
     })
-    socket.on('disconnect', function(){
+
+    socket.on('clickInformation', _id => {
+        io.sockets.emit('showInformation', _id-1)
+    })
+    socket.on('disconnect', () => {
         console.log('user disconnected')
     });
 });

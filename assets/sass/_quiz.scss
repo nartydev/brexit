@@ -2,7 +2,8 @@
     font-size:40px;
     font-family:"Noe Display Bold";
     transform:translateX(-100%);
-    transition:.5s ease-in-out;
+    transition:.7s ease-in-out;
+    will-change: transform;
 }
 
 .container-question.active .question-title {
@@ -19,7 +20,8 @@
 
 .content-number-question {
     transform: translateY(110%);
-    transition:.5s ease-in-out;
+    transition:.8s ease-in-out;
+    will-change: transform;
 }
 
 .size-font-small {
@@ -28,11 +30,12 @@
 
 .container-question {
     text-align:center;
-    padding:20%;
-    opacity:1;
+    padding:12% 20%;
+    opacity:0;
     position: absolute;
     width:100%;
     color:#fff;
+    transition:.7s ease-in-out;
 }
 
 .content-number-question {
@@ -43,4 +46,100 @@
 
 .container-question.active {
     opacity:1;
+    z-index:9999;
+}
+
+.info-bulle {
+    margin:50px 0 0 0;
+    width: 100%;
+}
+
+.info-round{
+    height: 50px;
+    width: 50px;
+    background: #fff;
+    color: #001A4D;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    position: absolute;
+} 
+
+.pos-question {
+    top: 2%;
+    right: 2%;
+}
+
+.pos-answer {
+    z-index: 1111111;
+    bottom: 2%;
+    right: 6%;
+}
+
+.content-help {
+    opacity: 0;
+    width: 80%;
+    text-align: center;
+    color: #fff;
+    transition: .5s ease-in-out;
+    will-change: opacity;
+    margin: auto;
+    margin-top: 30px;
+    font-family: "Josefin Sans";
+    font-weight: 200;
+    line-height: 1.2;
+}
+.content-help.active {
+    opacity:1;
+}
+
+.quiz-end {
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:#fff;
+    opacity:0;
+}
+
+.quiz-end.active {
+    opacity:1;
+}
+
+.title-country {
+    position:absolute;
+    z-index: 1111;
+    left:50%;
+    top:4%;
+    transform:translateX(-50%);
+    font-size:40px;
+    font-family:"Noe Display Bold";
+    color:#fff;
+}
+
+.alert-value {
+    padding: 10px;
+    color:red;
+    background:#fff;
+    border-radius:4px;
+    position:absolute;
+    top:0;
+    transform:translateY(-100%);
+    width:80%;
+    z-index: 1111;
+}
+
+.question-header {
+    text-align:center;
+    width:100%;
+    background:$blue-color;
+    padding:20px;
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    color:#fff;
+    font-family:"Josefin Sans";
+    z-index:111;
 }
