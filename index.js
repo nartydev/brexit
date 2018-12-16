@@ -13,6 +13,41 @@ db.once('open', () => {
     console.log('db connected')
 })
 
+// Data 
+
+const questions = {
+    0: {
+        question: 'Êtes-vous prêt à déménager dans un autre pays d’Europe pour garder votre emploi ?'
+    },
+    1: {
+        question: 'Préférez-vous aider à financer la construction d’une école dans votre quartier qu’apporter de l’aide à l’Espagne en crise ?'
+    },
+    2: {
+        question: 'Voudriez-vous payer plus cher vos vacances en France ou en Espagne ?'
+    },
+    3: {
+        question: 'Souhaitez-vous voir moins d’immigrés dans votre pays ?'
+    },
+    4: {
+        question: 'VRCDXS'
+    },
+    5: {
+        question: 'BlaVFCDSXWblab'
+    },
+    6: {
+        question: 'BlVRFCDSXQWablab'
+    },
+    7: {
+        question: 'BlVRFfcdsxCDSXQWablab'
+    },
+    8: {
+        question: 'BlVRvfcdxsFCDSXQWablab'
+    },
+    9: {
+        question: 'BlVRFCvfcdsxwDSXQWablab'
+    },
+}
+
 // Schema Questions
 
 const answerSchema = mongoose.Schema({
@@ -43,13 +78,16 @@ app.get('/', function(req, res){
 });
 
 app.get('/country/:country', function(req, res){
-    const countryName = req.params.countryName
-    res.render('quiz', {countryName})
+    const countryName = req.params.country
+    console.log(questions)
+    res.render('quiz', {countryName: countryName, datas: questions})
 });
 
 app.get('/country', function(req, res){
     res.render('index')
 });
+
+
 
 // Listen connect
 io.on('connection', function(socket){
