@@ -1,7 +1,7 @@
 <%- include('partials/head'); %>
 <body>
     <div class="container-phone">
-        <form class="quizPhone">
+        <div class="quizPhone">
             <div class="box-quiz">
                 <input type="radio" id="no" value="1" class="yellow-bg no" name="radio" />
                 <label for="no" class="title-phone ">
@@ -18,68 +18,23 @@
                     <div class="bg-check-yes"></div>
                 </label>
             </div>
-            <button type="submit" class="button-submit">
-                <span class="text-submit">Valider mon choix</span>
-            </button>
-        </form>
+        </div>
         <div class="info-round pos-answer"><i class="fa fa-info"></i></div>
     </div>
     <div class="question-header">
     Question n°<span class="number-q"></div>
     </div>
-    <div class="alert-value">
-        Aucune réponse n'a été sélectionné
+    <div class="end-phone">
+        <div class="text-center">
+            <i class="fa fa-circle-check"></i>
+
+            <div class="text-finish">
+                Le quiz est désormais terminé! Continuer l'expérience sur l'ordinateur
+            </div>
+        </div>
     </div>
-    <button type="button" class="main-btn arrow-btn arrow-right circle-btn"></button>
-    <SCRIPT type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></SCRIPT>
-    <script type="module" src="../assets/js/phone.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
-    <script>
-    const socket = io.connect();
-    const form = document.querySelector('.quizPhone')
-    const infoRound = document.querySelector('.info-round')
-    let idQuestion = 1
-    let idSocket
-
-    const numberQ = document.querySelector('.number-q')
-
-    numberQ.innerHTML = idQuestion
-
-    form.addEventListener('submit', _event => {
-        _event.preventDefault()
-        
-        if(document.querySelector('input[type="radio"]:checked') == null) {
-            
-        } else {
-            const value = document.querySelector('input[type="radio"]:checked').value
-                data = {
-                    "id": idQuestion,
-                    "value": value
-                }
-                socket.emit('answerQuestion', data)
-                document.querySelector('input[type="radio"]:checked').checked = false
-
-        }
-        
-    })
-
-    infoRound.addEventListener('click', _event => {
-        _event.preventDefault()
-        socket.emit('clickInformation', idQuestion)
-    })
-
-    socket.on('questionValue', _data => {
-        if(idQuestion == 1) {
-            idSocket = _data.idSocket;
-        } 
-        if(idQuestion < 10 && idSocket == _data.idSocket) {
-            idQuestion++
-            numberQ.innerHTML = _data.id+1
-        } else  {
-            console.log('ok finish')
-        }
-    })
-    </script>
+    <script type="module" src="../assets/js/phone.js"></script>
 </body>
   
 </html>

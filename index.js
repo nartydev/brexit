@@ -92,6 +92,10 @@ app.set('view engine', 'ejs')
 
 // Set route
 app.get('/', function(req, res){
+    res.render('index')
+});
+
+app.get('/quiz-phone', function(req, res){
     res.render('quiz-phone')
 });
 
@@ -100,19 +104,15 @@ app.get('/country/:country', function(req, res){
     res.render('quiz', {countryName: countryName, datas: questions})
 });
 
-app.get('/country', function(req, res){
-    res.render('index')
-});
-
-
+let id_socket;
 
 // Listen connect
-io.on('connection', socket => {
-    
-    console.log('a user connected')
+io.on('connection', (socket, data) => {
     socket.on('answerQuestion', data => {
-        data.idSocket = socket.id
-        if(allAnswer.length != 10) {
+        if(data.id_confirm) {
+            console.log(data)
+        }
+        if(allAnswer.length != 10 && data.value) {
             allAnswer = [...allAnswer, data.value]
         } else if(allAnswer.length == 10) {
             data.success = true
@@ -147,8 +147,9 @@ io.on('connection', socket => {
     });
 });
 
-http.listen(3000, function(){
-    console.log('listening on *:3000')
+
+http.listen(3000|| 5000, function(){
+    console.log('listening on *' + process.env.PORT)
 });
 
 
