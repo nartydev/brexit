@@ -65,9 +65,14 @@
     width: 160px;
     height: 160px;
     z-index: 1500;
+    transition: 0.1s ease box-shadow;
     border-radius: 50%;
     box-shadow: 0 0 0px white;
     background: rgba(255,255,255,0.5);
+    transition: 0.5s ease background;
+  }
+  .container-unlock-landing:hover .background-circle{
+    background: rgba(0,0,0,0.3);
   }
   .landing-begin-button{
     z-index: 2000;

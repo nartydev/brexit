@@ -41,7 +41,7 @@ const landingTransitionContainer = document.querySelector('.landing-transition')
 const landingTranstionBar1 = document.querySelector('.landing-transition-bar-1')
 const landingTranstionBar2 = document.querySelector('.landing-transition-bar-2')
 const qrTransitionContainer = document.querySelector('.qr-transition')
-const qrTranstionBars = document.querySelector('.qr-transition-bar')
+const qrTranstionBars = document.querySelectorAll('.qr-transition-bar')
 const allCountries = document.querySelectorAll('.countries-svg')
 const $buttons = document.querySelectorAll('.main-btn')
 const contentMap = document.querySelector('.content-map')
@@ -63,8 +63,6 @@ for(const $button of $buttons)
 {
     const button = new Button($button)
 }
-
-
 
 const resize = () => {
   contentMap.removeAttribute("style")
@@ -136,30 +134,44 @@ buttonCountriesRight.addEventListener('click', () => {
 confirmCountryBtn.addEventListener('click', () => {
   getCountryName()
   qrTransitionContainer.classList.toggle('qr-transition-show')
-  qrTranstionBars.classList.toggle('qr-transition-bar-animation')
+  setTimeout(function(){
+    for (var i = 0; i < qrTranstionBars.length; i++) {
+      qrTranstionBars[i].classList.toggle('qr-transition-bar-animation-up')
+    }
+  }, 10);
   setTimeout(function(){
     containerMap.style.display = "none"
     qrCode.style.display = "flex"
-  }, 500);
+    qrTransitionContainer.classList.toggle('qr-transition-after')
+  }, 1500);
   setTimeout(function(){
     //qrTransitionContainer.style.display = "none"
     qrTransitionContainer.classList.toggle('qr-transition-show')
-    qrTranstionBars.classList.toggle('qr-transition-bar-animation')
-  }, 1000);
+    for (var i = 0; i < qrTranstionBars.length; i++) {
+      qrTranstionBars[i].classList.toggle('qr-transition-bar-animation-up')
+    }
+  }, 2000);
 })
 
 qrCodeBackBtn.addEventListener('click', () => {
   qrTransitionContainer.classList.toggle('qr-transition-show')
-  qrTranstionBars.classList.toggle('qr-transition-bar-animation-back')
+  setTimeout(function(){
+    qrTransitionContainer.classList.toggle('qr-transition-after')
+  }, 10);
+  for (var i = 0; i < qrTranstionBars.length; i++) {
+    qrTranstionBars[i].classList.toggle('qr-transition-bar-animation-up')
+  }
   setTimeout(function(){
     containerMap.style.display = "flex"
     qrCode.style.display = "none"
+    for (var i = 0; i < qrTranstionBars.length; i++) {
+      qrTranstionBars[i].classList.toggle('qr-transition-bar-animation-up')
+    }
   }, 500);
   setTimeout(function(){
     //qrTransitionContainer.style.display = "none"
     qrTransitionContainer.classList.toggle('qr-transition-show')
-    qrTranstionBars.classList.toggle('qr-transition-bar-animation-back')
-  }, 1000);
+  }, 2000);
 })
 
 function getCountryName(){
