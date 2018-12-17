@@ -37,12 +37,3 @@ socket.on('questionValue', _data => {
         endPhone.classList.add('active')
     }
 })
-
-socket.on('auth', _socketId => {
-    let value = {
-        "id": 0,
-        "id_socket": _socketId,
-        "id_confirm": true
-    }
-    socket.emit('connect', value)
-})

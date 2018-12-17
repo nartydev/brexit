@@ -2,7 +2,11 @@ var express = require('express');
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+const fs = require('fs');
 const mongoose = require('mongoose');
+
+let dataQuestions = fs.readFileSync('./assets/data/data-question.json');
+let questions = JSON.parse(dataQuestions);
 
 // Connect to db
 mongoose.connect('mongodb://root:rootadmin123@ds157422.mlab.com:57422/brexit', { useNewUrlParser: true })
@@ -13,63 +17,12 @@ db.once('open', () => {
     console.log('db connected')
 })
 
-// Data 
-
-const questions = {
-    0: {
-        question: 'Êtes-vous prêt à déménager dans un autre pays d’Europe pour garder votre emploi ?',
-        help: 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.'
-    },
-    1: {
-        question: 'Préférez-vous aider à financer la construction d’une école dans votre quartier qu’apporter de l’aide à l’Espagne en crise ?',
-        help: 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.'
-
-    },
-    2: {
-        question: 'Voudriez-vous payer plus cher vos vacances en France ou en Espagne ?',
-        help: 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.'
-    },
-    3: {
-        question: 'Souhaitez-vous voir moins d’immigrés dans votre pays ?',
-        help: 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.'
-
-    },
-    4: {
-        question: 'VRCDXS',
-        help: 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.'
-
-    },
-    5: {
-        question: 'BlaVFCDSXWblab',
-        help: 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.'
-
-    },
-    6: {
-        question: 'BlVRFCDSXQWablab',
-        help: 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.'
-
-    },
-    7: {
-        question: 'BlVRFfcdsxCDSXQWablab',
-        help: 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.'
-
-    },
-    8: {
-        question: 'BlVRvfcdxsFCDSXQWablab',
-        help: 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.'
-
-    },
-    9: {
-        question: 'BlVRFCvfcdsxwDSXQWablab',
-        help: 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.'
-
-    },
-}
 
 // Schema Questions
 
 const answerSchema = mongoose.Schema({
     idSocket: String,
+    country: String,
     question_1: Number,
     question_2: Number,
     question_3: Number,
@@ -83,40 +36,41 @@ const answerSchema = mongoose.Schema({
 })
 
 const Answer = mongoose.model('Answer', answerSchema)
-var allAnswer = []
-
+let allAnswer = []
+let countryName;
+let dataSectionQuestions = [];
+let totalAnswer;
 
 app.use('/assets', express.static('assets'))
 app.set('views', './views')
 app.set('view engine', 'ejs')
 
 // Set route
-app.get('/', function(req, res){
+app.get('/', function (req, res) {
     res.render('index')
 });
 
-app.get('/quiz-phone', function(req, res){
-    res.render('quiz-phone')
+app.get('/quiz-phone/:id', function (req, res) {
+    const idPage = req.params.id
+    res.render('quiz-phone', { idPage })
 });
 
-app.get('/country/:country', function(req, res){
-    const countryName = req.params.country
-    res.render('quiz', {countryName: countryName, datas: questions})
+app.get('/country/:country/:id', function (req, res) {
+    countryName = req.params.country
+    const idPage = req.params.id
+    res.render('quiz', { countryName: countryName, datas: questions, idPage })
 });
-
-let id_socket;
 
 // Listen connect
 io.on('connection', (socket, data) => {
     socket.on('answerQuestion', data => {
-        if(data.id_confirm) {
-            console.log(data)
-        }
-        if(allAnswer.length != 10 && data.value) {
+        if (data.id != 10 && data.value) {
             allAnswer = [...allAnswer, data.value]
-        } else if(allAnswer.length == 10) {
-            data.success = true
-            const finalAnswer = new Answer({ idSocket: data.idSocket, 
+            io.sockets.emit('questionValue', data)
+        } else if (data.id == 10) {
+            const finalAnswer = new Answer({
+                idSocket: data.idSocket,
+                country: countryName,
                 question_1: allAnswer[0],
                 question_2: allAnswer[1],
                 question_3: allAnswer[2],
@@ -129,18 +83,172 @@ io.on('connection', (socket, data) => {
                 question_10: allAnswer[9]
             })
             finalAnswer.save((err, answerSave) => {
-                if(err) {
+                if (err) {
                     console.log(err)
                 } else {
                     console.log('success save')
+                    countAll = Answer.countDocuments({ country: countryName }, (err, result) => {
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            totalAnswer = result;
+                            console.log(result)
+                        }
+                    })
+
+                    // Yes = 2
+                    // No = 1
+
+                    Answer.countDocuments({ country: countryName, question_10: 2 }, (err, result) => {
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            let newStats = {
+                                idQuestion: 10,
+                                totalAnswer: totalAnswer,
+                                yesAnswer: result,
+                                noAnswer: totalAnswer - result
+                            }
+                            dataSectionQuestions = [newStats, ...dataSectionQuestions]
+                        }
+                    })
+
+                    Answer.countDocuments({ country: countryName, question_9: 2 }, (err, result) => {
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            let newStats = {
+                                idQuestion: 9,
+                                totalAnswer: totalAnswer,
+                                yesAnswer: result,
+                                noAnswer: totalAnswer - result
+                            }
+                            
+                            dataSectionQuestions = [newStats, ...dataSectionQuestions]
+                        }
+                    })
+
+                    Answer.countDocuments({ country: countryName, question_8: 2 }, (err, result) => {
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            let newStats = {
+                                idQuestion: 8,
+                                totalAnswer: totalAnswer,
+                                yesAnswer: result,
+                                noAnswer: totalAnswer - result
+                            }
+                            dataSectionQuestions = [newStats, ...dataSectionQuestions]
+                        }
+                    })
+
+                    Answer.countDocuments({ country: countryName, question_7: 2 }, (err, result) => {
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            let newStats = {
+                                idQuestion: 7,
+                                totalAnswer: totalAnswer,
+                                yesAnswer: result,
+                                noAnswer: totalAnswer - result
+                            }
+                            dataSectionQuestions = [newStats, ...dataSectionQuestions]
+                        }
+                    })
+
+                    Answer.countDocuments({ country: countryName, question_6: 2 }, (err, result) => {
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            let newStats = {
+                                idQuestion: 6,
+                                totalAnswer: totalAnswer,
+                                yesAnswer: result,
+                                noAnswer: totalAnswer - result
+                            }
+                            dataSectionQuestions = [newStats, ...dataSectionQuestions]
+                        }
+                    })
+
+                    Answer.countDocuments({ country: countryName, question_5: 2 }, (err, result) => {
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            let newStats = {
+                                idQuestion: 5,
+                                totalAnswer: totalAnswer,
+                                yesAnswer: result,
+                                noAnswer: totalAnswer - result
+                            }
+                            dataSectionQuestions = [newStats, ...dataSectionQuestions]
+                        }
+                    })
+
+                    Answer.countDocuments({ country: countryName, question_4: 2 }, (err, result) => {
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            let newStats = {
+                                idQuestion: 4,
+                                totalAnswer: totalAnswer,
+                                yesAnswer: result,
+                                noAnswer: totalAnswer - result
+                            }
+                            dataSectionQuestions = [newStats, ...dataSectionQuestions]
+                        }
+                    })
+
+                    Answer.countDocuments({ country: countryName, question_3: 2 }, (err, result) => {
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            let newStats = {
+                                idQuestion: 3,
+                                totalAnswer: totalAnswer,
+                                yesAnswer: result,
+                                noAnswer: totalAnswer - result
+                            }
+                            dataSectionQuestions = [newStats, ...dataSectionQuestions]
+                        }
+                    })
+
+                    Answer.countDocuments({ country: countryName, question_2: 2 }, (err, result) => {
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            let newStats = {
+                                idQuestion: 2,
+                                totalAnswer: totalAnswer,
+                                yesAnswer: result,
+                                noAnswer: totalAnswer - result
+                            }
+                            dataSectionQuestions = [newStats, ...dataSectionQuestions]
+                        }
+                    })
+
+                    Answer.countDocuments({ country: countryName, question_1: 2 }, (err, result) => {
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            let newStats = {
+                                idQuestion: 1,
+                                totalAnswer: totalAnswer,
+                                yesAnswer: result,
+                                noAnswer: totalAnswer - result
+                            }
+                            dataSectionQuestions = [newStats, ...dataSectionQuestions]
+                            io.sockets.emit('questionValue', dataSectionQuestions, allAnswer, questions)
+                        }
+                    })
+                
                 }
             })
         }
-        io.sockets.emit('questionValue', data)
+
     })
 
     socket.on('clickInformation', _id => {
-        io.sockets.emit('showInformation', _id-1)
+        io.sockets.emit('showInformation', _id - 1)
     })
     socket.on('disconnect', () => {
         console.log('user disconnected')
@@ -148,7 +256,8 @@ io.on('connection', (socket, data) => {
 });
 
 
-http.listen(3000|| 5000, function(){
+
+http.listen(3000 || 5000, function () {
     console.log('listening on *' + process.env.PORT)
 });
 

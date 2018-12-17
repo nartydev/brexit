@@ -29,6 +29,8 @@
     "gulp-uglify-es": "^1.0.4"
   },
   "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-concat": "^2.6.1",
@@ -36,8 +38,6 @@
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.1",
     "gulp-uglify-es": "^1.0.4",
-    "ejs": "^2.6.1",
-    "express": "^4.16.4",
     "mongoose": "^5.4.0",
     "socket.io": "^2.2.0"
   }
