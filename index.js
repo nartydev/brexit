@@ -104,16 +104,15 @@ app.get('/country/:country', function(req, res){
     res.render('quiz', {countryName: countryName, datas: questions})
 });
 
-
-
+let id_socket;
 
 // Listen connect
-io.on('connection', socket => {
-    
-    console.log('a user connected')
+io.on('connection', (socket, data) => {
     socket.on('answerQuestion', data => {
-        data.idSocket = socket.id
-        if(allAnswer.length != 10) {
+        if(data.id_confirm) {
+            console.log(data)
+        }
+        if(allAnswer.length != 10 && data.value) {
             allAnswer = [...allAnswer, data.value]
         } else if(allAnswer.length == 10) {
             data.success = true
@@ -147,6 +146,7 @@ io.on('connection', socket => {
         console.log('user disconnected')
     });
 });
+
 
 http.listen(3000|| 5000, function(){
     console.log('listening on *' + process.env.PORT)

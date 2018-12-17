@@ -15,10 +15,6 @@ quizContainer[0].classList.add('active')
 // Callback answer
 socket.on('questionValue', _data => {
     console.log(_data)
-    // define id
-    if (_data.id == 1) {
-        idSocket = _data.idSocket;
-    }
     // question next
     if (idSocket == _data.idSocket && _data.id < 10) {
         quizContainer[_data.id - 1].classList.remove('active')
@@ -37,7 +33,19 @@ socket.on('showInformation', _data => {
 // Click info
 for (let i = 0; i < infoRound.length; i++) {
     infoRound[i].addEventListener('click', () => {
-        console.log('ok')
         contentHelp[i].classList.toggle('active')
     })
 }
+
+// Listen send idSocket
+
+socket.on('auth', (_socketId) => {
+    idSocket = _socketId;
+    value = {
+        "id": 0,
+        "id_socket": _socketId,
+        "id_confirm": true
+    }
+    socket.emit('saveID', value)
+    console.log('idsocket phone:', idSocket)
+})
