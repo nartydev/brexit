@@ -82,6 +82,7 @@ class Button {
     // Create DOM
     this.arrow.$circleBtn = document.createElement('div')
     this.arrow.$circleBtn.classList.add('circle-btn-css')
+    this.arrow.$circleBtn.classList.add('circle-btn-css-bg')
     this.$container.appendChild(this.arrow.$circleBtn)
   }
 }

@@ -10,7 +10,7 @@ body {
   background: $bg-color;
   background: radial-gradient(#001A4D, #00050F);
 }
- 
+
 .menu-burger {
   position: fixed;
   z-index: 9;
@@ -189,17 +189,16 @@ body {
 
 .center-title-main {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 400px;
-  height: 90px;
-  margin-left: -200px;
-  margin-top: -45px;
+  top: 5%;
+  left: 5%;
+  width: 480px;
+  height: 170px;
+
 }
 
 .title-main {
   font-family: "Noe Display Black";
-  text-align: center;
+  text-align: left;
   font-size: 5em;
   color: #FFF;
   animation:showTitle .4s .4s ease-in-out forwards;
@@ -218,7 +217,7 @@ body {
 }
 .countries-svg:hover{
   stroke-width: 3px;
-  fill: #84a0da;
+  fill: $yellow-color;
   stroke : none;
 }
 .responsive-container-map{
@@ -230,10 +229,16 @@ body {
   display: none;
   z-index: 2;
 }
+
 .countries-svg-selected{
   stroke-width: 3px;
-  fill: #84a0da !important;
+  fill: $yellow-color !important;
   stroke : none;
+}
+.country-map-apparition{
+  transition: 0.5s ease-in all;
+  will-change: opacity;
+  opacity: 0;
 }
 .country-name-display{
   position: fixed;

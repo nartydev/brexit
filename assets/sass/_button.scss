@@ -32,6 +32,7 @@ $btn-color : #afafaf;
     left:0;
     transform: translate(0%);
     transition: 0.3s ease-in all;
+    z-index: 300;
   }
   .arrow-container{
     position: absolute;

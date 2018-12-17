@@ -19,8 +19,26 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(rgba(0, 26, 77, 0.2), rgba(0, 5, 15, 0.8));
+    background: radial-gradient(rgba(0, 26, 77, 0.9), rgba(0, 5, 15, 0.8));
     z-index: 11;
+  }
+  .landing-title{
+    margin-bottom: 30px;
+  }
+  .landing-title span{
+    font-family: "Noe Display Black";
+    text-align: center;
+    font-size: 5em;
+  }
+  .landing-content p{
+    color: white;
+    font-family: "Josefin Sans";
+    font-size: 1.5em;
+    text-align: center;
+    margin-top: 10px;
+    webkit-font-smoothing: antialiased;
+  	-moz-osx-font-smoothing: grayscale;
+    letter-spacing: 1px;
   }
   .landing-content{
     z-index: 12;
@@ -32,18 +50,57 @@
     justify-content: space-between;
     align-items: center;
     flex-flow: column nowrap;
-    height: 120px;
+    height: auto;
+    width: 80%;
+  }
+  .target-circle{
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    border: 1px white solid;
+    position: absolute;
+    background: $light-blue-color;
+  }
+  .background-circle{
+    width: 160px;
+    height: 160px;
+    z-index: 1500;
+    border-radius: 50%;
+    box-shadow: 0 0 0px white;
+    background: rgba(255,255,255,0.5);
   }
   .landing-begin-button{
-    color: white;
-    border: solid 1px white;
-    padding: 15px;
-    width: auto;
-    height: auto;
+    z-index: 2000;
+    position: absolute;
+    width: 160px;
+    height: 160px;
+  }
+  .circle-btn-css-bg{
+  }
+  .start-landing{
+    position: absolute;
     font-size: 3em;
-    border-radius: 2px;
-    font-family: "Josefin Sans";
+    color: white;
+    z-index: 1501;
     cursor: pointer;
+  }
+  .container-unlock-landing{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
+    height: 160px;
+    z-index: 1000;
+    margin-top: 100px;
+  }
+  .unlock-bar{
+    position: relative;
+    height: 1px;
+    width: 300px;
+    border-bottom: 2px dotted white;
+    border-spacing: 20px;
+    left: 0%;
   }
   .know-more-container{
     width: auto;
@@ -83,19 +140,36 @@
   left:0;
   width: 100%;
   height: 100vh;
-  .landing-transition-bar{
+  .landing-transition-bar-1{
+    position: absolute;
     width: 0;
     margin-left: 0;
     height: 100vh;
     background: $blue-color;
     will-change: auto;
   }
-  .landing-transition-bar-animation{
+  .landing-transition-bar-2{
+    position: absolute;
+    width: 0%;
+    margin-left: 0;
+    height: 100vh;
+    background: $light-blue-color;
+    will-change: auto;
+  }
+  .landing-transition-bar-animation-1{
     animation-name: landing-transition-animation;
     animation-duration: 1s;
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
     animation-direction: forwards;
+  }
+  .landing-transition-bar-animation-2{
+    animation-name: landing-transition-animation;
+    animation-duration: 0.6s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-direction: forwards;
+    animation-delay: 0.2s;
   }
 }
 @keyframes landing-transition-animation {

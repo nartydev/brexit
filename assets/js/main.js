@@ -38,7 +38,8 @@ const menuContainerBG = document.querySelector('.fade-menu-container')
 const landingContainer = document.querySelector('.landing-container')
 const beginButton = document.querySelector('.landing-begin-button')
 const landingTransitionContainer = document.querySelector('.landing-transition')
-const landingTranstionBars = document.querySelector('.landing-transition-bar')
+const landingTranstionBar1 = document.querySelector('.landing-transition-bar-1')
+const landingTranstionBar2 = document.querySelector('.landing-transition-bar-2')
 const qrTransitionContainer = document.querySelector('.qr-transition')
 const qrTranstionBars = document.querySelector('.qr-transition-bar')
 const allCountries = document.querySelectorAll('.countries-svg')
@@ -51,11 +52,19 @@ const confirmCountryBtn = document.querySelector('.confirm-country')
 const countryDisplay = document.querySelector('.country-name-display')
 const qrCode = document.querySelector('.inner-qr-code-container')
 const qrCodeBackBtn = document.querySelector('.back-qr-code-btn')
+const unlockBar = document.querySelector('.unlock-bar')
+const unlockTarget = document.querySelector('.target-unlock')
+const allSingleCountries = document.querySelectorAll('.country-map-apparition')
+const backCircle = document.querySelector('.background-circle')
+  containerMap.style.display = "none"
 let countryNum = 0;
+let nbStars = 12
 for(const $button of $buttons)
 {
     const button = new Button($button)
 }
+
+
 
 const resize = () => {
   contentMap.removeAttribute("style")
@@ -67,17 +76,39 @@ const resize = () => {
 window.addEventListener('resize', resize)
 resize()
 
-beginButton.addEventListener('click', () => {
+function transitionLanding(){
   landingTransitionContainer.classList.toggle('landing-transition-show')
-  landingTranstionBars.classList.toggle('landing-transition-bar-animation')
+  landingTranstionBar1.classList.toggle('landing-transition-bar-animation-1')
+  landingTranstionBar2.classList.toggle('landing-transition-bar-animation-2')
   setTimeout(function(){
     landingContainer.style.display = "none"
+    containerMap.style.display = "flex"
   }, 500);
   setTimeout(function(){
     landingTransitionContainer.style.display = "none"
     landingTransitionContainer.classList.toggle('landing-transition-show')
   }, 1000);
+  setTimeout(function(){
+    for (var i = 0; i < allSingleCountries.length; i++) {
+      allSingleCountries[i].style.transitionDelay = `${Math.random()*2}s`
+      allSingleCountries[i].style.opacity = "1"
+    }
+  }, 1100);
+}
+
+beginButton.addEventListener('click', () => {
+  transitionLanding()
 })
+
+window.addEventListener("mousemove",  (_event) => {
+    let x = event.clientX
+    let y = event.clientY
+    let middlex =  window.innerWidth/2
+    let middley =  window.innerHeight/1.6
+    let dx = Math.abs(middlex - x)
+    let dy = Math.abs(middley - y)
+    backCircle.style.boxShadow = `0px 0px ${(dx+dy)/2}px white`
+  })
 
 buttonCountriesLeft.addEventListener('click', () => {
   clearClass()
