@@ -5,6 +5,9 @@ const endPhone = document.querySelector('.end-phone')
 let idQuestion = 1
 let idSocket
 
+const idPage = document.querySelector('.idpage').innerHTML
+console.log(idPage)
+
 const numberQ = document.querySelector('.number-q')
 
 numberQ.innerHTML = idQuestion
@@ -15,11 +18,11 @@ for (let quiz of quizBox) {
         const value = quiz.querySelector('input').value
         let data = {
             "id": idQuestion,
-            "value": value
+            "value": value,
+            "idPage": idPage
         }
         socket.emit('answerQuestion', data)
         quiz.querySelector('input').checked = false
-
     })
 }
 
@@ -29,11 +32,11 @@ infoRound.addEventListener('click', _event => {
 })
 
 socket.on('questionValue', _data => {
-    console.log('ok')
     if (idQuestion < 10 && idSocket == _data.idSocket) {
         idQuestion++
-        numberQ.innerHTML = _data.id + 1
+        numberQ.innerHTML = _data.data.id + 1
     } else {
+        idQuestion++
         endPhone.classList.add('active')
     }
 })

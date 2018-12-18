@@ -39,23 +39,32 @@
                         <div class="little-title-content-data">Global stats</div>
                         <div class="charts-data">
                             <div class="fill-data">
+                                <div class="hover-tooltip-yes">
+                                </div>
                                 <div class="seek-data-yes"></div>
                             </div>
                             <div class="fill-data">
+                                <div class="hover-tooltip-no">
+                                </div>
                                 <div class="seek-data-no"></div>
                             </div>
                         </div>
                         <div class="flex">
-                            <div class="round-yes"></div><span class="textYes"><%- datas[y].yes %></span>
-                            <div class="round-no"></div><span class="textNo"><%- datas[y].no %></span>
+                            <div class="round-yes"></div><span class="textYes"><%- datas[y].yes %> (<span class="pourcentageYes"></span>) </span>
+                            <div class="round-no"></div><span class="textNo"><%- datas[y].no %> (<span class="pourcentageNo"></span>)</span>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="white-box-data">
+                <div class="title-box-white-data">explanation</div>
+                <%- datas[y].help %>
             </div>
             <% } %>
         </div>
     </div>
     <%- include('timeline'); %>
+    <div class="idpage"><%- idPage %></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
     <script src="../assets/js/quiz.js"></script>
 

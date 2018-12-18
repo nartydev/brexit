@@ -63,11 +63,12 @@ app.get('/country/:country/:id', function (req, res) {
 
 // Listen connect
 io.on('connection', (socket, data) => {
-    socket.on('answerQuestion', data => {
-        if (data.id != 10 && data.value) {
+    socket.on('answerQuestion', (data)  => {
+        console.log(data, allAnswer)
+        if (allAnswer.length != 10 && data.value) {
             allAnswer = [...allAnswer, data.value]
-            io.sockets.emit('questionValue', data)
-        } else if (data.id == 10) {
+            console.log('lol', data)
+        } else  {    
             const finalAnswer = new Answer({
                 idSocket: data.idSocket,
                 country: countryName,
@@ -82,12 +83,14 @@ io.on('connection', (socket, data) => {
                 question_9: allAnswer[8],
                 question_10: allAnswer[9]
             })
+
             finalAnswer.save((err, answerSave) => {
                 if (err) {
                     console.log(err)
                 } else {
                     console.log('success save')
-                    countAll = Answer.countDocuments({ country: countryName }, (err, result) => {
+                    
+                    Answer.countDocuments({ country: countryName }, (err, result) => {
                         if (err) {
                             console.log(err)
                         } else {
@@ -236,15 +239,16 @@ io.on('connection', (socket, data) => {
                                 yesAnswer: result,
                                 noAnswer: totalAnswer - result
                             }
-                            dataSectionQuestions = [newStats, ...dataSectionQuestions]
-                            io.sockets.emit('questionValue', dataSectionQuestions, allAnswer, questions)
+                            newValue = [newStats, ...dataSectionQuestions]
+                            io.sockets.emit('questionValue', { data, newValue, allAnswer, questions} )
                         }
                     })
-                
                 }
             })
         }
-
+        if(allAnswer.length < 10) {
+            io.sockets.emit('questionValue', { data, allAnswer, questions} )
+        }
     })
 
     socket.on('clickInformation', _id => {

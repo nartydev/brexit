@@ -12,8 +12,18 @@ let answerStats;
 let allAnswers;
 let answerQuestions;
 
+const idPage = document.querySelector('.idpage').innerHTML
+console.log(idPage)
+
+
 const seekYes = [...document.querySelectorAll('.seek-data-yes')]
 const seekNo = [...document.querySelectorAll('.seek-data-no')]
+
+const textPourcentageYes = [... document.querySelectorAll('.pourcentageYes')]
+const textPourcentageNo = [... document.querySelectorAll('.pourcentageNo')]
+
+const textPourcentageHoveYes = [... document.querySelectorAll('.hover-tooltip-yes')]
+const textPourcentageHoverNo = [... document.querySelectorAll('.hover-tooltip-no')]
 
 const myVote = [...document.querySelectorAll('.my-vote-content-data')]
 
@@ -21,33 +31,46 @@ const myVote = [...document.querySelectorAll('.my-vote-content-data')]
 quizContainer[0].classList.add('active')
 
 // Callback answer
-socket.on('questionValue', (_data, _allAnswers, _answerQuestions) => {
+socket.on('questionValue', _data => {
     console.log(_data)
-    // question next
-    if (idSocket == _data.idSocket && _data.id < 10) {
-        quizContainer[_data.id - 1].classList.remove('active')
-        quizContainer[_data.id - 1].classList.add('active-last')
-        quizContainer[_data.id].classList.add('active')
-        interRound[_data.id].classList.add('inter-round--active')
-    } else {
-        // End screen
-        endScreen.classList.add('active')
-        document.body.style.overflowY = "scroll"
+    if(_data.data.idPage == idPage) {
+        console.log(_data.data.id)
+        // question next
+        if (idSocket == _data.data.idSocket && _data.data.id < 10) {
+            quizContainer[_data.data.id - 1].classList.remove('active')
+            quizContainer[_data.data.id - 1].classList.add('active-last')
+            quizContainer[_data.data.id].classList.add('active')
+            interRound[_data.data.id].classList.add('inter-round--active')
+        } else {
+            // End screen
+            setTimeout(() => {
+                endScreen.classList.add('active')
+                document.body.style.overflowY = "scroll"
+                if(_data.newValue != undefined) {
+                    answerStats = _data.newValue
+                    console.log(answerStats)
+                }
+                allAnswers = _data.allAnswer
+                answerQuestions = _data.questions
         
-        answerStats = _data
-        allAnswers = _allAnswers
-        answerQuestions = _answerQuestions
+                for(let i = 0; i < allAnswers.length; i++) {
+                    const pourcentageYes = answerStats[i].yesAnswer / answerStats[i].totalAnswer
+                    const pourcentageNo = answerStats[i].noAnswer / answerStats[i].totalAnswer
+                    const realPourcentageYes = `${Math.round(100 * pourcentageYes)}%`
+                    const realPourcentageNo = `${Math.round(100 * pourcentageNo)}%`
 
-        for(let i = 0; i < answerStats.length-1; i++) {
-            const pourcentageYes = answerStats[i].yesAnswer / answerStats[i].totalAnswer
-            seekYes[i].style.transform = `scaleX(${pourcentageYes})`
-            const pourcentageNo = answerStats[i].noAnswer / answerStats[i].totalAnswer
-            seekNo[i].style.transform = `scaleX(${pourcentageNo})`
-            if(allAnswers[i] == 1) {
-                myVote[i].innerHTML = answerQuestions[i].no
-            } else {
-                myVote[i].innerHTML = answerQuestions[i].yes
-            }
+                    seekYes[i].style.transform = `scaleX(${pourcentageYes})`
+                    seekNo[i].style.transform = `scaleX(${pourcentageNo})`
+        
+                    allAnswers[i] == 1 ? myVote[i].innerHTML = answerQuestions[i].no : myVote[i].innerHTML = answerQuestions[i].yes
+        
+                    textPourcentageYes[i].innerHTML = realPourcentageYes
+                    textPourcentageNo[i].innerHTML = realPourcentageNo
+                    
+                    textPourcentageHoveYes[i].innerHTML = realPourcentageYes
+                    textPourcentageHoverNo[i].innerHTML = realPourcentageNo
+                }
+            }, 500)
         }
     }
 })
