@@ -125,6 +125,7 @@ copyLink.addEventListener('click', () => {
 disclaimerBtn.addEventListener('click', () => {
   disclaimerContainer.classList.toggle('disclaimer-text-pop')
 })
+
 disclaimerBtnClose.addEventListener('click', () => {
   disclaimerContainer.classList.remove('disclaimer-text-pop')
 })

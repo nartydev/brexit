@@ -10,7 +10,42 @@ body {
   background: $bg-color;
   background: radial-gradient(#001A4D, #00050F);
 }
-
+.close-disclaimer{
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  width : 20px;
+  height : 20px; 
+  cursor: pointer;
+}
+.disclaimer-text{
+  width: 100%;
+  height: 10%;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(100%);
+  background: rgba(0,0,0,0.8);
+  transition: 0.5s ease-in transform;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10%;
+  text-align: center;
+  z-index: 20;
+  p{
+    color: white;
+    font-family: "Oxygen";
+  }
+}
+.disclaimer-text-pop{
+  transform: translateY(0%);
+}
+.sound-display{
+  display: block; 
+}
+.sound-no-display{
+  display: none;
+}
 .menu-burger {
   display: none;
   position: fixed;
