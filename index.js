@@ -44,16 +44,22 @@ let totalAnswer;
 app.use('/assets', express.static('assets'))
 app.set('views', './views')
 app.set('view engine', 'ejs')
+let idLinkPage = Math.floor((Math.random() * 10000));
 
 // Set route
 app.get('/', function (req, res) {
-    res.render('index')
+    res.render('index', { idLinkPage })
 });
 
 app.get('/quiz-phone/:id', function (req, res) {
     const idPage = req.params.id
     res.render('quiz-phone', { idPage })
 });
+
+
+app.get('/require-id', (req, res) => {
+    res.redirect(`/quiz-phone/${idLinkPage}`)
+})
 
 app.get('/country/:country/:id', function (req, res) {
     countryName = req.params.country
@@ -63,11 +69,11 @@ app.get('/country/:country/:id', function (req, res) {
 
 // Listen connect
 io.on('connection', (socket, data) => {
+    allAnswer = []  
     socket.on('answerQuestion', (data)  => {
         if (allAnswer.length != 10 && data.value) {
             allAnswer = [...allAnswer, data.value]
         } else  {  
-            allAnswer = []  
             const finalAnswer = new Answer({
                 idSocket: data.idSocket,
                 country: countryName,

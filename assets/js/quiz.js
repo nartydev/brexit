@@ -43,7 +43,6 @@ socket.on('questionValue', _data => {
             interRound[_data.data.id].classList.add('inter-round--active')
         } else {
             // End screen
-            console.log("llolkjhszfvbgnhbgvfr")
             setTimeout(() => {
                 endScreen.classList.add('active')
                 document.body.style.overflowY = "scroll"

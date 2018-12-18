@@ -60,9 +60,11 @@
   flex-flow: column nowrap;
   height: 40%;
   span{
-    font-family: "Josefin Sans";
-    color: white;
+    font-family: "Montserrat";
+    color: #fff;
+    font-weight:800;
     font-size: 2em;
+    letter-spacing: 1px;
   }
   .qr-code-img{
     width: 300px;
@@ -75,7 +77,7 @@
   display:flex;
   justify-content: space-around;
   align-items: center;
-  flex-flow: column nowrap;
+  flex-flow: column-reverse nowrap;
   bottom: -50%;
   right: -20%;
   font-family: "Josefin Sans";
@@ -83,9 +85,64 @@
   font-size: 1em;
   z-index: 200;
   span{
-    margin-bottom: 13px;
+    margin-top: 13px;
+    text-transform:uppercase;
+    font-size:13px;
   }
 }
+
+.top-text-qr-code {
+  margin-bottom:20px;
+}
+
+.or-qr-code {
+  font-size: 2em;
+  padding: 20px 0;
+  color: #ffcc00;
+  font-family: "Josefin Sans";
+  font-weight: 900;
+}
+
+.bottom-text-qr-code {
+  padding: 20px;
+  background: #FFF;
+  border-radius: 5px;
+  width:100%;
+}
+
+.url {
+  width: 80%;
+  background: #ffc000;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: "Oxygen";
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 20px auto;
+  color: #fff;
+}
+
+.btn-start {
+  border-radius: 30px;
+  background: #000b31;
+  text-align: center;
+  font-family: "Josefin Sans";
+  text-transform: uppercase;
+  margin:30px auto 0;
+  width:80%;
+  padding:20px;
+}
+
+.btn-start a {
+  text-decoration: none;
+  color: #fff;
+  width:100%;
+}
+
+.text-qr-code-step {
+  font-family:"Oxygen";
+}
+
 @keyframes animation-qr-left {
   0% {
     width: 10%;
@@ -113,14 +170,16 @@
   display:flex;
   justify-content: space-around;
   align-items: center;
-  flex-flow: column nowrap;
-  bottom: -50%;
-  left: -10%;
+  flex-flow: column-reverse nowrap;
+  bottom: -66%;
+  left: -33%;
   font-family: "Josefin Sans";
   color: white;
   font-size: 1em;
   z-index: 200;
   span{
-    margin-bottom: 13px;
+    margin-top: 13px;
+    text-transform: uppercase;
+    font-size: 13px;
   }
 }

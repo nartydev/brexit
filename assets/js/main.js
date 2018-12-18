@@ -228,11 +228,25 @@ function getCountryName(){
   }
 }
 
+function getCountryNameInVar(){
+  for (let i = 0; i < allCountries.length; i++) {
+    if(allCountries[i].classList.contains('countries-svg-selected')){
+      for (let j = 0; j < data.countries.length; j++) {
+        if(data.countries[j].svg_id == i){
+          return data.countries[j].name
+        }
+      }
+    }
+  }
+}
+
 for (let i = 0; i < allCountries.length; i++) {
   allCountries[i].addEventListener('click', () => {
     clearClass()
     allCountries[i].classList.add('countries-svg-selected')
     getCountryName()
+    let contryName = getCountryNameInVar()
+    console.log(contryName)
   })
 }
 
