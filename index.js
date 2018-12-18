@@ -66,7 +66,8 @@ io.on('connection', (socket, data) => {
     socket.on('answerQuestion', (data)  => {
         if (allAnswer.length != 10 && data.value) {
             allAnswer = [...allAnswer, data.value]
-        } else  {    
+        } else  {  
+            allAnswer = []  
             const finalAnswer = new Answer({
                 idSocket: data.idSocket,
                 country: countryName,
@@ -102,7 +103,7 @@ io.on('connection', (socket, data) => {
                         if (err) {
                             console.log(err)
                         } else {
-                            let newStats = {
+                            const newStats = {
                                 idQuestion: 10,
                                 totalAnswer: totalAnswer,
                                 yesAnswer: result,
@@ -116,7 +117,7 @@ io.on('connection', (socket, data) => {
                         if (err) {
                             console.log(err)
                         } else {
-                            let newStats = {
+                            const newStats = {
                                 idQuestion: 9,
                                 totalAnswer: totalAnswer,
                                 yesAnswer: result,
@@ -131,7 +132,7 @@ io.on('connection', (socket, data) => {
                         if (err) {
                             console.log(err)
                         } else {
-                            let newStats = {
+                            const newStats = {
                                 idQuestion: 8,
                                 totalAnswer: totalAnswer,
                                 yesAnswer: result,
@@ -145,7 +146,7 @@ io.on('connection', (socket, data) => {
                         if (err) {
                             console.log(err)
                         } else {
-                            let newStats = {
+                            const newStats = {
                                 idQuestion: 7,
                                 totalAnswer: totalAnswer,
                                 yesAnswer: result,
@@ -159,7 +160,7 @@ io.on('connection', (socket, data) => {
                         if (err) {
                             console.log(err)
                         } else {
-                            let newStats = {
+                            const newStats = {
                                 idQuestion: 6,
                                 totalAnswer: totalAnswer,
                                 yesAnswer: result,
@@ -173,7 +174,7 @@ io.on('connection', (socket, data) => {
                         if (err) {
                             console.log(err)
                         } else {
-                            let newStats = {
+                            const newStats = {
                                 idQuestion: 5,
                                 totalAnswer: totalAnswer,
                                 yesAnswer: result,
@@ -187,7 +188,7 @@ io.on('connection', (socket, data) => {
                         if (err) {
                             console.log(err)
                         } else {
-                            let newStats = {
+                            const newStats = {
                                 idQuestion: 4,
                                 totalAnswer: totalAnswer,
                                 yesAnswer: result,
@@ -201,7 +202,7 @@ io.on('connection', (socket, data) => {
                         if (err) {
                             console.log(err)
                         } else {
-                            let newStats = {
+                            const newStats = {
                                 idQuestion: 3,
                                 totalAnswer: totalAnswer,
                                 yesAnswer: result,
@@ -215,7 +216,7 @@ io.on('connection', (socket, data) => {
                         if (err) {
                             console.log(err)
                         } else {
-                            let newStats = {
+                            const newStats = {
                                 idQuestion: 2,
                                 totalAnswer: totalAnswer,
                                 yesAnswer: result,
@@ -229,13 +230,14 @@ io.on('connection', (socket, data) => {
                         if (err) {
                             console.log(err)
                         } else {
-                            let newStats = {
+                            const newStats = {
                                 idQuestion: 1,
                                 totalAnswer: totalAnswer,
                                 yesAnswer: result,
                                 noAnswer: totalAnswer - result
                             }
-                            newValue = [newStats, ...dataSectionQuestions]
+                            const newValue = [newStats, ...dataSectionQuestions]
+                            console.log(newValue)
                             io.sockets.emit('questionValue', { data, newValue, allAnswer, questions} )
                         }
                     })

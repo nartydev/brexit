@@ -43,12 +43,12 @@ socket.on('questionValue', _data => {
             interRound[_data.data.id].classList.add('inter-round--active')
         } else {
             // End screen
+            console.log("llolkjhszfvbgnhbgvfr")
             setTimeout(() => {
                 endScreen.classList.add('active')
                 document.body.style.overflowY = "scroll"
                 if(_data.newValue != undefined) {
                     answerStats = _data.newValue
-                    console.log(answerStats)
                 }
                 allAnswers = _data.allAnswer
                 answerQuestions = _data.questions
@@ -70,7 +70,7 @@ socket.on('questionValue', _data => {
                     textPourcentageHoveYes[i].innerHTML = realPourcentageYes
                     textPourcentageHoverNo[i].innerHTML = realPourcentageNo
                 }
-            }, 500)
+            }, 1000)
         }
     }
 })
