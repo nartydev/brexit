@@ -59,6 +59,12 @@ const backCircle = document.querySelector('.background-circle')
 const fadeMenuContainer = document.querySelector('.fade-menu-container')
 const copyLink = document.querySelector('.share-link')
 const copiedPrint = document.querySelector('.copied-return')
+const disclaimerBtn = document.querySelector('.disclaimer-link')
+const disclaimerContainer = document.querySelector('.disclaimer-text')
+const disclaimerBtnClose = document.querySelector('.close-disclaimer')
+const soundBtn = document.querySelector('.sound-ico')
+const soundOff = document.querySelector('.inner-sound-off')
+const soundOn = document.querySelector('.inner-sound-on')
 
 
   containerMap.style.display = "none"
@@ -116,10 +122,22 @@ copyLink.addEventListener('click', () => {
   }, 1500);
 })
 
+disclaimerBtn.addEventListener('click', () => {
+  disclaimerContainer.classList.toggle('disclaimer-text-pop')
+})
+disclaimerBtnClose.addEventListener('click', () => {
+  disclaimerContainer.classList.remove('disclaimer-text-pop')
+})
+
 beginButton.addEventListener('click', () => {
   transitionLanding()
 })
-
+soundBtn.addEventListener('click', () => {
+  soundOff.classList.toggle('sound-display')
+  soundOff.classList.toggle('sound-no-display')
+  soundOn.classList.toggle('sound-display')
+  soundOn.classList.toggle('sound-no-display')
+})
 window.addEventListener("mousemove",  (_event) => {
     let x = event.clientX
     let y = event.clientY
@@ -156,6 +174,7 @@ buttonCountriesRight.addEventListener('click', () => {
 confirmCountryBtn.addEventListener('click', () => {
   getCountryName()
   qrTransitionContainer.classList.toggle('qr-transition-show')
+  disclaimerContainer.classList.remove('disclaimer-text-pop')
   setTimeout(function(){
     for (var i = 0; i < qrTranstionBars.length; i++) {
       qrTranstionBars[i].classList.toggle('qr-transition-bar-animation-up')

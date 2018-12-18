@@ -20,6 +20,7 @@
     margin-left: 0;
     height: 100vh;
     background: $blue-color;
+    border-right: 2px $light-blue-color solid;
     transition: 1s ease all;
     transform: translateY(100%);
     will-change: transform;
