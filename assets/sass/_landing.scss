@@ -70,6 +70,7 @@
     box-shadow: 0 0 0px white;
     background: rgba(255,255,255,0.5);
     transition: 0.5s ease background;
+    will-change: box-shadow;
   }
   .container-unlock-landing:hover .background-circle{
     background: rgba(0,0,0,0.3);

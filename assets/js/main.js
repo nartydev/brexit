@@ -56,6 +56,8 @@ const unlockBar = document.querySelector('.unlock-bar')
 const unlockTarget = document.querySelector('.target-unlock')
 const allSingleCountries = document.querySelectorAll('.country-map-apparition')
 const backCircle = document.querySelector('.background-circle')
+const fadeMenuContainer = document.querySelector('.fade-menu-container')
+
   containerMap.style.display = "none"
 let countryNum = 0;
 let nbStars = 12
@@ -205,10 +207,17 @@ function goToCountry(tposx, tposy, dscale){
 }
 /* Menu burger interaction*/
 menuBurger.addEventListener('click', () => {
+  menuBurgerFunction()
+})
+fadeMenuContainer.addEventListener('click', () => {
+  menuBurgerFunction()
+})
+
+function menuBurgerFunction(){
   menuBurger.classList.toggle('menu-burger-open-animation')
   menuBurger.classList.toggle('menu-burger-close-animation')
   menuContainer.classList.toggle('menu-container-open')
   menuContainer.classList.toggle('menu-container-close')
   menuContainerBG.classList.toggle('fade-menu-container-open')
   menuContainerBG.classList.toggle('fade-menu-container-close')
-})
+}

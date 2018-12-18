@@ -36,7 +36,39 @@ body {
   animation-fill-mode: forwards;
   transform-origin: center;
 }
-
+.footer-menu-burger{
+  position: absolute;
+  bottom: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  height: auto;
+}
+.disclaimer{
+  width: 25px;
+  height: 25px;
+  background-image: url('../img/share.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.share-link{
+  width: 25px;
+  height: 25px;
+  background-image: url('../img/share.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.sound-ico{
+  width: 25px;
+  height: 25px;
+  background-image: url('../img/volume-x.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
 .menu-burger-open-animation .menu-burger-bar-1 {
   animation-name: cross-animation-top;
 }
@@ -130,7 +162,7 @@ body {
   z-index: 8;
   top: 0;
   right: 0;
-  width: 20%;
+  width: 350px;
   height: 100vh;
   background: $lighter-blue-color;
   transition-timing-function: ease-in;
@@ -139,7 +171,50 @@ body {
   transform: translateX(0%);
   will-change: transform;
   overflow: hidden;
-  box-shadow: -3px 0px 16px #1f1f1f;
+  box-shadow: -3px 0px 16px #0202029c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  .title-container{
+    width: 75%;
+  }
+  .menu-title-unselected{
+    color: rgba(255,255,255,0.4)
+  }
+  .menu-title-selected{
+    color:white;
+  }
+  .menu-title-container{
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-flow: column nowrap;
+    cursor: pointer;
+    margin-bottom: 20%;
+  }
+  .menu-title-container:hover .menu-title-container-bar{
+    width: 100%;
+  }
+  .menu-title-container:hover span{
+    color: white;
+  }
+  .menu-title-container-bar{
+    height: 1px;
+    width: 0;
+    background: white;
+    transition: ease-in 0.3s width;
+  }
+  span{
+    font-family: "Noe Display Black";
+    text-align: right;
+    font-size: 2em;
+    width: auto;
+    transition: ease-in 0.3s color;
+  }
+
 }
 
 .menu-container-open{
@@ -156,7 +231,7 @@ body {
   width: 100%;
   height: 100vh;
   opacity: 0;
-  background: $light-blue-color;
+  background: rgba(0,0,0,0.6);
   transition-timing-function: ease-in;
   transition-duration: 0.4s;
   transition-property: opacity;

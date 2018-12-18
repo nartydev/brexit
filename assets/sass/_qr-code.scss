@@ -22,6 +22,7 @@
     background: $blue-color;
     transition: 1s ease all;
     transform: translateY(100%);
+    will-change: transform;
   }
   .qr-transition-bar-1{transition-delay: 0.1s}
   .qr-transition-bar-2{transition-delay: 0.2s}
