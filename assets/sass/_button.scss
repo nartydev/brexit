@@ -46,7 +46,7 @@ $btn-color : #afafaf;
     left: 50%;
     transform: translate(-26%,-60%);
     width: 22px;
-    height: 1px;
+    height: 1.5px;
     background: $btn-color;
   }
   .sml-bar-arrow{
@@ -55,7 +55,7 @@ $btn-color : #afafaf;
     left: 50%;
     transform: translate(-300%,-50%);
     width: 5px;
-    height: 1px;
+    height: 1.5px;
     background: $btn-color;
     transition: 0.3s ease-in all;
   }

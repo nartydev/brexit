@@ -31,10 +31,10 @@ const data = {
     ]
   }
 
-
+/*
 const menuBurger = document.querySelector('.menu-burger')
 const menuContainer = document.querySelector('.side-menu-container')
-const menuContainerBG = document.querySelector('.fade-menu-container')
+const menuContainerBG = document.querySelector('.fade-menu-container')*/
 const landingContainer = document.querySelector('.landing-container')
 const beginButton = document.querySelector('.landing-begin-button')
 const landingTransitionContainer = document.querySelector('.landing-transition')
@@ -57,6 +57,9 @@ const unlockTarget = document.querySelector('.target-unlock')
 const allSingleCountries = document.querySelectorAll('.country-map-apparition')
 const backCircle = document.querySelector('.background-circle')
 const fadeMenuContainer = document.querySelector('.fade-menu-container')
+const copyLink = document.querySelector('.share-link')
+const copiedPrint = document.querySelector('.copied-return')
+
 
   containerMap.style.display = "none"
 let countryNum = 0;
@@ -65,6 +68,15 @@ for(const $button of $buttons)
 {
     const button = new Button($button)
 }
+
+function CopyLink(str) {
+  const el = document.createElement('textarea');
+  el.value = str;
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+ }
 
 const resize = () => {
   contentMap.removeAttribute("style")
@@ -95,6 +107,14 @@ function transitionLanding(){
     }
   }, 1100);
 }
+copyLink.addEventListener('click', () => {
+  CopyLink(window.location.href)
+  copiedPrint.classList.add('pop-up-animation')
+
+  setTimeout(function(){
+    copiedPrint.classList.remove('pop-up-animation')
+  }, 1500);
+})
 
 beginButton.addEventListener('click', () => {
   transitionLanding()
@@ -140,7 +160,7 @@ confirmCountryBtn.addEventListener('click', () => {
     for (var i = 0; i < qrTranstionBars.length; i++) {
       qrTranstionBars[i].classList.toggle('qr-transition-bar-animation-up')
     }
-  }, 10);
+  }, 20);
   setTimeout(function(){
     containerMap.style.display = "none"
     qrCode.style.display = "flex"
@@ -159,7 +179,7 @@ qrCodeBackBtn.addEventListener('click', () => {
   qrTransitionContainer.classList.toggle('qr-transition-show')
   setTimeout(function(){
     qrTransitionContainer.classList.toggle('qr-transition-after')
-  }, 10);
+  }, 20);
   for (var i = 0; i < qrTranstionBars.length; i++) {
     qrTranstionBars[i].classList.toggle('qr-transition-bar-animation-up')
   }
@@ -205,7 +225,7 @@ function clearClass(){
 function goToCountry(tposx, tposy, dscale){
   contentMap.style.transform = `translate(${tposx},${tposy}) scale(3)`
 }
-/* Menu burger interaction*/
+/* Menu burger interaction
 menuBurger.addEventListener('click', () => {
   menuBurgerFunction()
 })
@@ -221,3 +241,4 @@ function menuBurgerFunction(){
   menuContainerBG.classList.toggle('fade-menu-container-open')
   menuContainerBG.classList.toggle('fade-menu-container-close')
 }
+*/

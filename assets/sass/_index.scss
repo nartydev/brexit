@@ -12,13 +12,14 @@ body {
 }
 
 .menu-burger {
+  display: none;
   position: fixed;
   z-index: 9;
   top: 30px;
-  right: 30px;
+  right: 19px;
   width: 40px;
   height: 24px;
-  display: flex;
+  display: none;
   justify-content: space-between;
   flex-flow: nowrap column;
   align-items: center;
@@ -36,14 +37,51 @@ body {
   animation-fill-mode: forwards;
   transform-origin: center;
 }
+.menu-burger-ico{
+  cursor: pointer;
+}
 .footer-menu-burger{
-  position: absolute;
-  bottom: 5%;
+  position: fixed;
+  z-index: 9;
+  top:5%;
+  right: 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 70%;
+  flex-flow:row nowrap;
+  width: 15%;
   height: auto;
+}
+.copied-return{
+  opacity: 0;
+  position: absolute;
+  width: 70px;
+  height: 30px;
+  top:150%;
+  right:-100%;
+  background: rgba(0,0,0,0.5);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span{
+    color:white;
+    font-family: "Josefin Sans";
+  }
+}
+.pop-up-animation{
+  animation-name: pop-up;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+
+}
+.ico-hover{
+  stroke: #c5c5c5;
+  transition: 0.3s ease-in stroke;
+}
+.ico-hover:hover{
+  stroke:white;
 }
 .disclaimer{
   width: 25px;
@@ -54,6 +92,7 @@ body {
   background-position: center;
 }
 .share-link{
+  position: relative;
   width: 25px;
   height: 25px;
   background-image: url('../img/share.png');
@@ -100,6 +139,18 @@ body {
 
   100% {
     transform: rotate(0deg) translate(0px, 0px);
+  }
+}
+
+@keyframes pop-up {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
@@ -162,7 +213,7 @@ body {
   z-index: 8;
   top: 0;
   right: 0;
-  width: 350px;
+  width: 100px;
   height: 100vh;
   background: $lighter-blue-color;
   transition-timing-function: ease-in;
@@ -210,7 +261,7 @@ body {
   span{
     font-family: "Noe Display Black";
     text-align: right;
-    font-size: 2em;
+    font-size: 2.5em;
     width: auto;
     transition: ease-in 0.3s color;
   }
@@ -328,11 +379,15 @@ body {
   .responsive-container-map{
     display: block;
   }
-
   .content-map {
     transform: translate(82%,-28%) scale(3)
   }
   .center-title-main{
     top:10%;
+  }
+  .footer-menu-burger{
+    flex-flow: column nowrap;
+    width: 5%;
+    height: 20%;
   }
 }
