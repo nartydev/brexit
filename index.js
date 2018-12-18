@@ -64,10 +64,8 @@ app.get('/country/:country/:id', function (req, res) {
 // Listen connect
 io.on('connection', (socket, data) => {
     socket.on('answerQuestion', (data)  => {
-        console.log(data, allAnswer)
         if (allAnswer.length != 10 && data.value) {
             allAnswer = [...allAnswer, data.value]
-            console.log('lol', data)
         } else  {    
             const finalAnswer = new Answer({
                 idSocket: data.idSocket,
@@ -87,9 +85,7 @@ io.on('connection', (socket, data) => {
             finalAnswer.save((err, answerSave) => {
                 if (err) {
                     console.log(err)
-                } else {
-                    console.log('success save')
-                    
+                } else {                    
                     Answer.countDocuments({ country: countryName }, (err, result) => {
                         if (err) {
                             console.log(err)
@@ -258,8 +254,6 @@ io.on('connection', (socket, data) => {
         console.log('user disconnected')
     });
 });
-
-
 
 http.listen(3000 || 5000, function () {
     console.log('listening on *' + process.env.PORT)
