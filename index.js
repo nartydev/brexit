@@ -50,8 +50,8 @@ app.get('/', function (req, res) {
     res.render('index')
 });
 
-app.get('/test-info', function (req, res) {
-    res.render('text-info')
+app.get('/test', function (req, res) {
+    res.render('test')
 });
 
 app.get('/quiz-phone/:id', function (req, res) {
