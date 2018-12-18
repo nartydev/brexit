@@ -51,6 +51,10 @@ app.get('/', function (req, res) {
     res.render('index', { idLinkPage })
 });
 
+app.get('/test', function (req, res) {
+    res.render('test')
+});
+
 app.get('/quiz-phone/:id', function (req, res) {
     const idPage = req.params.id
     res.render('quiz-phone', { idPage })
