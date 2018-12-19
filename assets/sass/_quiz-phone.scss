@@ -46,6 +46,34 @@
     overflow: hidden;
 }
 
+.box-quiz:first-child {
+    transform:translateX(100%);
+    animation:moveFromLeft .7s ease-in-out forwards;
+}
+
+.box-quiz:last-child {
+    transform:translateX(-100%);
+    animation:moveFromRight .7s ease-in-out forwards;
+}
+
+@keyframes moveFromRight {
+    0% {
+        transform:translateX(100%);
+    }
+    100% {
+        transform:translateX(0%);
+    }
+}
+
+@keyframes moveFromLeft {
+    0% {
+        transform:translateX(-100%);
+    }
+    100% {
+        transform:translateX(0%);
+    }
+}
+
 input[type="radio"] {
     display:none;
 }
@@ -181,6 +209,7 @@ button.button-submit {
     font-family:"Josefin Sans";
     font-weight:bold;
     font-size:1.5em;
+    cursor:pointer;
 }
 
 .stats-skip-screen.active {

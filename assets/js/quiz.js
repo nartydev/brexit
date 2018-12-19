@@ -78,7 +78,11 @@ socket.on('questionValue', _data => {
                 }
                 allAnswers = _data.allAnswer
                 answerQuestions = _data.questions
-        
+                let scoreAnswers = 0;
+                for(let y = 0; y < allAnswers.length; y++) {
+                    scoreAnswers += parseInt(allAnswers[y])
+                } 
+                console.log('sccore:',scoreAnswers)
                 for(let i = 0; i < allAnswers.length; i++) {
                     const pourcentageYes = answerStats[i].yesAnswer / answerStats[i].totalAnswer
                     const pourcentageNo = answerStats[i].noAnswer / answerStats[i].totalAnswer

@@ -239,6 +239,18 @@ tion {
     color:#fff;
     font-family:"Josefin Sans";
     z-index:111;
+    animation: moveFromTop .4s ease-in-out forwards;
+    transform: translateY(-100%);
+}
+
+
+@keyframes moveFromTop {
+    0% {
+        transform:translateY(-100%);
+    }
+    100% {
+        transform:translateY(0%);
+    }
 }
 
 .container-data {
