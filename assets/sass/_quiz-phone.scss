@@ -43,6 +43,7 @@
     position:relative;
     height: 100vh;
     z-index: 1;
+    overflow: hidden;
 }
 
 input[type="radio"] {
@@ -173,8 +174,19 @@ button.button-submit {
     transform:translateX(-100%);
     transition:.4s;
     z-index:999999;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    text-transform: uppercase;
+    font-family:"Josefin Sans";
+    font-weight:bold;
+    font-size:1.5em;
 }
 
 .stats-skip-screen.active {
     transform:translateX(0%);
+}
+
+.idpage {
+    display:none;
 }
