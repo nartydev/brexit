@@ -126,6 +126,7 @@ tion {
     color: white;
     font-family: "Oxygen";
     font-weight: lighter;
+    margin-bottom: 10px;
 }
 .img-help{
     position:relative;
@@ -140,7 +141,7 @@ tion {
     height: 70%;
     text-align: left;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: flex-start;
     flex-flow: column nowrap;
     margin-left: 10%;
@@ -396,9 +397,27 @@ tion {
 
 .yes-manual{
     cursor: pointer;
+    padding:20px;
+    background:#132A56;
+    border-radius: 5px;
+    border: 1px solid white;
+    transform: scale(1);
+    transition: 0.3s ease-in transform;
 }
 .no-manual{
     cursor: pointer;
+    padding:20px;
+    background:#132A56;
+    border-radius: 5px;
+    border: 1px solid white;
+    transform: scale(1);
+    transition: 0.3s ease-in transform;
+}
+.yes-manual:hover {
+    transform: scale(1.1);
+}
+.no-manual:hover {
+    transform: scale(1.1);
 }
 .hover-tooltip-yes, .hover-tooltip-yesManual {
     opacity:0;
@@ -463,6 +482,10 @@ tion {
 }
 
 .manual-question {
+    position:fixed;
+    width: 50%;
+    top: 50%;
+    left: 25%;
     display: flex;
     justify-content: space-around;
     padding: 100px 0;
