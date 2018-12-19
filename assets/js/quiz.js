@@ -74,6 +74,8 @@ socket.on('questionValue', _data => {
     }
 })
 
+
+
 socket.on('showInformation', _data => {
     contentHelp[_data].classList.toggle('active')
 })

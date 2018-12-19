@@ -298,6 +298,29 @@ io.on('connection', (socket, data) => {
                     })
                 }
             })
+        } else if (idStatsVizu == 1) {
+            Answer.countDocuments({ country: countryName }, (err, result) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    totalAnswer = result;
+                    Answer.countDocuments({ country: countryName, question_2: 2 }, (err, result) => {
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            const newStats = {
+                                idQuestion: 1,
+                                totalAnswer: totalAnswer,
+                                yesAnswer: result,
+                                noAnswer: totalAnswer - result
+                            }
+                            const newValue = [newStats, ...dataSectionQuestions]
+                            console.log(newValue)
+                            io.sockets.emit('showEnd', { _data, newValue, questions })
+                        }
+                    })
+                }
+            })
         }
         
         if (idStatsVizu == 11) {
@@ -473,6 +496,10 @@ io.on('connection', (socket, data) => {
         */
     })
 
+    socket.on('clickSkip', _id => {
+        console.log(_id)
+        io.sockets.emit('skipStats', _id - 1)
+    })
 
     socket.on('clickInformation', _id => {
         io.sockets.emit('showInformation', _id - 1)

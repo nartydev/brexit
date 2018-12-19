@@ -29,6 +29,9 @@ console.log(countryName)
 
 let globalAnswerb;
 
+const containerStats = [...document.querySelectorAll('.container-question-result')]
+const skipButton = [...document.querySelectorAll('.skip-button')]
+
 function postElement(idElement) {
     allAnswersManual[idQuestionManual] = idElement
     let dataManual = {
@@ -36,15 +39,14 @@ function postElement(idElement) {
         "value": allAnswersManual[idQuestionManual],
     }
     if (idQuestionManual <= 10) {
-        console.log(allAnswersManual)
         if (idQuestionManual < 10) {
-            quizContainer[idQuestionManual - 1].classList.remove('active')
-            quizContainer[idQuestionManual - 1].classList.add('active-last')
-            quizContainer[idQuestionManual].classList.add('active')
-            interRound[idQuestionManual].classList.add('inter-round--active')
+
+            // Show stats
+            containerStats[idQuestionManual-1].classList.add('active')
+            //
+
         }
         idQuestionManual++
-        console.log(dataManual)
     }
     if (idQuestionManual == 11) {
         dataManual.allAnswersManual = allAnswersManual
@@ -53,6 +55,7 @@ function postElement(idElement) {
 }
 
 socket.on('showEnd', data => {
+    console.log(data)
     if(data._data.id == 10) {
         setTimeout(() => {
             endScreen.classList.add('active')
@@ -77,6 +80,23 @@ socket.on('showEnd', data => {
             }
         }, 1000)
     }
+})
+
+for(let y = 0; y < skipButton.length; y++) {
+    skipButton[y].addEventListener('click', _event => {
+        _event.preventDefault()
+        console.log(y);
+        socket.emit('clickSkip', y)
+    })
+}
+
+socket.on('skipStats', data => {
+    console.log('data y', data);
+    containerStats[data+1].classList.remove('active')
+    quizContainer[data+1].classList.remove('active')
+    quizContainer[data+1].classList.add('active-last')
+    quizContainer[data+2].classList.add('active')
+    interRound[data+2].classList.add('inter-round--active')
 })
 
 function checkStatus(response) {
