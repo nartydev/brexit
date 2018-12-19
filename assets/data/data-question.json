@@ -8,28 +8,16 @@
     },
     "1": {
         "question": "What would you prefer your taxes to finance ?",
-<<<<<<< HEAD
         "help": "The UK pays almost £ 100 per citizen per person per year to the European Union, or £ 7 billion a year to fund causes outside. If the country were to come out of Europe, that would be an important part of the money available to improve the quality of life on a national scale. <br> <br> The entire tax could be used to build public institutions, transportation routes and others.",
-        "yes": "Local school",
-        "no": "Migrant crisis",
-=======
-        "help": "The UK pays almost £ 100 per citizen per person per year to the European Union, or £ 7 billion a year to fund causes outside. If the country were to come out of Europe, that would be an important part of the money available to improve the quality of life on a national scale. The entire tax could be used to build public institutions, transportation routes and others.",
         "yes": "Migrant crisis",
         "no": "Local school",
->>>>>>> ba285c5cf069a79b295bba57cf2ecaee4d6150c0
         "picture" : "../assets/img/2.png"
     },
     "2": {
         "question": "Do you prefer to organize your holidays in advance or decide at the last moment ?",
-<<<<<<< HEAD
         "help": "With the exit of Europe, the United Kingdom would be brought to restore real borders, abolished at the time of its entry in the European Union in 1973. The inhabitants of the United Kingdom will then have to pay a VISA of 61 euros per person for leave the territory and vice versa for a European who wants to spend time in the UK. <br> <br> The procedure will also be long. It will take about 1 month to obtain the validation of his VISA, thus complicating the last minute steps.",
-        "yes": "Advance",
-        "no": "Last moment",
-=======
-        "help": "With the exit of Europe, the United Kingdom would be brought to restore real borders, abolished at the time of its entry in the European Union in 1973. The inhabitants of the United Kingdom will then have to pay a VISA of 61 euros per person for leave the territory and vice versa for a European who wants to spend time in the UK. The procedure will also be long. It will take about 1 month to obtain the validation of his VISA, thus complicating the last minute steps.",
         "yes": "Last moment",
         "no": "Advance",
->>>>>>> ba285c5cf069a79b295bba57cf2ecaee4d6150c0
         "picture" : "../assets/img/3.png"
     },
     "3": {
@@ -41,28 +29,16 @@
     },
     "4": {
         "question": "Do you prefer that the country ease the burden of small businesses or facilitate the insertion of foreign companies ?",
-<<<<<<< HEAD
         "help": "With BREXIT, many foreign companies are expected to leave the UK and find a new gateway to Europe in another country. Many foreign investors should leave and leave more public money available for small and medium enterprises. <br> <br> Investments in SMEs would reduce social and wage costs and boost the local economy. This would provide an opportunity for start-ups or SMEs to fill a vacant spot on the market.",
-        "yes": "Alleviate",
-        "no": "Facilitate",
-=======
-        "help": "With BREXIT, many foreign companies are expected to leave the UK and find a new gateway to Europe in another country. Many foreign investors should leave and leave more public money available for small and medium enterprises.Investments in SMEs would reduce social and wage costs and boost the local economy. This would provide an opportunity for start-ups or SMEs to fill a vacant spot on the market.",
         "yes": "Facilitate",
         "no": "Alleviate",
->>>>>>> ba285c5cf069a79b295bba57cf2ecaee4d6150c0
         "picture" : "../assets/img/5.png"
     },
     "5": {
         "question": "Do you prioritize nationally or globally?",
-<<<<<<< HEAD
         "help": "With the exit of the European Union, the United Kingdom will have to give up some of its professional advantages and European alliances. Indeed, some scientific laboratories in partnership with global agencies will have to stop their activities until they can again negotiate agreements. The same is true for all projects funded in collaboration with Europe. <br> <br> With the disappearance of these procedures, the United Kingdom will become much less attractive and then lose places in the global economic rankings.",
-        "yes": "Country",
-        "no": "World",
-=======
-        "help": "With the exit of the European Union, the United Kingdom will have to give up some of its professional advantages and European alliances. Indeed, some scientific laboratories in partnership with global agencies will have to stop their activities until they can again negotiate agreements. The same is true for all projects funded in collaboration with Europe. With the disappearance of these procedures, the United Kingdom will become much less attractive and then lose places in the global economic rankings.",
         "yes": "World",
         "no": "Country",
->>>>>>> ba285c5cf069a79b295bba57cf2ecaee4d6150c0
         "picture" : "../assets/img/6.png"
     },
     "6": {
@@ -74,15 +50,9 @@
     },
     "7": {
         "question": "If the price of your purchases (cigarettes, alcohol, bread ...) were to increase, would you continue to consume ?",
-<<<<<<< HEAD
         "help": "The pound will lose 12% against the dollar at the time of the exit of the United Kingdom. <br> <br> Assuming that the currency that will replace the euro in your country keeps the same value as the current one, your purchasing power will decrease and the prices of the products will really increase by about thirty percent.",
-        "yes": "Absolutely",
-        "no": "Rarely",
-=======
-        "help": "The pound will lose 12% against the dollar at the time of the exit of the United Kingdom. Assuming that the currency that will replace the euro in your country keeps the same value as the current one, your purchasing power will decrease and the prices of the products will really increase by about thirty percent.",
         "yes": "Rarely",
         "no": "Absolutely",
->>>>>>> ba285c5cf069a79b295bba57cf2ecaee4d6150c0
         "picture" : "../assets/img/8.png"
     },
     "8": {
