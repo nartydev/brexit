@@ -1,64 +1,68 @@
 <%- include('partials/head'); %>
 <body>
-    <div class="title-country"><%- countryName %></div>
-    <% for (var i=0; i < 10; i++) { %>
-    <div class="container-question">
-        <div class="overflow size-font-small">
-            <div class="content-number-question">Question n°<%- i +1 %></div>
-        </div>
-        <div class="info-round pos-question"><i class="fa fa-info"></i></div>
-        <div class="overflow">
-            <div class="question-title"><%- datas[i].question %></div>
-        </div>
-        <% if(manualQuestion) { %>
-        <div class="manual-question">
-            <div class="yes-manual"><%- datas[i].yes %></div>
-            <div class="no-manual"><%- datas[i].no %></div>
-        </div>
-        <% } %>
-        <div class="info-bulle">
-            <div class="content-help">
-                <div class="content-transition content-transition.active"></div>
-                <div class="container-text">
-                    <div class="help-title">Information</div>
-                    <span class="help-text">              <%- datas[i].help %></span>
-                </div>
-                <img class="img-help" src=" <%- datas[i].picture %> "></img>
+    <div class="global-container">
+        <div class="title-country"><%- countryName %></div>
+        <% for (var i=0; i < 10; i++) { %>
+        <div class="container-question">
+            <div class="overflow size-font-small">
+                <div class="content-number-question">Question n°<%- i +1 %></div>
             </div>
-        </div>
-    </div>
-     <div class="container-question-result">
-        <div class="result-transition"></div>
-        <div class="display-result">
-                <div class="question-result"><%- datas[i].question %></div>
-                <div class="content-question-data">
-                <div class="block-question-data">
-                    <div class="little-title-content-data">Global stats</div>
-                    <div class="charts-data">
-                        <div class="fill-data">
-                            <div class="hover-tooltip-yesManual">
-                            </div>
-                            <div class="seek-data-yes seek-data-yesManual"></div>
-                        </div>
-                        <div class="fill-data">
-                            <div class="hover-tooltip-noManual">
-                            </div>
-                            <div class="seek-data-no seek-data-noManual"></div>
-                        </div>
-                    </div>
-                    <div class="flex">
-                        <div class="round-yes"></div><span class="textYes"><%- datas[i].yes %> (<span class="pourcentageYesManual"></span>) </span>
-                        <div class="round-no"></div><span class="textNo"><%- datas[i].no %> (<span class="pourcentageNoManual"></span>)</span>
-                    </div>
-                </div>
-            </div>
+            <div class="info-round pos-question"><i class="fa fa-info"></i></div>
+            <div class="overflow">
+                <div class="question-title"><%- datas[i].question %></div>
             </div>
             <% if(manualQuestion) { %>
-            <div class="skip-button">NEXT QUESTION</div>
+            <div class="manual-question">
+                <div class="yes-manual"><%- datas[i].yes %></div>
+                <div class="no-manual"><%- datas[i].no %></div>
+            </div>
             <% } %>
-            <div class="time-remaining-result"></div>
+            <div class="info-bulle">
+                <div class="content-help">
+                    <div class="content-transition content-transition.active"></div>
+                    <div class="container-text">
+                        <div class="help-title">Information</div>
+                        <span class="help-text">              <%- datas[i].help %></span>
+                    </div>
+                    <img class="img-help" src=" <%- datas[i].picture %> "></img>
+                </div>
+            </div>
+        </div>
+         <div class="container-question-result">
+            <div class="result-transition"></div>
+            <div class="display-result">
+                    <div class="question-result"><%- datas[i].question %></div>
+                    <div class="content-question-data">
+                    <div class="block-question-data">
+                        <div class="little-title-content-data">Global stats</div>
+                        <div class="charts-data">
+                            <div class="fill-data">
+                                <div class="hover-tooltip-yesManual">
+                                </div>
+                                <div class="seek-data-yes seek-data-yesManual"></div>
+                            </div>
+                            <div class="fill-data">
+                                <div class="hover-tooltip-noManual">
+                                </div>
+                                <div class="seek-data-no seek-data-noManual"></div>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="round-yes"></div><span class="textYes"><%- datas[i].yes %> (<span class="pourcentageYesManual"></span>) </span>
+                            <div class="round-no"></div><span class="textNo"><%- datas[i].no %> (<span class="pourcentageNoManual"></span>)</span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <% if(manualQuestion) { %>
+                <div class="skip-button">NEXT QUESTION</div>
+                <% } %>
+                <div class="time-remaining-result"></div>
+        </div>
+        <% } %>
+        <%- include('timeline'); %>
+        <div class="idpage"><%- idPage %></div>
     </div>
-    <% } %>
     <div class="quiz-end">
         <div class="container-data">
             <div class="title-end-data">Information about <%= countryName %></div>
@@ -97,8 +101,6 @@
             <% } %>
         </div>
     </div>
-    <%- include('timeline'); %>
-    <div class="idpage"><%- idPage %></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
     <script src="../assets/js/quiz.js"></script>
     <% if(manualQuestion) { %>

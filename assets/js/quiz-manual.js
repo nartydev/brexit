@@ -73,6 +73,7 @@ socket.on('showEnd', data => {
     if (data._data.id == 10) {
         setTimeout(() => {
             endScreen.classList.add('active')
+            globalContainer.classList.add('active')
             document.body.style.overflowY = "scroll"
             answerStats = data.newValue
             answerQuestions = data.questions

@@ -9,6 +9,7 @@ const contentHelp = [...document.querySelectorAll('.content-help')]
 const interRound = [...document.querySelectorAll('.inter-round')]
 // End screen
 const endScreen = document.querySelector('.quiz-end')
+const globalContainer = document.querySelector('.global-container')
 let answerStats;
 let allAnswers;
 let answerQuestions;
@@ -40,6 +41,8 @@ const countryName = document.querySelector('.title-country').innerHTML;
 // Init
 quizContainer[0].classList.add('active')
 
+
+console.log(endScreen)
 // Callback answer
 socket.on('questionValue', _data => {
     console.log(_data)
@@ -66,8 +69,9 @@ socket.on('questionValue', _data => {
         } else {
             console.log('ok')
             // End screen
-            setTimeout(() => {
                 endScreen.classList.add('active')
+                console.log(globalContainer)
+                globalContainer.classList.add('active')
                 document.body.style.overflowY = "scroll"
                 if(_data.newValue != undefined) {
                     answerStats = _data.newValue
@@ -90,7 +94,6 @@ socket.on('questionValue', _data => {
                     textPourcentageHoveYes[i].innerHTML = realPourcentageYes
                     textPourcentageHoverNo[i].innerHTML = realPourcentageNo
                 }
-            }, 1000)
         }
     }
 })

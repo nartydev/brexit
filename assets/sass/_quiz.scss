@@ -2,12 +2,23 @@
     font-size:40px;
     font-family:"Noe Display Bold";
     transform:translateX(-100%);
-    transition:.7s ease-in-out;
+    transition:.7s .5s ease-in-out;
     will-change: transform;
     letter-spacing: 1.5px;
     line-height: 1.3;
 }
 
+.global-container{
+    display: block;
+    position:relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.global-container.active{
+    display: none;
+}
 
 .container-question.active .question-title {
     transform: translateX(0%);
@@ -29,6 +40,12 @@
 
 .size-font-small {
     margin: 0 0 40px;
+}
+.display-flex{
+    display: flex;
+}
+.display-none{
+    display: none;
 }
 
 .container-question {
@@ -135,7 +152,7 @@ tion {
     left:0;
     width: 100%;
     height: 100%;
-    background: $lighter-blue-color;
+    background: $yellow-color;
     transform: translateX(0%);
     transition: 0.3s ease-in transform;
     transition-delay: 0.8s;
@@ -174,6 +191,7 @@ tion {
 }
 
 .quiz-end {
+    display: none;
     position:absolute;
     width:100%;
     background:$blue-color;
@@ -181,6 +199,7 @@ tion {
 }
 
 .quiz-end.active {
+    display: flex;
     opacity:1;
     z-index: 9999999;
 }
@@ -223,7 +242,7 @@ tion {
 }
 
 .container-data {
-    width: 1200px;
+    width: 80%;
     margin: 100px auto;
     color: #fff;
 }
