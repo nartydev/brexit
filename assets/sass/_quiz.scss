@@ -254,6 +254,7 @@ tion {
 .content-question-data {
     display:flex;
     justify-content: space-between;
+    width:100%;
 }
 
 .block-question-data {
@@ -334,6 +335,7 @@ tion {
 
 .flex {
     display:flex;
+    color:#fff;
 }
 
 .round-yes {
@@ -357,11 +359,11 @@ tion {
     padding:20px 20px 5px 5px;
 }
 
-.fill-data:hover .hover-tooltip-yes, .fill-data:hover .hover-tooltip-no {
+.fill-data:hover .hover-tooltip-yes, .fill-data:hover .hover-tooltip-no, .fill-data:hover .hover-tooltip-yesManual, .fill-data:hover .hover-tooltip-noManual {
     opacity:1;
 }
 
-.hover-tooltip-yes {
+.hover-tooltip-yes, .hover-tooltip-yesManual {
     opacity:0;
     transition:.5s ease-in-out;
     background: #fff;
@@ -378,7 +380,7 @@ tion {
     font-family:"Josefin Sans"
 }
 
-.hover-tooltip-yes:after {
+.hover-tooltip-yes:after, .hover-tooltip-yesManual:after {
     content: '';
     position: absolute;
     left: 50%;
@@ -392,7 +394,7 @@ tion {
     z-index: 99999999;
 }
 
-.hover-tooltip-no {
+.hover-tooltip-no, .hover-tooltip-noManual {
     opacity:0;
     transition:.5s ease-in-out;
     background: #fff;
@@ -409,7 +411,7 @@ tion {
     font-family:"Josefin Sans"
 }
 
-.hover-tooltip-no:after {
+.hover-tooltip-no:after, .hover-tooltip-noManual:after {
     content: '';
     position: absolute;
     left: 50%;
@@ -444,7 +446,7 @@ tion {
     justify-content: center;
     align-items: center;
     transform: translateX(100%);
-    transition: 1s ease-in-out all;
+    transition: .7s ease-in-out all;
     z-index: 10000;
     overflow: hidden;
 }
@@ -537,6 +539,15 @@ tion {
     color: white;
     text-align: center;
     font-family: "Oxygen";
+}
+.skip-button {
+    position: absolute;
+    color: #fff;
+    background: #ffc000;
+    padding: 17px 30px;
+    bottom: 10%;
+    font-family: "Josefin Sans";
+    border-radius: 36px;
 }
 @keyframes time-remaining {
   0% {

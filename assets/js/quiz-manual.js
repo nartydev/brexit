@@ -1,6 +1,16 @@
 const yesManual = [...document.querySelectorAll('.yes-manual')]
 const noManual = [...document.querySelectorAll('.no-manual')]
 
+const seekYesManual = [...document.querySelectorAll('.seek-data-yesManual')]
+const seekNoManual = [...document.querySelectorAll('.seek-data-noManual')]
+
+
+const textPourcentageHoverYesManual = [...document.querySelectorAll('.hover-tooltip-yesManual')]
+const textPourcentageHoverNoManual = [...document.querySelectorAll('.hover-tooltip-noManual')]
+
+const textPourcentageYesManual = [... document.querySelectorAll('.pourcentageYesManual')]
+const textPourcentageNoManual = [... document.querySelectorAll('.pourcentageNoManual')]
+
 let allAnswersManual = {
     1: 0,
     2: 0,
@@ -42,7 +52,7 @@ function postElement(idElement) {
         if (idQuestionManual < 10) {
 
             // Show stats
-            containerStats[idQuestionManual-1].classList.add('active')
+            containerStats[idQuestionManual - 1].classList.add('active')
             //
 
         }
@@ -56,25 +66,44 @@ function postElement(idElement) {
 
 socket.on('showEnd', data => {
     console.log(data)
-    if(data._data.id == 10) {
+    if (data._data.id <= 10) {
+        console.log(data._data.id)
+        answerStats = data.newValue
+        answerQuestions = data.questions
+
+        const pourcentageYes = answerStats[0].yesAnswer / answerStats[0].totalAnswer
+        const pourcentageNo = answerStats[0].noAnswer / answerStats[0].totalAnswer
+        const realPourcentageYes = `${Math.round(100 * pourcentageYes)}%`
+        const realPourcentageNo = `${Math.round(100 * pourcentageNo)}%`
+
+        seekYes[data._data.id - 1].style.transform = `scaleX(${pourcentageYes})`
+        seekNo[data._data.id - 1].style.transform = `scaleX(${pourcentageNo})`
+        
+        textPourcentageYesManual[data._data.id -1].innerHTML = realPourcentageYes
+        textPourcentageNoManual[data._data.id -1].innerHTML = realPourcentageNo
+
+        textPourcentageHoverYesManual[data._data.id - 1].innerHTML = realPourcentageYes
+        textPourcentageHoverNoManual[data._data.id - 1].innerHTML = realPourcentageNo
+    }
+    if (data._data.id == 10) {
         setTimeout(() => {
             endScreen.classList.add('active')
             document.body.style.overflowY = "scroll"
             answerStats = data.newValue
             answerQuestions = data.questions
-        
+
             for (let i = 0; i < 10; i++) {
                 const pourcentageYes = answerStats[i].yesAnswer / answerStats[i].totalAnswer
                 const pourcentageNo = answerStats[i].noAnswer / answerStats[i].totalAnswer
                 const realPourcentageYes = `${Math.round(100 * pourcentageYes)}%`
                 const realPourcentageNo = `${Math.round(100 * pourcentageNo)}%`
-        
+
                 seekYes[i].style.transform = `scaleX(${pourcentageYes})`
                 seekNo[i].style.transform = `scaleX(${pourcentageNo})`
-        
+
                 textPourcentageYes[i].innerHTML = realPourcentageYes
                 textPourcentageNo[i].innerHTML = realPourcentageNo
-        
+
                 textPourcentageHoveYes[i].innerHTML = realPourcentageYes
                 textPourcentageHoverNo[i].innerHTML = realPourcentageNo
             }
@@ -82,7 +111,7 @@ socket.on('showEnd', data => {
     }
 })
 
-for(let y = 0; y < skipButton.length; y++) {
+for (let y = 0; y < skipButton.length; y++) {
     skipButton[y].addEventListener('click', _event => {
         _event.preventDefault()
         console.log(y);
@@ -92,15 +121,9 @@ for(let y = 0; y < skipButton.length; y++) {
 
 socket.on('skipStats', data => {
     console.log('data y', data);
-    containerStats[data+1].classList.remove('active')
-    quizContainer[data+1].classList.remove('active')
-    quizContainer[data+1].classList.add('active-last')
-    quizContainer[data+2].classList.add('active')
-    interRound[data+2].classList.add('inter-round--active')
+    containerStats[data-1].classList.remove('active')
+    quizContainer[data-1].classList.remove('active')
+    quizContainer[data-1].classList.add('active-last')
+    quizContainer[data].classList.add('active')
+    interRound[data].classList.add('inter-round--active')
 })
-
-function checkStatus(response) {
-    if (response.status >= 200 && response.status < 300) {
-        console.log('cool')
-    }
-}

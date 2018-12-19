@@ -31,24 +31,29 @@
         <div class="result-transition"></div>
         <div class="display-result">
                 <div class="question-result"><%- datas[i].question %></div>
-                <div class="bar-big-container">
-                    <div class="answer-type"><%- datas[i].yes %></div>
-                    <div class="bar-container">
-                        <div class="inner-bar-yes">
-                            <span class="pourcent-inner">45%</span>
+                <div class="content-question-data">
+                <div class="block-question-data">
+                    <div class="little-title-content-data">Global stats</div>
+                    <div class="charts-data">
+                        <div class="fill-data">
+                            <div class="hover-tooltip-yesManual">
+                            </div>
+                            <div class="seek-data-yes seek-data-yesManual"></div>
+                        </div>
+                        <div class="fill-data">
+                            <div class="hover-tooltip-noManual">
+                            </div>
+                            <div class="seek-data-no seek-data-noManual"></div>
                         </div>
                     </div>
-                </div>
-                <div class="bar-big-container">
-                    <div class="answer-type"><%- datas[i].no %></div>
-                    <div class="bar-container">
-                        <div class="inner-bar-no">
-                            <span class="pourcent-inner">55%</span>
-                        </div>
+                    <div class="flex">
+                        <div class="round-yes"></div><span class="textYes"><%- datas[i].yes %> (<span class="pourcentageYesManual"></span>) </span>
+                        <div class="round-no"></div><span class="textNo"><%- datas[i].no %> (<span class="pourcentageNoManual"></span>)</span>
                     </div>
                 </div>
             </div>
-            <div class="skip-button">RYTGFRDESGTRFEDSX</div>
+            </div>
+            <div class="skip-button">NEXT QUESTION</div>
             <div class="time-remaining-result"></div>
     </div>
     <% } %>

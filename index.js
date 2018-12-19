@@ -4,7 +4,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 const fs = require('fs');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
+let newValueManual = [];
 
 let dataQuestions = fs.readFileSync('./assets/data/data-question.json');
 let questions = JSON.parse(dataQuestions);
@@ -292,7 +292,8 @@ io.on('connection', (socket, data) => {
                                 noAnswer: totalAnswer - result
                             }
                             const newValue = [newStats, ...dataSectionQuestions]
-                            console.log(newValue)
+                            newValueManual = [newStats, ...newValueManual]
+                            console.log(newValueManual)
                             io.sockets.emit('showEnd', { _data, newValue, questions })
                         }
                     })
@@ -309,45 +310,233 @@ io.on('connection', (socket, data) => {
                             console.log(err)
                         } else {
                             const newStats = {
-                                idQuestion: 1,
+                                idQuestion: 2,
                                 totalAnswer: totalAnswer,
                                 yesAnswer: result,
                                 noAnswer: totalAnswer - result
                             }
                             const newValue = [newStats, ...dataSectionQuestions]
-                            console.log(newValue)
+                            newValueManual = [newStats, ...newValueManual]
+                            console.log(newValueManual)
                             io.sockets.emit('showEnd', { _data, newValue, questions })
                         }
                     })
                 }
             })
-        }
-        
-        if (idStatsVizu == 11) {
-            
-            const finalAnswer = new Answer({
-                country: countryName,
-                question_1: _data.allAnswersManual[0],
-                question_2: _data.allAnswersManual[1],
-                question_3: _data.allAnswersManual[2],
-                question_4: _data.allAnswersManual[3],
-                question_5: _data.allAnswersManual[4],
-                question_6: _data.allAnswersManual[5],
-                question_7: _data.allAnswersManual[6],
-                question_8: _data.allAnswersManual[7],
-                question_9: _data.allAnswersManual[8],
-                question_10: _data.allAnswersManual[9]
-            })
-            
-            finalAnswer.save((err, result) => {
+        } else if (idStatsVizu == 2) {
+            Answer.countDocuments({ country: countryName }, (err, result) => {
                 if (err) {
                     console.log(err)
                 } else {
-                    console.log('success', result)
-                    io.sockets.emit('showEnd', { _data, newValue, questions })
+                    totalAnswer = result;
+                    Answer.countDocuments({ country: countryName, question_3: 2 }, (err, result) => {
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            const newStats = {
+                                idQuestion: 3,
+                                totalAnswer: totalAnswer,
+                                yesAnswer: result,
+                                noAnswer: totalAnswer - result
+                            }
+                            const newValue = [newStats, ...dataSectionQuestions]
+                            newValueManual = [newStats, ...newValueManual]
+                            console.log(newValueManual)
+                            io.sockets.emit('showEnd', { _data, newValue, questions })
+                        }
+                    })
                 }
             })
-        }
+        } else if (idStatsVizu == 3) {
+            Answer.countDocuments({ country: countryName }, (err, result) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    totalAnswer = result;
+                    Answer.countDocuments({ country: countryName, question_4: 2 }, (err, result) => {
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            const newStats = {
+                                idQuestion: 4,
+                                totalAnswer: totalAnswer,
+                                yesAnswer: result,
+                                noAnswer: totalAnswer - result
+                            }
+                            const newValue = [newStats, ...dataSectionQuestions]
+                            newValueManual = [newStats, ...newValueManual]
+                            console.log(newValueManual)
+                            io.sockets.emit('showEnd', { _data, newValue, questions })
+                        }
+                    })
+                }
+            })
+        } else if (idStatsVizu == 4) {
+            Answer.countDocuments({ country: countryName }, (err, result) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    totalAnswer = result;
+                    Answer.countDocuments({ country: countryName, question_5: 2 }, (err, result) => {
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            const newStats = {
+                                idQuestion: 5,
+                                totalAnswer: totalAnswer,
+                                yesAnswer: result,
+                                noAnswer: totalAnswer - result
+                            }
+                            const newValue = [newStats, ...dataSectionQuestions]
+                            newValueManual = [newStats, ...newValueManual]
+                            console.log(newValueManual)
+                            io.sockets.emit('showEnd', { _data, newValue, questions })
+                        }
+                    })
+                }
+            })
+        } else if (idStatsVizu == 5) {
+            Answer.countDocuments({ country: countryName }, (err, result) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    totalAnswer = result;
+                    Answer.countDocuments({ country: countryName, question_6: 2 }, (err, result) => {
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            const newStats = {
+                                idQuestion: 6,
+                                totalAnswer: totalAnswer,
+                                yesAnswer: result,
+                                noAnswer: totalAnswer - result
+                            }
+                            const newValue = [newStats, ...dataSectionQuestions]
+                            newValueManual = [newStats, ...newValueManual]
+                            console.log(newValueManual)
+                            io.sockets.emit('showEnd', { _data, newValue, questions })
+                        }
+                    })
+                }
+            })
+        } else if (idStatsVizu == 6) {
+            Answer.countDocuments({ country: countryName }, (err, result) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    totalAnswer = result;
+                    Answer.countDocuments({ country: countryName, question_7: 2 }, (err, result) => {
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            const newStats = {
+                                idQuestion: 7,
+                                totalAnswer: totalAnswer,
+                                yesAnswer: result,
+                                noAnswer: totalAnswer - result
+                            }
+                            const newValue = [newStats, ...dataSectionQuestions]
+                            newValueManual = [newStats, ...newValueManual]
+                            console.log(newValueManual)
+                            io.sockets.emit('showEnd', { _data, newValue, questions })
+                        }
+                    })
+                }
+            })
+        } else if (idStatsVizu == 7) {
+            Answer.countDocuments({ country: countryName }, (err, result) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    totalAnswer = result;
+                    Answer.countDocuments({ country: countryName, question_8: 2 }, (err, result) => {
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            const newStats = {
+                                idQuestion: 8,
+                                totalAnswer: totalAnswer,
+                                yesAnswer: result,
+                                noAnswer: totalAnswer - result
+                            }
+                            const newValue = [newStats, ...dataSectionQuestions]
+                            newValueManual = [newStats, ...newValueManual]
+                            console.log(newValueManual)
+                            io.sockets.emit('showEnd', { _data, newValue, questions })
+                        }
+                    })
+                }
+            })
+        } else if (idStatsVizu == 8) {
+            Answer.countDocuments({ country: countryName }, (err, result) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    totalAnswer = result;
+                    Answer.countDocuments({ country: countryName, question_9: 2 }, (err, result) => {
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            const newStats = {
+                                idQuestion: 9,
+                                totalAnswer: totalAnswer,
+                                yesAnswer: result,
+                                noAnswer: totalAnswer - result
+                            }
+                            const newValue = [newStats, ...dataSectionQuestions]
+                            newValueManual = [newStats, ...newValueManual]
+                            console.log(newValueManual)
+                            io.sockets.emit('showEnd', { _data, newValue, questions })
+                        }
+                    })
+                }
+            })
+        } else if (idStatsVizu == 9) {
+            Answer.countDocuments({ country: countryName }, (err, result) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    totalAnswer = result;
+                    Answer.countDocuments({ country: countryName, question_10: 2 }, (err, result) => {
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            const newStats = {
+                                idQuestion: 10,
+                                totalAnswer: totalAnswer,
+                                yesAnswer: result,
+                                noAnswer: totalAnswer - result
+                            }
+                            const newValue = [newStats, ...newValueManual]
+                            console.log(newValueManual)
+                            const finalAnswer = new Answer({
+                                country: countryName,
+                                question_1: _data.allAnswersManual[0],
+                                question_2: _data.allAnswersManual[1],
+                                question_3: _data.allAnswersManual[2],
+                                question_4: _data.allAnswersManual[3],
+                                question_5: _data.allAnswersManual[4],
+                                question_6: _data.allAnswersManual[5],
+                                question_7: _data.allAnswersManual[6],
+                                question_8: _data.allAnswersManual[7],
+                                question_9: _data.allAnswersManual[8],
+                                question_10: _data.allAnswersManual[9]
+                            })
+                            
+                            finalAnswer.save((err, result) => {
+                                if (err) {
+                                    console.log(err)
+                                } else {
+                                    console.log('success', result)
+                                    io.sockets.emit('showEnd', { _data, newValue, questions })
+                                }
+                            })
+                        }
+                    })
+                }
+            })
+            console.log('finishhh')
+        } 
         // Yes = 2
         // No = 1
 /*
@@ -498,7 +687,7 @@ io.on('connection', (socket, data) => {
 
     socket.on('clickSkip', _id => {
         console.log(_id)
-        io.sockets.emit('skipStats', _id - 1)
+        io.sockets.emit('skipStats', _id + 1)
     })
 
     socket.on('clickInformation', _id => {
@@ -512,5 +701,7 @@ io.on('connection', (socket, data) => {
 http.listen(3000 || 5000, function () {
     console.log('listening on *' + process.env.PORT)
 });
+
+
 
 

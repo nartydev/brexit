@@ -60,9 +60,7 @@ socket.on('questionValue', _data => {
 
                     seekYes[i].style.transform = `scaleX(${pourcentageYes})`
                     seekNo[i].style.transform = `scaleX(${pourcentageNo})`
-        
-                    allAnswers[i] == 1 ? myVote[i].innerHTML = answerQuestions[i].no : myVote[i].innerHTML = answerQuestions[i].yes
-        
+                
                     textPourcentageYes[i].innerHTML = realPourcentageYes
                     textPourcentageNo[i].innerHTML = realPourcentageNo
                     
