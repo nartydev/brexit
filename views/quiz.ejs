@@ -18,7 +18,12 @@
         <% } %>
         <div class="info-bulle">
             <div class="content-help">
-                <%- datas[i].help %>
+                <div class="content-transition content-transition.active"></div>
+                <div class="container-text">
+                    <div class="help-title">Information</div>
+                    <span class="help-text">              <%- datas[i].help %></span>
+                </div>
+                <img class="img-help" src=" <%- datas[i].picture %> "></img>
             </div>
         </div>
     </div>
