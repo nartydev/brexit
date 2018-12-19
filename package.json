@@ -29,6 +29,7 @@
     "gulp-uglify-es": "^1.0.4"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "gulp": "^4.0.0",
@@ -39,6 +40,7 @@
     "gulp-uglify": "^3.0.1",
     "gulp-uglify-es": "^1.0.4",
     "mongoose": "^5.4.0",
+    "multer": "^1.4.1",
     "socket.io": "^2.2.0"
   }
 }

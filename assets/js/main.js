@@ -65,6 +65,8 @@ const disclaimerBtnClose = document.querySelector('.close-disclaimer')
 const soundBtn = document.querySelector('.sound-ico')
 const soundOff = document.querySelector('.inner-sound-off')
 const soundOn = document.querySelector('.inner-sound-on')
+const hrefLinkQuizzMobile = document.querySelector('.btn-mobile')
+const hrefLinkQuizzDesktop = document.querySelector('.btn-desktop')
 
 
   containerMap.style.display = "none"
@@ -216,6 +218,8 @@ qrCodeBackBtn.addEventListener('click', () => {
   }, 2000);
 })
 
+let countryName = getCountryNameInVar()
+
 function getCountryName(){
   for (let i = 0; i < allCountries.length; i++) {
     if(allCountries[i].classList.contains('countries-svg-selected')){
@@ -240,13 +244,21 @@ function getCountryNameInVar(){
   }
 }
 
+function getLinkToMobileDesktop() {
+  countryName = getCountryNameInVar()
+  const idPage = document.querySelector('.id-link-page').innerHTML
+  hrefLinkQuizzMobile.setAttribute('href', `/country/${countryName}/${idPage}`)
+  hrefLinkQuizzDesktop.setAttribute('href', `/country/${countryName}`)
+}
+
+
+getLinkToMobileDesktop()
 for (let i = 0; i < allCountries.length; i++) {
   allCountries[i].addEventListener('click', () => {
     clearClass()
     allCountries[i].classList.add('countries-svg-selected')
     getCountryName()
-    let contryName = getCountryNameInVar()
-    console.log(contryName)
+    getLinkToMobileDesktop()
   })
 }
 

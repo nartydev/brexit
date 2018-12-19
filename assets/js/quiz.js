@@ -26,7 +26,7 @@ const textPourcentageHoveYes = [... document.querySelectorAll('.hover-tooltip-ye
 const textPourcentageHoverNo = [... document.querySelectorAll('.hover-tooltip-no')]
 
 const myVote = [...document.querySelectorAll('.my-vote-content-data')]
-
+const countryName = document.querySelector('.title-country').innerHTML;
 // Init
 quizContainer[0].classList.add('active')
 

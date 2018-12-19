@@ -1,8 +1,6 @@
 <%- include('partials/head'); %>
 <body>
-    <div class="title-country">
-        <%- countryName %>
-    </div>
+    <div class="title-country"><%- countryName %></div>
     <% for (var i=0; i < 10; i++) { %>
     <div class="container-question">
         <div class="overflow size-font-small">
@@ -12,10 +10,40 @@
         <div class="overflow">
             <div class="question-title"><%- datas[i].question %></div>
         </div>
+        <% if(manualQuestion) { %>
+        <div class="manual-question">
+            <div class="yes-manual"><%- datas[i].yes %></div>
+            <div class="no-manual"><%- datas[i].no %></div>
+        </div>
+        <% } %>
         <div class="info-bulle">
             <div class="content-help">
                 <%- datas[i].help %>
             </div>
+        </div>
+    </div>
+     <div class="container-question-result">
+        <div class="result-transition"></div>
+        <div class="display-result">
+                <div class="question-result"><%- datas[i].question %></div>
+                <div class="bar-big-container">
+                    <div class="answer-type"><%- datas[i].yes %></div>
+                    <div class="bar-container">
+                        <div class="inner-bar-yes">
+                            <span class="pourcent-inner">45%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bar-big-container">
+                    <div class="answer-type"><%- datas[i].no %></div>
+                    <div class="bar-container">
+                        <div class="inner-bar-no">
+                            <span class="pourcent-inner">55%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="time-remaining-result">
         </div>
     </div>
     <% } %>
@@ -29,12 +57,6 @@
                     <div class="title-question-data"><%- datas[y].question %></div>
                 </div>
                 <div class="content-question-data">
-                    <div class="block-question-data">
-                        <div class="little-title-content-data">Your vote</div>
-                        <div class="my-vote-content-data">
-                            
-                        </div>
-                    </div>
                     <div class="block-question-data">
                         <div class="little-title-content-data">Global stats</div>
                         <div class="charts-data">
@@ -67,7 +89,9 @@
     <div class="idpage"><%- idPage %></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
     <script src="../assets/js/quiz.js"></script>
-
+    <% if(manualQuestion) { %>
+    <script src="../assets/js/quiz-manual.js"></script>
+    <% } %>
 </body>
 </html>
   
