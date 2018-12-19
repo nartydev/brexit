@@ -4,7 +4,6 @@ const noManual = [...document.querySelectorAll('.no-manual')]
 const seekYesManual = [...document.querySelectorAll('.seek-data-yesManual')]
 const seekNoManual = [...document.querySelectorAll('.seek-data-noManual')]
 
-
 const textPourcentageHoverYesManual = [...document.querySelectorAll('.hover-tooltip-yesManual')]
 const textPourcentageHoverNoManual = [...document.querySelectorAll('.hover-tooltip-noManual')]
 
@@ -39,7 +38,6 @@ console.log(countryName)
 
 let globalAnswerb;
 
-const containerStats = [...document.querySelectorAll('.container-question-result')]
 const skipButton = [...document.querySelectorAll('.skip-button')]
 
 function postElement(idElement) {

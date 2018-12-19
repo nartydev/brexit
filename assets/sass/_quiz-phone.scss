@@ -162,3 +162,19 @@ button.button-submit {
     padding:0 30px;
     
 }
+
+.stats-skip-screen {
+    height:100vh;
+    width:100%;
+    background:$blue-color;
+    position:absolute;
+    top:0;left:0;
+    color:#fff;
+    transform:translateX(-100%);
+    transition:.4s;
+    z-index:999999;
+}
+
+.stats-skip-screen.active {
+    transform:translateX(0%);
+}
