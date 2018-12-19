@@ -37,6 +37,8 @@ const textPourcentageHoverNoManual = [...document.querySelectorAll('.hover-toolt
 const textPourcentageYesManual = [... document.querySelectorAll('.pourcentageYesManual')]
 const textPourcentageNoManual = [... document.querySelectorAll('.pourcentageNoManual')]
 
+const advice = document.querySelector('.advice')
+
 const myVote = [...document.querySelectorAll('.my-vote-content-data')]
 const countryName = document.querySelector('.title-country').innerHTML;
 // Init
@@ -82,7 +84,15 @@ socket.on('questionValue', _data => {
                 for(let y = 0; y < allAnswers.length; y++) {
                     scoreAnswers += parseInt(allAnswers[y])
                 } 
-                console.log('sccore:',scoreAnswers)
+                if(scoreAnswers >= 10 || scoreAnswers <= 12) {
+                    advice.innerHTML = 'According to our study, the European Union and its way of being do not suit you. For the good of your country, you think it is better to leave it.'
+                } else if(scoreAnswers >= 13 || scoreAnswers <= 15) {
+                    advice.innerHTML = ' According to our study, you are not totally in favor of leaving the European Union. Its current operation does not suit you, and you would like some things to vary.'
+                } else if(scoreAnswers >= 16 || scoreAnswers <= 18) {
+                    advice.innerHTML = 'According to our study, you are not entirely convinced by the European Union, but you think the economic benefits it offers and good for you. The exit is not in your mind, but you would like to see some things changed.'
+                } else {
+                    advice.innerHTML = 'According to our study, you are totally charmed by the European Union and what it brings you on a daily basis from an economic point of view. You do not want to leave the European Union for your country.'
+                }
                 for(let i = 0; i < allAnswers.length; i++) {
                     const pourcentageYes = answerStats[i].yesAnswer / answerStats[i].totalAnswer
                     const pourcentageNo = answerStats[i].noAnswer / answerStats[i].totalAnswer
