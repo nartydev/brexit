@@ -21,14 +21,15 @@
 }
 
 .word-quiz {
-    font-family: "Noe Display Medium";
+    font-family: "Oxygen";
     font-size:3em;
     color:#fff;
     position:absolute;
     left:50%;
     top:50%;
     z-index: 11;
-    transform: translate(-50%, 25%);
+    text-align: center;
+    transform: translate(-50%, -25%);
 }
 
 
