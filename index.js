@@ -4,7 +4,6 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 const fs = require('fs');
 const mongoose = require('mongoose');
-let newValueManual = [];
 
 let dataQuestions = fs.readFileSync('./assets/data/data-question.json');
 let questions = JSON.parse(dataQuestions);
@@ -36,15 +35,17 @@ const answerSchema = mongoose.Schema({
 })
 
 const Answer = mongoose.model('Answer', answerSchema)
+
 let allAnswer = []
-let countryName;
 let dataSectionQuestions = [];
+let newValueManual = [];
 let totalAnswer;
+let countryName;
 
 //Middleware
 
 app.use('/assets', express.static('assets'))
-app.use(function (req, res, next) {
+app.use( (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
@@ -55,32 +56,37 @@ app.set('view engine', 'ejs')
 
 let idLinkPage = 0
 idLinkPage = Math.floor((Math.random() * 10000));
+let lastid = 0
+
 
 // Set route
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
+    console.log(idLinkPage)
     res.render('index', { idLinkPage })
+    lastid = idLinkPage;
+    idLinkPage = Math.floor((Math.random() * 10000));
 });
 
-app.get('/test', function (req, res) {
+app.get('/test', (req, res) => {
     res.render('test')
 });
 
-app.get('/quiz-phone/:id', function (req, res) {
+app.get('/quiz-phone/:id', (req, res) => {
     const idPage = req.params.id
     res.render('quiz-phone', { idPage })
 });
 
 app.get('/require-id', (req, res) => {
-    res.redirect(`/quiz-phone/${idLinkPage}`)
+    res.redirect(`/quiz-phone/${lastid}`)
+    console.log(lastid)
 })
 
-app.get('/country/:country', function (req, res) {
+app.get('/country/:country', (req, res) => {
     countryName = req.params.country
     res.render('quiz', { countryName: countryName, datas: questions, idPage: 0, manualQuestion: true })
 });
 
-
-app.get('/country/:country/:id', function (req, res) {
+app.get('/country/:country/:id', (req, res) => {
     countryName = req.params.country
     const idPage = req.params.id
     res.render('quiz', { countryName: countryName, datas: questions, idPage, manualQuestion: false })
@@ -90,12 +96,11 @@ app.get('/country/:country/:id', function (req, res) {
 io.on('connection', (socket, data) => {
     allAnswer = []
     socket.on('answerQuestion', (_data) => {
-        console.log(_data.id-1)
         idStatsVizu = _data.id-1
         if (allAnswer.length <= 10 && _data.value) {
             allAnswer = [...allAnswer, _data.value]
-            console.log(allAnswer)
         }
+        // Send data with specify property
         if (idStatsVizu == 0) {
             Answer.countDocuments({ country: countryName }, (err, result) => {
                 if (err) {
@@ -330,7 +335,7 @@ io.on('connection', (socket, data) => {
                                 noAnswer: totalAnswer - result
                             }
                             const newValue = [newStats, ...newValueManual]
-                            const finalAnswerAA = new Answer({
+                            const finalAnswerPhone = new Answer({
                                 country: countryName,
                                 question_1: allAnswer[0],
                                 question_2: allAnswer[1],
@@ -344,13 +349,11 @@ io.on('connection', (socket, data) => {
                                 question_10: allAnswer[9]
                             })
                             
-                            finalAnswerAA.save((err, result) => {
+                            finalAnswerPhone.save((err, result) => {
                                 if (err) {
                                     console.log(err)
                                 } else {
-                                    console.log('success', result)
                                     io.sockets.emit('questionValue', { _data, newValue, allAnswer, questions })
-                                    console.log('the new value', newValue)
                                 }
                             })       
                         }
@@ -360,189 +363,6 @@ io.on('connection', (socket, data) => {
         } else {
             console.log('ok')
         } 
-        /*
-        if (allAnswer.length != 10 && data.value) {
-            allAnswer = [...allAnswer, data.value]
-        } else {
-            const finalAnswer = new Answer({
-                idSocket: data.idSocket,
-                country: countryName,
-                question_1: allAnswer[0],
-                question_2: allAnswer[1],
-                question_3: allAnswer[2],
-                question_4: allAnswer[3],
-                question_5: allAnswer[4],
-                question_6: allAnswer[5],
-                question_7: allAnswer[6],
-                question_8: allAnswer[7],
-                question_9: allAnswer[8],
-                question_10: allAnswer[9]
-            })
-
-            finalAnswer.save((err, answerSave) => {
-                if (err) {
-                    console.log(err)
-                } else {
-                    Answer.countDocuments({ country: countryName }, (err, result) => {
-                        if (err) {
-                            console.log(err)
-                        } else {
-                            totalAnswer = result;
-                            console.log(result)
-                        }
-                    })
-
-                    // Yes = 2
-                    // No = 1
-
-                    Answer.countDocuments({ country: countryName, question_10: 2 }, (err, result) => {
-                        if (err) {
-                            console.log(err)
-                        } else {
-                            const newStats = {
-                                idQuestion: 10,
-                                totalAnswer: totalAnswer,
-                                yesAnswer: result,
-                                noAnswer: totalAnswer - result
-                            }
-                            dataSectionQuestions = [newStats, ...dataSectionQuestions]
-                        }
-                    })
-
-                    Answer.countDocuments({ country: countryName, question_9: 2 }, (err, result) => {
-                        if (err) {
-                            console.log(err)
-                        } else {
-                            const newStats = {
-                                idQuestion: 9,
-                                totalAnswer: totalAnswer,
-                                yesAnswer: result,
-                                noAnswer: totalAnswer - result
-                            }
-
-                            dataSectionQuestions = [newStats, ...dataSectionQuestions]
-                        }
-                    })
-
-                    Answer.countDocuments({ country: countryName, question_8: 2 }, (err, result) => {
-                        if (err) {
-                            console.log(err)
-                        } else {
-                            const newStats = {
-                                idQuestion: 8,
-                                totalAnswer: totalAnswer,
-                                yesAnswer: result,
-                                noAnswer: totalAnswer - result
-                            }
-                            dataSectionQuestions = [newStats, ...dataSectionQuestions]
-                        }
-                    })
-
-                    Answer.countDocuments({ country: countryName, question_7: 2 }, (err, result) => {
-                        if (err) {
-                            console.log(err)
-                        } else {
-                            const newStats = {
-                                idQuestion: 7,
-                                totalAnswer: totalAnswer,
-                                yesAnswer: result,
-                                noAnswer: totalAnswer - result
-                            }
-                            dataSectionQuestions = [newStats, ...dataSectionQuestions]
-                        }
-                    })
-
-                    Answer.countDocuments({ country: countryName, question_6: 2 }, (err, result) => {
-                        if (err) {
-                            console.log(err)
-                        } else {
-                            const newStats = {
-                                idQuestion: 6,
-                                totalAnswer: totalAnswer,
-                                yesAnswer: result,
-                                noAnswer: totalAnswer - result
-                            }
-                            dataSectionQuestions = [newStats, ...dataSectionQuestions]
-                        }
-                    })
-
-                    Answer.countDocuments({ country: countryName, question_5: 2 }, (err, result) => {
-                        if (err) {
-                            console.log(err)
-                        } else {
-                            const newStats = {
-                                idQuestion: 5,
-                                totalAnswer: totalAnswer,
-                                yesAnswer: result,
-                                noAnswer: totalAnswer - result
-                            }
-                            dataSectionQuestions = [newStats, ...dataSectionQuestions]
-                        }
-                    })
-
-                    Answer.countDocuments({ country: countryName, question_4: 2 }, (err, result) => {
-                        if (err) {
-                            console.log(err)
-                        } else {
-                            const newStats = {
-                                idQuestion: 4,
-                                totalAnswer: totalAnswer,
-                                yesAnswer: result,
-                                noAnswer: totalAnswer - result
-                            }
-                            dataSectionQuestions = [newStats, ...dataSectionQuestions]
-                        }
-                    })
-
-                    Answer.countDocuments({ country: countryName, question_3: 2 }, (err, result) => {
-                        if (err) {
-                            console.log(err)
-                        } else {
-                            const newStats = {
-                                idQuestion: 3,
-                                totalAnswer: totalAnswer,
-                                yesAnswer: result,
-                                noAnswer: totalAnswer - result
-                            }
-                            dataSectionQuestions = [newStats, ...dataSectionQuestions]
-                        }
-                    })
-
-                    Answer.countDocuments({ country: countryName, question_2: 2 }, (err, result) => {
-                        if (err) {
-                            console.log(err)
-                        } else {
-                            const newStats = {
-                                idQuestion: 2,
-                                totalAnswer: totalAnswer,
-                                yesAnswer: result,
-                                noAnswer: totalAnswer - result
-                            }
-                            dataSectionQuestions = [newStats, ...dataSectionQuestions]
-                        }
-                    })
-
-                    Answer.countDocuments({ country: countryName, question_1: 2 }, (err, result) => {
-                        if (err) {
-                            console.log(err)
-                        } else {
-                            const newStats = {
-                                idQuestion: 1,
-                                totalAnswer: totalAnswer,
-                                yesAnswer: result,
-                                noAnswer: totalAnswer - result
-                            }
-                            const newValue = [newStats, ...dataSectionQuestions]
-                            console.log(newValue)
-                            io.sockets.emit('questionValue', { data, newValue, allAnswer, questions })
-                        }
-                    })
-                }
-            })
-        }
-        if (allAnswer.length < 10) {
-            io.sockets.emit('questionValue', { data, allAnswer, questions })
-        }*/
     })
 
     socket.on('clickManual', _data => {
