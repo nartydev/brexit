@@ -41,6 +41,12 @@
   	-moz-osx-font-smoothing: grayscale;
     letter-spacing: 1px;
   }
+  .overflow-landing{
+    overflow: hidden;
+    p{
+      animation: pop-text-up 0.8s 0.3s ease-in-out backwards;
+    }
+  }
   .landing-content{
     z-index: 12;
     position: absolute;
@@ -194,6 +200,14 @@
     width: 0;
     margin-left: 100%;
     z-index: -2;
+  }
+}
+@keyframes pop-text-up {
+  0% {
+    transform: translateY(100%) skew(-5deg);
+  }
+  100% {
+    transform: translateY(0%) skew(0deg);
   }
 }
 
