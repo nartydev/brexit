@@ -53,9 +53,11 @@ app.use(function (req, res, next) {
 app.set('views', './views')
 app.set('view engine', 'ejs')
 
+let idLinkPage = 0
+idLinkPage = Math.floor((Math.random() * 10000));
+
 // Set route
 app.get('/', function (req, res) {
-    let idLinkPage = Math.floor((Math.random() * 10000));
     res.render('index', { idLinkPage })
 });
 
@@ -90,8 +92,9 @@ io.on('connection', (socket, data) => {
     socket.on('answerQuestion', (_data) => {
         console.log(_data.id-1)
         idStatsVizu = _data.id-1
-        if (allAnswer.length != 10 && _data.value) {
+        if (allAnswer.length <= 10 && _data.value) {
             allAnswer = [...allAnswer, _data.value]
+            console.log(allAnswer)
         }
         if (idStatsVizu == 0) {
             Answer.countDocuments({ country: countryName }, (err, result) => {
@@ -310,6 +313,7 @@ io.on('connection', (socket, data) => {
                 }
             })
         } else if (idStatsVizu == 9) {
+            console.log(allAnswer)
             Answer.countDocuments({ country: countryName }, (err, result) => {
                 if (err) {
                     console.log(err)
@@ -326,33 +330,35 @@ io.on('connection', (socket, data) => {
                                 noAnswer: totalAnswer - result
                             }
                             const newValue = [newStats, ...newValueManual]
-                            console.log(newValueManual)
-                            const finalAnswer = new Answer({
+                            const finalAnswerAA = new Answer({
                                 country: countryName,
-                                question_1: _data.allAnswersManual[0],
-                                question_2: _data.allAnswersManual[1],
-                                question_3: _data.allAnswersManual[2],
-                                question_4: _data.allAnswersManual[3],
-                                question_5: _data.allAnswersManual[4],
-                                question_6: _data.allAnswersManual[5],
-                                question_7: _data.allAnswersManual[6],
-                                question_8: _data.allAnswersManual[7],
-                                question_9: _data.allAnswersManual[8],
-                                question_10: _data.allAnswersManual[9]
+                                question_1: allAnswer[0],
+                                question_2: allAnswer[1],
+                                question_3: allAnswer[2],
+                                question_4: allAnswer[3],
+                                question_5: allAnswer[4],
+                                question_6: allAnswer[5],
+                                question_7: allAnswer[6],
+                                question_8: allAnswer[7],
+                                question_9: allAnswer[8],
+                                question_10: allAnswer[9]
                             })
                             
-                            finalAnswer.save((err, result) => {
+                            finalAnswerAA.save((err, result) => {
                                 if (err) {
                                     console.log(err)
                                 } else {
                                     console.log('success', result)
                                     io.sockets.emit('questionValue', { _data, newValue, allAnswer, questions })
+                                    console.log('the new value', newValue)
                                 }
-                            })
+                            })       
                         }
                     })
                 }
             })
+        } else {
+            console.log('ok')
         } 
         /*
         if (allAnswer.length != 10 && data.value) {

@@ -48,8 +48,9 @@ socket.on('questionValue', _data => {
         skipButton.classList.add('active')
         answer[0].innerHTML = _data.questions[idQuestion - 1].yes
         answer[1].innerHTML = _data.questions[idQuestion - 1].no
-        console.log(_data)
+        console.log('k')
     } else {
+        console.log('no')
         idQuestion++
         endPhone.classList.add('active')
     }

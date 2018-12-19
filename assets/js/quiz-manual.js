@@ -1,15 +1,6 @@
 const yesManual = [...document.querySelectorAll('.yes-manual')]
 const noManual = [...document.querySelectorAll('.no-manual')]
 
-const seekYesManual = [...document.querySelectorAll('.seek-data-yesManual')]
-const seekNoManual = [...document.querySelectorAll('.seek-data-noManual')]
-
-const textPourcentageHoverYesManual = [...document.querySelectorAll('.hover-tooltip-yesManual')]
-const textPourcentageHoverNoManual = [...document.querySelectorAll('.hover-tooltip-noManual')]
-
-const textPourcentageYesManual = [... document.querySelectorAll('.pourcentageYesManual')]
-const textPourcentageNoManual = [... document.querySelectorAll('.pourcentageNoManual')]
-
 let allAnswersManual = {
     1: 0,
     2: 0,
@@ -48,11 +39,7 @@ function postElement(idElement) {
     }
     if (idQuestionManual <= 10) {
         if (idQuestionManual < 10) {
-
-            // Show stats
             containerStats[idQuestionManual - 1].classList.add('active')
-            //
-
         }
         idQuestionManual++
     }
