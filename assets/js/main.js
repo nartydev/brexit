@@ -1,4 +1,5 @@
 import { Button } from './Button.js'
+import { Sound } from './Sound.js'
 
 const data = {
     countries: [
@@ -31,10 +32,23 @@ const data = {
     ]
   }
 
-/*
-const menuBurger = document.querySelector('.menu-burger')
-const menuContainer = document.querySelector('.side-menu-container')
-const menuContainerBG = document.querySelector('.fade-menu-container')*/
+const mainTheme = new Sound('./assets/sound/mainTheme.mp3')
+const answeredQuestion = new Sound('./assets/sound/answeredQuestion.mp3')
+const buttonClick = new Sound('./assets/sound/buttonClick.mp3')
+const finishQuiz = new Sound('./assets/sound/finishQuiz.mp3')
+soundOnFunction()
+function soundOnFunction(){
+  mainTheme.sound.volume = 1
+  answeredQuestion.sound.volume = 1
+  buttonClick.sound.volume = 0.2
+  finishQuiz.sound.volume = 1
+}
+function soundOffFunction(){
+  mainTheme.sound.volume = 0
+  answeredQuestion.sound.volume = 0
+  buttonClick.sound.volume = 0
+  finishQuiz.sound.volume = 0
+}
 const landingContainer = document.querySelector('.landing-container')
 const beginButton = document.querySelector('.landing-begin-button')
 const landingTransitionContainer = document.querySelector('.landing-transition')
@@ -132,14 +146,25 @@ disclaimerBtnClose.addEventListener('click', () => {
   disclaimerContainer.classList.remove('disclaimer-text-pop')
 })
 
+
 beginButton.addEventListener('click', () => {
   transitionLanding()
+  mainTheme.play()
+  mainTheme.loop()
 })
 soundBtn.addEventListener('click', () => {
   soundOff.classList.toggle('sound-display')
   soundOff.classList.toggle('sound-no-display')
   soundOn.classList.toggle('sound-display')
   soundOn.classList.toggle('sound-no-display')
+  if(soundOff.classList.contains('sound-display')){
+    soundOffFunction()
+    console.log('ok1')
+  }
+  if(soundOn.classList.contains('sound-display')){
+    soundOnFunction()
+    console.log('ok2')
+  }
 })
 window.addEventListener("mousemove",  (_event) => {
     let x = event.clientX
@@ -153,6 +178,7 @@ window.addEventListener("mousemove",  (_event) => {
 
 buttonCountriesLeft.addEventListener('click', () => {
   clearClass()
+  answeredQuestion.play()
   if(countryNum == 0){
     countryNum = data.countries.length-1
   }else{
@@ -164,6 +190,8 @@ buttonCountriesLeft.addEventListener('click', () => {
 })
 buttonCountriesRight.addEventListener('click', () => {
   clearClass()
+  answeredQuestion.play()
+
   if(countryNum == data.countries.length-1){
     countryNum = 0
   }else{
@@ -176,6 +204,7 @@ buttonCountriesRight.addEventListener('click', () => {
 
 confirmCountryBtn.addEventListener('click', () => {
   getCountryName()
+  answeredQuestion.play()
   qrTransitionContainer.classList.toggle('qr-transition-show')
   disclaimerContainer.classList.remove('disclaimer-text-pop')
   setTimeout(function(){
@@ -198,6 +227,7 @@ confirmCountryBtn.addEventListener('click', () => {
 })
 
 qrCodeBackBtn.addEventListener('click', () => {
+  answeredQuestion.play()
   qrTransitionContainer.classList.toggle('qr-transition-show')
   setTimeout(function(){
     qrTransitionContainer.classList.toggle('qr-transition-after')
@@ -256,6 +286,7 @@ getLinkToMobileDesktop()
 for (let i = 0; i < allCountries.length; i++) {
   allCountries[i].addEventListener('click', () => {
     clearClass()
+    buttonClick.play()
     allCountries[i].classList.add('countries-svg-selected')
     getCountryName()
     getLinkToMobileDesktop()
