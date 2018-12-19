@@ -412,7 +412,6 @@ tion {
     padding:20px;
     background:#132A56;
     border-radius: 5px;
-    border: 1px solid white;
     transform: scale(1);
     transition: 0.3s ease-in transform;
 }
@@ -421,7 +420,6 @@ tion {
     padding:20px;
     background:#132A56;
     border-radius: 5px;
-    border: 1px solid white;
     transform: scale(1);
     transition: 0.3s ease-in transform;
 }
@@ -645,7 +643,8 @@ tion {
     font-size: 2em;
     color: white;
     text-align: center;
-    font-family: "Oxygen";
+    font-family: "Noe Display Bold";
+    letter-spacing: 1px;
 }
 .skip-button {
     position: absolute;

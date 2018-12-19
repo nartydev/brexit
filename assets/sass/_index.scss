@@ -5,7 +5,6 @@ body {
   margin: 0 auto;
   width: 100%;
   height: 100vh;
-  user-select: none;
   overflow-x:hidden;
   background: $bg-color;
   background: radial-gradient(#001A4D, #00050F);
@@ -302,7 +301,8 @@ body {
     transition: ease-in 0.3s width;
   }
   span{
-    font-family: "Noe Display Black";
+    font-family: "Poppins";
+    font-weight:700;
     text-align: right;
     font-size: 2.5em;
     width: auto;
@@ -366,7 +366,8 @@ body {
 }
 
 .title-main {
-  font-family: "Noe Display Black";
+  font-family: "Poppins";
+  font-weight:800;
   text-align: left;
   font-size: 5em;
   color: #FFF;
