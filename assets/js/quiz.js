@@ -1,5 +1,6 @@
 const socket = io.connect();
 let idSocket
+const containerStats = [...document.querySelectorAll('.container-question-result')]
 
 const quizContainer = [...document.querySelectorAll('.container-question')]
 const infoRound = [...document.querySelectorAll('.info-round')]
@@ -25,6 +26,15 @@ const textPourcentageNo = [... document.querySelectorAll('.pourcentageNo')]
 const textPourcentageHoveYes = [... document.querySelectorAll('.hover-tooltip-yes')]
 const textPourcentageHoverNo = [... document.querySelectorAll('.hover-tooltip-no')]
 
+const seekYesManual = [...document.querySelectorAll('.seek-data-yesManual')]
+const seekNoManual = [...document.querySelectorAll('.seek-data-noManual')]
+
+const textPourcentageHoverYesManual = [...document.querySelectorAll('.hover-tooltip-yesManual')]
+const textPourcentageHoverNoManual = [...document.querySelectorAll('.hover-tooltip-noManual')]
+
+const textPourcentageYesManual = [... document.querySelectorAll('.pourcentageYesManual')]
+const textPourcentageNoManual = [... document.querySelectorAll('.pourcentageNoManual')]
+
 const myVote = [...document.querySelectorAll('.my-vote-content-data')]
 const countryName = document.querySelector('.title-country').innerHTML;
 // Init
@@ -33,15 +43,28 @@ quizContainer[0].classList.add('active')
 // Callback answer
 socket.on('questionValue', _data => {
     console.log(_data)
-    if(_data.data.idPage == idPage) {
-        console.log(_data.data.id)
+    if(_data._data.idPage == idPage) {
+        console.log(_data._data.id)
         // question next
-        if (idSocket == _data.data.idSocket && _data.data.id < 10) {
-            quizContainer[_data.data.id - 1].classList.remove('active')
-            quizContainer[_data.data.id - 1].classList.add('active-last')
-            quizContainer[_data.data.id].classList.add('active')
-            interRound[_data.data.id].classList.add('inter-round--active')
+        if (idSocket == _data._data.idSocket && _data._data.id < 10) {
+            let answerStats = _data.newValue
+
+            containerStats[_data._data.id - 1].classList.add('active')
+            const pourcentageYes = answerStats[0].yesAnswer / answerStats[0].totalAnswer
+            const pourcentageNo = answerStats[0].noAnswer / answerStats[0].totalAnswer
+            const realPourcentageYes = `${Math.round(100 * pourcentageYes)}%`
+            const realPourcentageNo = `${Math.round(100 * pourcentageNo)}%`
+
+            seekYes[_data._data.id-1].style.transform = `scaleX(${pourcentageYes})`
+            seekNo[_data._data.id-1].style.transform = `scaleX(${pourcentageNo})`
+            
+            textPourcentageYesManual[_data._data.id-1].innerHTML = realPourcentageYes
+            textPourcentageNoManual[_data._data.id-1].innerHTML = realPourcentageNo
+
+            textPourcentageHoverYesManual[_data._data.id-1].innerHTML = realPourcentageYes
+            textPourcentageHoverNoManual[_data._data.id-1].innerHTML = realPourcentageNo
         } else {
+            console.log('ok')
             // End screen
             setTimeout(() => {
                 endScreen.classList.add('active')
@@ -72,7 +95,13 @@ socket.on('questionValue', _data => {
     }
 })
 
-
+socket.on('skipStatsPhone', _data => {
+    containerStats[_data - 1].classList.remove('active')
+    quizContainer[_data - 1].classList.remove('active')
+    quizContainer[_data - 1].classList.add('active-last')
+    quizContainer[_data].classList.add('active')
+    interRound[_data].classList.add('inter-round--active')
+})
 
 socket.on('showInformation', _data => {
     contentHelp[_data].classList.toggle('active')
