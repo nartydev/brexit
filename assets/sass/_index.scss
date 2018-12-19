@@ -426,6 +426,13 @@ body {
   .responsive-container-map{
     display: block;
   }
+  .title-main {
+  font-size: 3em;
+}
+.center-title-main {
+  width: 280px;
+  height: 170px;
+}
   .content-map {
     transform: translate(82%,-28%) scale(3)
   }

@@ -5,29 +5,119 @@ const data = {
     countries: [
       {
         name: "France",
-        svg_id: 1,
+        svg_id: 5,
         posx: "82%",
         posy: "-28%"
       },{
-        name: "Allemagne",
-        svg_id: 4,
+        name: "Germany",
+        svg_id: 10,
         posx: "44%",
         posy: "-15%"
       },{
-        name: "Espagne",
-        svg_id: 0,
+        name: "Spain",
+        svg_id: 3,
         posx: "117%",
         posy: "-52%"
       },{
-        name: "Italie",
-        svg_id: 3,
+        name: "Italy",
+        svg_id: 8,
         posx: "40%",
         posy: "-52%"
       },{
         name: "UK",
-        svg_id: 2,
+        svg_id: 7,
         posx: "94%",
         posy: "8%"
+      },{
+        name: "Austria",
+        svg_id: 9,
+        posx: "32%",
+        posy: "-23%"
+      },{
+        name: "Poland",
+        svg_id: 16,
+        posx: "7%",
+        posy: "-6%"
+      },{
+        name: "Denmark",
+        svg_id: 11,
+        posx: "37%",
+        posy: "7%"
+      },{
+        name: "Estonia",
+        svg_id: 0,
+        posx: "-12%",
+        posy: "8%"
+      },{
+        name: "Greece",
+        svg_id: 21,
+        posx: "-10%",
+        posy: "-50%"
+      },{
+        name: "Ireland",
+        svg_id: 6,
+        posx: "108%",
+        posy: "8%"
+      },{
+        name: "Croatia",
+        svg_id: 22,
+        posx: "7%",
+        posy: "-33%"
+      },{
+        name: "Netherlands",
+        svg_id: 13,
+        posx: "58%",
+        posy: "-3%"
+      },{
+        name: "Portugal",
+        svg_id: 4,
+        posx: "134%",
+        posy: "-32%"
+      },{
+        name: "Sweden",
+        svg_id: 17,
+        posx: "22%",
+        posy: "27%"
+      },{
+        name: "Belgium",
+        svg_id: 12,
+        posx: "68%",
+        posy: "-11%"
+      },{
+        name: "Latvia",
+        svg_id: 1,
+        posx: "-12%",
+        posy: "8%"
+      },{
+        name: "Lithuania",
+        svg_id: 2,
+        posx: "-12%",
+        posy: "8%"
+      },{
+        name: "Czech Republic",
+        svg_id: 14,
+        posx: "14%",
+        posy: "-17%"
+      },{
+        name: "Hungria",
+        svg_id: 15,
+        posx: "4%",
+        posy: "-21%"
+      },{
+        name: "Finland",
+        svg_id: 18,
+        posx: "-13%",
+        posy: "34%"
+      },{
+        name: "Bulgaria",
+        svg_id: 19,
+        posx: "-16%",
+        posy: "-37%"
+      },{
+        name: "Roumania",
+        svg_id: 20,
+        posx: "-16%",
+        posy: "-27%"
       }
     ]
   }
@@ -82,8 +172,7 @@ const soundOn = document.querySelector('.inner-sound-on')
 const hrefLinkQuizzMobile = document.querySelector('.btn-mobile')
 const hrefLinkQuizzDesktop = document.querySelector('.btn-desktop')
 
-
-  containerMap.style.display = "none"
+containerMap.style.display = "none"
 let countryNum = 0;
 let nbStars = 12
 for(const $button of $buttons)
@@ -159,11 +248,9 @@ soundBtn.addEventListener('click', () => {
   soundOn.classList.toggle('sound-no-display')
   if(soundOff.classList.contains('sound-display')){
     soundOffFunction()
-    console.log('ok1')
   }
   if(soundOn.classList.contains('sound-display')){
     soundOnFunction()
-    console.log('ok2')
   }
 })
 window.addEventListener("mousemove",  (_event) => {
