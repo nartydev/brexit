@@ -394,6 +394,12 @@ tion {
     opacity:1;
 }
 
+.yes-manual{
+    cursor: pointer;
+}
+.no-manual{
+    cursor: pointer;
+}
 .hover-tooltip-yes, .hover-tooltip-yesManual {
     opacity:0;
     transition:.5s ease-in-out;
@@ -538,6 +544,38 @@ tion {
     transform: translateX(-45%);
     transition: 0.5s ease-in all;
 }
+.end-transition{
+    width: 0%;
+    height: 100vh;
+    position:fixed;
+    top:0;
+    right:0;
+    z-index:10000001;
+    background: $blue-color;
+    transition: 1s ease-in all;
+}
+.end-transition.active{
+    animation: end-transition 2s 0s ease-in forwards ;
+}
+@keyframes end-transition {
+  0% {
+    width:0%;
+    right:0;
+  }
+    25% {
+    width:100%;
+    right:0;
+  }
+      75% {
+    width:100%;
+    left:0;
+  }
+    100% {
+    width:0%;
+    left:0;
+  }
+
+}
 .answer-type{
     position: relative;
     color: white;
@@ -579,6 +617,13 @@ tion {
     bottom: 10%;
     font-family: "Josefin Sans";
     border-radius: 36px;
+    cursor: pointer;
+}
+.quiz-ico{
+    position:absolute;
+    top:50px;
+    left:50px;
+    z-index: 1000000;
 }
 @keyframes time-remaining {
   0% {

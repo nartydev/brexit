@@ -1,6 +1,39 @@
 const yesManual = [...document.querySelectorAll('.yes-manual')]
 const noManual = [...document.querySelectorAll('.no-manual')]
-
+function Sound(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.style.display = "none";
+  document.body.appendChild(this.sound);
+  this.play = function() {
+    this.sound.play();
+  }
+  this.stop = function() {
+    this.sound.pause();
+  }
+  this.loop = function() {
+    this.sound.setAttribute("loop", "true");
+  }
+}
+const answeredQuestion = new Sound('./assets/sound/answeredQuestion.mp3')
+const buttonClick = new Sound('./assets/sound/buttonClick.mp3')
+const finishQuiz = new Sound('./assets/sound/finishQuiz.mp3')
+const soundBtn = document.querySelector('.sound-ico')
+const soundOff = document.querySelector('.inner-sound-off')
+const soundOn = document.querySelector('.inner-sound-on')
+soundOnFunction()
+function soundOnFunction(){
+  answeredQuestion.sound.volume = 1
+  buttonClick.sound.volume = 1
+  finishQuiz.sound.volume = 1
+}
+function soundOffFunction(){
+  answeredQuestion.sound.volume = 0
+  buttonClick.sound.volume = 0
+  finishQuiz.sound.volume = 0
+}
 let allAnswersManual = {
     1: 0,
     2: 0,
@@ -18,16 +51,30 @@ let idQuestionManual = 1
 for (let i = 0; i < yesManual.length; i++) {
     yesManual[i].addEventListener('click', () => {
         postElement(2)
+        answeredQuestion.play()
 
     })
     noManual[i].addEventListener('click', () => {
         postElement(1)
+        answeredQuestion.play()
     })
 }
 
-console.log(countryName)
+soundBtn.addEventListener('click', () => {
+  soundOff.classList.toggle('sound-display')
+  soundOff.classList.toggle('sound-no-display')
+  soundOn.classList.toggle('sound-display')
+  soundOn.classList.toggle('sound-no-display')
+  if(soundOff.classList.contains('sound-display')){
+    soundOffFunction()
+  }
+  if(soundOn.classList.contains('sound-display')){
+    soundOnFunction()
+  }
+})
 
 let globalAnswerb;
+
 
 const skipButton = [...document.querySelectorAll('.skip-button')]
 
@@ -71,6 +118,7 @@ socket.on('showEnd', data => {
         textPourcentageHoverNoManual[data._data.id - 1].innerHTML = realPourcentageNo
     }
     if (data._data.id == 10) {
+        endTransition.classList.add('active')
         setTimeout(() => {
             endScreen.classList.add('active')
             globalContainer.classList.add('active')
@@ -102,6 +150,7 @@ for (let y = 0; y < skipButton.length; y++) {
         _event.preventDefault()
         console.log(y);
         socket.emit('clickSkip', y)
+        buttonClick.play()
     })
 }
 

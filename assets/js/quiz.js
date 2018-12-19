@@ -1,7 +1,7 @@
+
 const socket = io.connect();
 let idSocket
 const containerStats = [...document.querySelectorAll('.container-question-result')]
-
 const quizContainer = [...document.querySelectorAll('.container-question')]
 const infoRound = [...document.querySelectorAll('.info-round')]
 const contentHelp = [...document.querySelectorAll('.content-help')]
@@ -17,6 +17,7 @@ let answerQuestions;
 const idPage = document.querySelector('.idpage').innerHTML
 console.log(idPage)
 
+const endTransition = document.querySelector('.end-transition')
 
 const seekYes = [...document.querySelectorAll('.seek-data-yes')]
 const seekNo = [...document.querySelectorAll('.seek-data-no')]
@@ -40,7 +41,6 @@ const myVote = [...document.querySelectorAll('.my-vote-content-data')]
 const countryName = document.querySelector('.title-country').innerHTML;
 // Init
 quizContainer[0].classList.add('active')
-
 
 console.log(endScreen)
 // Callback answer
@@ -69,8 +69,8 @@ socket.on('questionValue', _data => {
         } else {
             console.log('ok')
             // End screen
+                endTransition.classList.add('active')
                 endScreen.classList.add('active')
-                console.log(globalContainer)
                 globalContainer.classList.add('active')
                 document.body.style.overflowY = "scroll"
                 if(_data.newValue != undefined) {
