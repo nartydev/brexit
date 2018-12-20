@@ -97,9 +97,7 @@ function postElement(idElement) {
 }
 
 socket.on('showEnd', data => {
-    console.log(data)
     if (data._data.id <= 10) {
-        console.log(data._data.id)
         answerStats = data.newValue
         answerQuestions = data.questions
 
@@ -165,14 +163,12 @@ socket.on('showEnd', data => {
 for (let y = 0; y < skipButton.length; y++) {
     skipButton[y].addEventListener('click', _event => {
         _event.preventDefault()
-        console.log(y);
         socket.emit('clickSkip', y)
         buttonClick.play()
     })
 }
 
 socket.on('skipStats', data => {
-    console.log('data y', data);
     containerStats[data-1].classList.remove('active')
     quizContainer[data-1].classList.remove('active')
     quizContainer[data-1].classList.add('active-last')

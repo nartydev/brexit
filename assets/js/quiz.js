@@ -49,12 +49,9 @@ const graphResult = document.querySelector('.bar-result')
 // Init
 quizContainer[0].classList.add('active')
 
-console.log(endScreen)
 // Callback answer
 socket.on('questionValue', _data => {
-    console.log(_data)
     if(_data._data.idPage == idPage) {
-        console.log(_data._data.id)
         // question next
         if (idSocket == _data._data.idSocket && _data._data.id < 10) {
             let answerStats = _data.newValue
@@ -74,7 +71,6 @@ socket.on('questionValue', _data => {
             textPourcentageHoverYesManual[_data._data.id-1].innerHTML = realPourcentageYes
             textPourcentageHoverNoManual[_data._data.id-1].innerHTML = realPourcentageNo
         } else {
-            console.log('ok')
             // End screen
                 endTransition.classList.add('active')
                 setTimeout(() => {
