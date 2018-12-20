@@ -183,6 +183,14 @@ body {
     transform: scale(1);
   }
 }
+@keyframes appear {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
 @keyframes pop-up {
   0% {
@@ -369,9 +377,9 @@ body {
   font-family: "Poppins";
   font-weight:800;
   text-align: left;
-  font-size: 5em;
+  font-size: 4em;
   color: #FFF;
-  animation:showTitle .4s .4s ease-in-out forwards;
+  animation: showTitle .4s .4s ease-in-out forwards;
   transform: translateX(-110%);
 }
 
@@ -418,6 +426,7 @@ body {
   font-family: "Josefin Sans";
   color: white;
   font-size: 2em;
+  animation: appear 0.5s 0s ease-in forwards;
 }
 @media (max-width:800px) {
   .responsive-container-map{

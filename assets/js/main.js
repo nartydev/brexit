@@ -94,7 +94,7 @@ const data = {
         posx: "-12%",
         posy: "8%"
       },{
-        name: "Czech Republic",
+        name: "Czech",
         svg_id: 14,
         posx: "14%",
         posy: "-17%"
@@ -343,7 +343,11 @@ function getCountryName(){
       for (let j = 0; j < data.countries.length; j++) {
         if(data.countries[j].svg_id == i){
           countryDisplay.innerHTML = data.countries[j].name
-        }
+          countryDisplay.style.display = "none"
+          setTimeout(function(){
+            countryDisplay.style.display = "block"
+             }, 50);
+                  }
       }
     }
   }
