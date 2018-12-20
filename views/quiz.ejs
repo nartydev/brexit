@@ -113,6 +113,12 @@
                 <%- datas[y].help %>
             </div>
             <% } %>
+            <div class="title-country-other">Find out what the results with other countries</div>
+            <div class="block-question-data flex-country">
+                <% for(let k = 0; k < countryList.length; k++) { %> 
+                <a href="../../<%= countryList[k].name %>/result"><div class="content-country-name"><%= countryList[k].name %></div></a>
+                <% } %>
+            </div>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>

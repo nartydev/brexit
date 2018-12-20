@@ -17,6 +17,32 @@ db.once('open', () => {
     console.log('db connected')
 })
 
+const countryList = [
+    {name: "France" },
+    {name: "Germany" },
+    {name: "Spain" },
+    {name: "Italy" },
+    {name: "UK" },
+    {name: "Austia" },
+    {name: "Poland" },
+    {name: "Denmark" },
+    {name: "Estonia" },
+    {name: "Greece" },
+    {name: "Ireland" },
+    {name: "Croatia" },
+    {name: "Netherlands" },
+    {name: "Portugal" },
+    {name: "Sweden" },
+    {name: "Belgium" },
+    {name: "Latvia" },
+    {name: "Lithuania" },
+    {name: "Czech" },
+    {name: "Hungria" },
+    {name: "Finland" },
+    {name: "Bulgaria" },
+    {name: "Roumania" },
+]
+
 // Schema Questions
 
 const answerSchema = mongoose.Schema({
@@ -208,7 +234,7 @@ app.get('/:country/result', (req, res) => {
                     }
                     allDataCountry = [newStats, ...allDataCountry]
                     console.log(allDataCountry)
-                    res.render('country-result', {datas: questions, allDataCountry, countryName: countryName} )
+                    res.render('country-result', {datas: questions, allDataCountry, countryList, countryName: countryName} )
                 }
             })
         }
@@ -227,13 +253,13 @@ app.get('/require-id', (req, res) => {
 
 app.get('/country/:country', (req, res) => {
     countryName = req.params.country
-    res.render('quiz', { countryName: countryName, datas: questions, idPage: 0, manualQuestion: true })
+    res.render('quiz', { countryName: countryName, countryList, datas: questions, idPage: 0, manualQuestion: true })
 });
 
 app.get('/country/:country/:id', (req, res) => {
     countryName = req.params.country
     const idPage = req.params.id
-    res.render('quiz', { countryName: countryName, datas: questions, idPage, manualQuestion: false })
+    res.render('quiz', { countryName: countryName, countryList, datas: questions, idPage, manualQuestion: false })
 });
 
 // Listen connect

@@ -1,0 +1,32 @@
+.title-country-other {
+    text-align: center;
+    padding: 100px 0 50px;
+    font-size: 3em;
+    font-family: "Noe Display Bold";
+}
+
+.flex-country {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+}
+
+.flex-country a {
+    width:20%;
+    text-decoration:none;
+    font-family:"Oxygen";
+    text-align:center;
+}
+
+.flex-country a div {
+    width:90%;
+    padding:10px;
+    border-radius:5px;
+    margin:10px;
+    background:$blue-color;
+    transition:.3s ease-in-out;
+}
+
+.flex-country a div:hover {
+    background:$yellow-color;
+}
