@@ -2,6 +2,7 @@ var express = require('express');
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var cors = require('cors')
 const fs = require('fs');
 const mongoose = require('mongoose');
 
@@ -71,11 +72,7 @@ let countryName;
 //Middleware
 
 app.use('/assets', express.static('assets'))
-app.use( (req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+app.use(cors())
 
 app.set('views', './views')
 app.set('view engine', 'ejs')
