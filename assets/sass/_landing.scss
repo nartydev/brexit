@@ -240,14 +240,14 @@
     font-size: 1em !important;
   }
   .inner-qr-code-container {
-    position: fixed; 
-    top: 50%;
-    left: 0%; 
-    transform: translate(0%,0%);
-    align-items: center;
-    flex-flow: column nowrap;
-    height: 40%;
-    padding: 10%;
+    position: fixed!important; 
+    top: 50%!important;
+    left: 0%!important; 
+    transform: translate(0%,0%)!important;
+    align-items: center!important;
+    flex-flow: column nowrap!important;
+    height: 40%!important;
+    padding: 10%!important;
   }
 
   .inner-qr-code-container span {
