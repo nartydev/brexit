@@ -1,0 +1,50 @@
+<%- include('partials/head'); %>
+<body>
+<div class="quiz-result">
+<div class="container-data">
+    <div class="title-end-data">Information about <%= countryName %></div>
+    <% for (var y = 0; y < 10; y++) { %>
+    <div class="content-one-question-data">
+        <div class="header-question-data">
+            <div class="little-title-question-data">Question n°<%- y+1 %></div>
+            <div class="title-question-data"><%- datas[y].question %></div>
+        </div>
+        <div class="content-question-data">
+            <div class="block-question-data">
+                <div class="little-title-content-data">Global stats</div>
+                <div class="charts-data">
+                    <div class="fill-data">
+                        <div class="hover-tooltip-yes">
+                            <%- Math.floor((allDataCountry[y].yesAnswer / allDataCountry[y].totalAnswer) * 100)  %>%
+                        </div>
+                        <div class="seek-data-yes" style="transform: scaleX(<%= allDataCountry[y].yesAnswer / allDataCountry[y].totalAnswer %>)"></div>
+                    </div>
+                    <div class="fill-data">
+                        <div class="hover-tooltip-no">
+                            <%- Math.floor((allDataCountry[y].noAnswer / allDataCountry[y].totalAnswer) * 100) %>%
+                        </div>
+                        <div class="seek-data-no" style="transform: scaleX(<%= allDataCountry[y].noAnswer / allDataCountry[y].totalAnswer %>)"></div>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="round-yes"></div><span class="textYes"><%- datas[y].yes %> (<span class="pourcentageYes"> <%- Math.floor((allDataCountry[y].yesAnswer / allDataCountry[y].totalAnswer) * 100) %>% </span>) </span>
+                    <div class="round-no"></div><span class="textNo"><%- datas[y].no %> (<span class="pourcentageNo">  <%- Math.floor((allDataCountry[y].noAnswer / allDataCountry[y].totalAnswer) * 100) %>%  </span>)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="white-box-data">
+        <div class="title-box-white-data">explanation</div>
+        <%- datas[y].help %>
+    </div>
+    <% } %>
+
+    <div class="title-country-other">Find out what the results with other countries</div>
+    <div class="block-question-data">
+        <div class="content-country-name"></div>
+    </div>
+</div>
+</div>
+  
+</body>
+</html>

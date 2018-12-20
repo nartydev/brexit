@@ -198,7 +198,11 @@ tion {
     background:$blue-color;
     opacity:0;
 }
-
+.quiz-result{
+    position:absolute;
+    width:100%;
+    background:$blue-color;
+}
 .quiz-end.active {
     display: flex;
     opacity:1;
@@ -274,7 +278,7 @@ tion {
 
 .title-end-data {
     font-size:3.5em;
-    font-family:"Noe Display Black"
+    font-family:"Noe Display Bold"
 }
 
 .content-one-question-data {
@@ -650,7 +654,7 @@ tion {
     position: absolute;
     color: #fff;
     background: #ffc000;
-    padding: 17px 30px;
+    padding: 17px 30px 14px 30px;
     bottom: 10%;
     font-family: "Josefin Sans";
     border-radius: 36px;

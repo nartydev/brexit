@@ -71,6 +71,150 @@ app.get('/test', (req, res) => {
     res.render('test')
 });
 
+app.get('/:country/result', (req, res) => {
+    const countryName = req.params.country
+    let allDataCountry = [];
+    Answer.countDocuments({ country: countryName }, (err, result) => {
+        if (err) {
+            console.log(err)
+        } else {
+            totalAnswer = result;
+            Answer.countDocuments({ country: countryName, question_10: 2 }, (err, result) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    const newStats = {
+                        idQuestion: 10,
+                        totalAnswer: totalAnswer,
+                        yesAnswer: result,
+                        noAnswer: totalAnswer - result
+                    }
+                    allDataCountry = [newStats, ...allDataCountry]
+                }
+            })
+            Answer.countDocuments({ country: countryName, question_9: 2 }, (err, result) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    const newStats = {
+                        idQuestion: 9,
+                        totalAnswer: totalAnswer,
+                        yesAnswer: result,
+                        noAnswer: totalAnswer - result
+                    }
+                    allDataCountry = [newStats, ...allDataCountry]
+                }
+            })
+            Answer.countDocuments({ country: countryName, question_8: 2 }, (err, result) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    const newStats = {
+                        idQuestion: 8,
+                        totalAnswer: totalAnswer,
+                        yesAnswer: result,
+                        noAnswer: totalAnswer - result
+                    }
+                    allDataCountry = [newStats, ...allDataCountry]
+                }
+            })
+            Answer.countDocuments({ country: countryName, question_7: 2 }, (err, result) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    const newStats = {
+                        idQuestion: 7,
+                        totalAnswer: totalAnswer,
+                        yesAnswer: result,
+                        noAnswer: totalAnswer - result
+                    }
+                    allDataCountry = [newStats, ...allDataCountry]
+                }
+            })
+            Answer.countDocuments({ country: countryName, question_6: 2 }, (err, result) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    const newStats = {
+                        idQuestion: 6,
+                        totalAnswer: totalAnswer,
+                        yesAnswer: result,
+                        noAnswer: totalAnswer - result
+                    }
+                    allDataCountry = [newStats, ...allDataCountry]
+                }
+            })
+            Answer.countDocuments({ country: countryName, question_5: 2 }, (err, result) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    const newStats = {
+                        idQuestion: 5,
+                        totalAnswer: totalAnswer,
+                        yesAnswer: result,
+                        noAnswer: totalAnswer - result
+                    }
+                    allDataCountry = [newStats, ...allDataCountry]
+                }
+            })
+            Answer.countDocuments({ country: countryName, question_4: 2 }, (err, result) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    const newStats = {
+                        idQuestion: 4,
+                        totalAnswer: totalAnswer,
+                        yesAnswer: result,
+                        noAnswer: totalAnswer - result
+                    }
+                    allDataCountry = [newStats, ...allDataCountry]
+                }
+            })
+            Answer.countDocuments({ country: countryName, question_3: 2 }, (err, result) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    const newStats = {
+                        idQuestion: 3,
+                        totalAnswer: totalAnswer,
+                        yesAnswer: result,
+                        noAnswer: totalAnswer - result
+                    }
+                    allDataCountry = [newStats, ...allDataCountry]
+                }
+            })
+            Answer.countDocuments({ country: countryName, question_2: 2 }, (err, result) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    const newStats = {
+                        idQuestion: 2,
+                        totalAnswer: totalAnswer,
+                        yesAnswer: result,
+                        noAnswer: totalAnswer - result
+                    }
+                    allDataCountry = [newStats, ...allDataCountry]
+                }
+            })
+            Answer.countDocuments({ country: countryName, question_1: 2 }, (err, result) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    const newStats = {
+                        idQuestion: 1,
+                        totalAnswer: totalAnswer,
+                        yesAnswer: result,
+                        noAnswer: totalAnswer - result
+                    }
+                    allDataCountry = [newStats, ...allDataCountry]
+                    console.log(allDataCountry)
+                    res.render('country-result', {datas: questions, allDataCountry, countryName: countryName} )
+                }
+            })
+        }
+    })
+});
+
 app.get('/quiz-phone/:id', (req, res) => {
     const idPage = req.params.id
     res.render('quiz-phone', { idPage })
