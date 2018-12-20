@@ -722,4 +722,14 @@ tion {
     transform: scale(1);
   }
 }
- 
+
+@media (max-width:800px) {
+  .help-text{
+    line-height: 1;
+  }
+}
+
+@media (max-width:500px) {
+  .help-text{
+    font-size: 0.8em;
+}
