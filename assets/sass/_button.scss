@@ -152,3 +152,12 @@ $btn-color : #afafaf;
     display: block;
   }
 }
+
+@media (max-width:500px) {
+  .responsive-btn-right{
+    margin-right: -20px;
+  }
+  .responsive-btn-left{
+    left:12%;
+  }
+}
