@@ -1,4 +1,4 @@
-const socket = io.connect();
+const socket = io.connect('https://brexit-ornot.herokuapp.com');
 const infoRound = document.querySelector('.info-round')
 const quizBox = [...document.querySelectorAll('.box-quiz')]
 const endPhone = document.querySelector('.end-phone')
