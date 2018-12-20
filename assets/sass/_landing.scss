@@ -221,3 +221,22 @@
     }
   }
 }
+
+@media (max-width:600px) {
+  .background-circle{
+    width: 60px !important;
+    height: 60px !important;
+  }
+  .landing-begin-button{
+    width: 60px !important;
+    height: 60px !important;
+  }
+  .container-unlock-landing{
+    width: 60px !important;
+    height: 60px !important;
+    margin-top: 10px !important;
+  }
+  .start-landing{
+    font-size: 1em !important;
+  }
+}

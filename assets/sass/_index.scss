@@ -451,3 +451,10 @@ body {
     height: 20%;
   }
 }
+@media (max-width:500px) {
+  .disclaimer-text{
+    p{
+      font-size: 0.8em;
+    }
+  }
+}
