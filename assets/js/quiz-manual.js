@@ -149,11 +149,11 @@ socket.on('showEnd', data => {
                 const realPourcentageYes = `${Math.round(100 * pourcentageYes)}%`
                 const realPourcentageNo = `${Math.round(100 * pourcentageNo)}%`
 
-                seekYes[i].style.transform = `scaleX(${pourcentageYes})`
-                seekNo[i].style.transform = `scaleX(${pourcentageNo})`
-
                 textPourcentageYes[i].innerHTML = realPourcentageYes
                 textPourcentageNo[i].innerHTML = realPourcentageNo
+
+                seekYesBtn[i].style.transform = `scaleX(${pourcentageYes})`
+                seekNoBtn[i].style.transform = `scaleX(${pourcentageNo})`
 
                 textPourcentageHoveYes[i].innerHTML = realPourcentageYes
                 textPourcentageHoverNo[i].innerHTML = realPourcentageNo

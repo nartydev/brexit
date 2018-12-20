@@ -22,6 +22,9 @@ const endTransition = document.querySelector('.end-transition')
 const seekYes = [...document.querySelectorAll('.seek-data-yes')]
 const seekNo = [...document.querySelectorAll('.seek-data-no')]
 
+const seekYesBtn = [...document.querySelectorAll('.yes-btnn')]
+const seekNoBtn = [...document.querySelectorAll('.no-btnn')]
+
 const textPourcentageYes = [... document.querySelectorAll('.pourcentageYes')]
 const textPourcentageNo = [... document.querySelectorAll('.pourcentageNo')]
 
@@ -106,14 +109,15 @@ socket.on('questionValue', _data => {
                         const realPourcentageYes = `${Math.round(100 * pourcentageYes)}%`
                         const realPourcentageNo = `${Math.round(100 * pourcentageNo)}%`
 
-                        seekYes[i].style.transform = `scaleX(${pourcentageYes})`
-                        seekNo[i].style.transform = `scaleX(${pourcentageNo})`
-                    
+                        
                         textPourcentageYes[i].innerHTML = realPourcentageYes
                         textPourcentageNo[i].innerHTML = realPourcentageNo
                         
                         textPourcentageHoveYes[i].innerHTML = realPourcentageYes
                         textPourcentageHoverNo[i].innerHTML = realPourcentageNo
+                        
+                        seekYesBtn[i].style.transform = `scaleX(${pourcentageYes})`
+                        seekNoBtn[i].style.transform = `scaleX(${pourcentageNo})`
                     }
                 }, 500)
         }
