@@ -239,4 +239,18 @@
   .start-landing{
     font-size: 1em !important;
   }
+  .inner-qr-code-container {
+    position: fixed; 
+    top: 50%;
+    left: 0%; 
+    transform: translate(0%,0%);
+    align-items: center;
+    flex-flow: column nowrap;
+    height: 40%;
+    padding: 10%;
+  }
+
+  .inner-qr-code-container span {
+    font-size:1.5em;
+  }
 }
