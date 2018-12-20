@@ -1,5 +1,5 @@
 
-const socket = io.connect();
+const socket = io.connect('https://brexit-ornot.herokuapp.com');
 let idSocket
 const containerStats = [...document.querySelectorAll('.container-question-result')]
 const quizContainer = [...document.querySelectorAll('.container-question')]
