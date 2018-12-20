@@ -73,8 +73,7 @@
     margin:50px 0 0 0;
     width: 100%;
 }
-.pos-ques
-tion {
+.pos-question {
     top: 2%;
     right: 2%;
 }
@@ -120,6 +119,12 @@ tion {
     }
 }
 
+.pos-answer {
+    z-index: 1111111;
+    bottom: 2%;
+    right: 6%;
+}
+
 .info-round{
     z-index: 10000;
     height: 50px;
@@ -136,6 +141,7 @@ tion {
     right: 50px;
     cursor: pointer;
 } 
+
 
 .img-help{
     width: 30%;
